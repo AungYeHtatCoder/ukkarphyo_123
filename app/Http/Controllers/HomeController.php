@@ -92,7 +92,7 @@ class HomeController extends Controller
         $playedMorningTwoDigits = User::getUserMorningTwoDigits($userId);
         $playedEarlyEveningTwoDigits = User::getUserEarlyEveningTwoDigits($userId);
         $playedEveningTwoDigits = User::getUserEveningTwoDigits($userId);
-        return view('frontend.user-profile', [
+        return view('frontend.auth.profile', [
             'earlymorningDigits' => $playedearlyMorningTwoDigits,
             'morningDigits' => $playedMorningTwoDigits,
             'earlyeveningDigit' => $playedEarlyEveningTwoDigits,
@@ -112,7 +112,17 @@ class HomeController extends Controller
     }
 
     public function profile(){
-        return view('frontend.user-profile');
+        $userId = auth()->id(); // Get logged in user's ID
+        $playedearlyMorningTwoDigits = User::getUserEarlyMorningTwoDigits($userId);
+        $playedMorningTwoDigits = User::getUserMorningTwoDigits($userId);
+        $playedEarlyEveningTwoDigits = User::getUserEarlyEveningTwoDigits($userId);
+        $playedEveningTwoDigits = User::getUserEveningTwoDigits($userId);
+        return view('frontend.auth.profile', [
+            'earlymorningDigits' => $playedearlyMorningTwoDigits,
+            'morningDigits' => $playedMorningTwoDigits,
+            'earlyeveningDigit' => $playedEarlyEveningTwoDigits,
+            'eveningDigits' => $playedEveningTwoDigits,
+        ]);
     }
 
 }
