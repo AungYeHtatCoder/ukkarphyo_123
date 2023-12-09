@@ -27,10 +27,13 @@
     {{-- <h1 class="text-center">Register Here</h1> --}}
     <div class="row">
         <div class="col-lg-8 col-md-10 offset-lg-2 offset-md-1">
-            <a href="{{ url('/') }}" class="text-center text-decoration-none text-white">
-                <h3 class="mb-4">Aladdin 2D | 3D</h3>
+            <a href="{{ url('/') }}" class="d-flex justify-content-around text-decoration-none text-white mb-5 d-block">
+                <img src="{{ asset('assets/img/logo.png') }}" width="100px" alt="" class="rounded-circle d-block">
+                <div class="text-start mt-3">
+                    <h3>Aladdin 2D | 3D</h3>
+                    <span>အကောင့် ဖွင့်ရန်</span>
+                </div>
             </a>
-            <h5 class="text-center mb-4">Sign Up</h5>
             <form action="{{ route('register') }}" method="post">
                 @csrf
                 <div class="mb-4">
@@ -92,10 +95,10 @@
                     {{-- <div class="d-flex justify-content-end mb-4">
                         <a href="" class="text-decoration-none text-white">Forget Password?</a>
                     </div> --}}
-                    <button class="btn btn-purple text-white w-100" style="border-radius: 30px;" type="submit">Create Account</button>
+                    <button class="btn btn-purple text-white w-100" style="border-radius: 30px;" type="submit">အကောင့်ဖွင့်မည်</button>
                     <div class="d-flex justify-content-center mt-4">
-                        <span>Already Have An Account?</span>
-                        <a href="{{ route('login') }}" class="text-white ms-2">Sign In</a>
+                        <span>အကောင့်ဖွင့်ပြီးသူများ</span>
+                        <a href="{{ route('login') }}" class="text-white ms-2">အကောင့်ဖြင့်ဝင်ရန်</a>
                     </div>
                 </div>
             </form>
