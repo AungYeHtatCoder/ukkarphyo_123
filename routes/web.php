@@ -50,6 +50,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::resource('roles', RolesController::class);
   // Users
   Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
+  // agent list route
+  Route::get('/agent-list', [App\Http\Controllers\Admin\Master\MasterController::class, 'index'])->name('agent-list');
+  // agent create route
+  Route::get('/agent-create', [App\Http\Controllers\Admin\Master\MasterController::class, 'create'])->name('agent-create');
+  // agent store route
+  Route::post('/agent-store', [App\Http\Controllers\Admin\Master\MasterController::class, 'store'])->name('agent-store');
+  // agent edit route
+  Route::get('/agent-edit/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'edit'])->name('agent-edit');
+  // agent update route
+  Route::put('/agent-update/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'update'])->name('agent-update');
+  // agent show route
+  Route::get('/agent-show/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'show'])->name('agent-show');
+  // agent delete route
+  Route::delete('/agent-delete/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'destroy'])->name('agent-delete');
   Route::resource('users', UsersController::class);
   Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
   // details route
