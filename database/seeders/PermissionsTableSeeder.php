@@ -196,7 +196,7 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'         => '30',
-                'title'      => 'two_digit_video_create',
+                'title'      => 'two_digit_create',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
@@ -303,37 +303,37 @@ class PermissionsTableSeeder extends Seeder
 
             [
                 'id'         => '47',
-                'title'      => 'service_management_access',
+                'title'      => 'master_management_access',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '48',
-                'title'      => 'service_create',
+                'title'      => 'master_create',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '49',
-                'title'      => 'service_edit',
+                'title'      => 'master_edit',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '50',
-                'title'      => 'service_show',
+                'title'      => 'master_show',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '51',
-                'title'      => 'service_delete',
+                'title'      => 'master_delete',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '52',
-                'title'      => 'service_access',
+                'title'      => 'master_access',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
@@ -342,119 +342,40 @@ class PermissionsTableSeeder extends Seeder
 
             [
                 'id'         => '53',
-                'title'      => 'sample_management_access',
+                'title'      => 'agent_management_access',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '54',
-                'title'      => 'sample_create',
+                'title'      => 'agent_create',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '55',
-                'title'      => 'sample_edit',
+                'title'      => 'agent_edit',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '56',
-                'title'      => 'sample_show',
+                'title'      => 'agent_show',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '57',
-                'title'      => 'sample_delete',
+                'title'      => 'agent_delete',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
             [
                 'id'         => '58',
-                'title'      => 'sample_access',
+                'title'      => 'agent_access',
                 'created_at' => '2023-02-10 14:00:26',
                 'updated_at' => '2023-02-10 14:00:26',
             ],
-
-
-            [
-                'id'         => '59',
-                'title'      => 'our_client_management_access',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '60',
-                'title'      => 'our_client_create',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '61',
-                'title'      => 'our_client_edit',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '62',
-                'title'      => 'our_client_show',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '63',
-                'title'      => 'our_client_delete',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '64',
-                'title'      => 'our_client_access',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-
-
-            [
-                'id'         => '65',
-                'title'      => 'out_team_management_access',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '66',
-                'title'      => 'out_team_create',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '67',
-                'title'      => 'out_team_edit',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '68',
-                'title'      => 'out_team_show',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '69',
-                'title'      => 'out_team_delete',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-            [
-                'id'         => '70',
-                'title'      => 'out_team_access',
-                'created_at' => '2023-02-10 14:00:26',
-                'updated_at' => '2023-02-10 14:00:26',
-            ],
-
-
-
         ];
 
         Permission::insert($permissions);

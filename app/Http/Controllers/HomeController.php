@@ -77,13 +77,22 @@ class HomeController extends Controller
         'three_d_yearlyTotal'  => $three_d_yearlyTotal,
         'lottery_matches' => $lottery_matches,
     ]);
-    } else {
+    } 
+    else if (auth()->user()->hasRole('Master')) {
+        // Logic specific to Master role
+        return view('admin.master.master_dashboard');
+    }
+    else if (auth()->user()->hasRole('Agent')) {
+        // Logic specific to Agent role
+        return view('admin.agent.agent_dashboard');
+    } 
+    else {
         $userId = auth()->id(); // Get logged in user's ID
         $playedearlyMorningTwoDigits = User::getUserEarlyMorningTwoDigits($userId);
         $playedMorningTwoDigits = User::getUserMorningTwoDigits($userId);
         $playedEarlyEveningTwoDigits = User::getUserEarlyEveningTwoDigits($userId);
         $playedEveningTwoDigits = User::getUserEveningTwoDigits($userId);
-        return view('frontend.user-profile', [
+        return view('frontend.auth.profile', [
             'earlymorningDigits' => $playedearlyMorningTwoDigits,
             'morningDigits' => $playedMorningTwoDigits,
             'earlyeveningDigit' => $playedEarlyEveningTwoDigits,
@@ -103,7 +112,17 @@ class HomeController extends Controller
     }
 
     public function profile(){
-        return view('frontend.user-profile');
+        $userId = auth()->id(); // Get logged in user's ID
+        $playedearlyMorningTwoDigits = User::getUserEarlyMorningTwoDigits($userId);
+        $playedMorningTwoDigits = User::getUserMorningTwoDigits($userId);
+        $playedEarlyEveningTwoDigits = User::getUserEarlyEveningTwoDigits($userId);
+        $playedEveningTwoDigits = User::getUserEveningTwoDigits($userId);
+        return view('frontend.auth.profile', [
+            'earlymorningDigits' => $playedearlyMorningTwoDigits,
+            'morningDigits' => $playedMorningTwoDigits,
+            'earlyeveningDigit' => $playedEarlyEveningTwoDigits,
+            'eveningDigits' => $playedEveningTwoDigits,
+        ]);
     }
 
 }
