@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-
+    @if ($currentTime->lte(Carbon::parse('16:30')))
     <div class="d-flex justify-content-end mt-3">
         <div class="mb-3 text-end">
             <label for="" class="form-label"><small><i class="fas fa-coins me-2 text-white"></i>ထိုးကြေး</small></label>
@@ -132,6 +132,7 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 </div>
 <!-- ပတ်သီး -->

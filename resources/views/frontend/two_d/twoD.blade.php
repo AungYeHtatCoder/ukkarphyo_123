@@ -57,6 +57,10 @@
                 $currentTime = Carbon::now();
                 $start9Time = Carbon::parse('9:30');
                 $end12Time = Carbon::parse('12:00');
+                $start12Time = Carbon::parse('12:00');
+                $end2Time = Carbon::parse('14:00');
+                $start2Time = Carbon::parse('14:00');
+                $end4Time = Carbon::parse('16:30');
             @endphp
             <div class="playTime">
                 @if ($currentTime->lte(Carbon::parse('09:30')))
@@ -73,10 +77,18 @@
                 @endif
             </div>
             <div class="playTime">
+                @if ($currentTime->between($start12Time, $end2Time))
                 <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">02:00 PM</a>
+                @else
+                <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">02:00 PM</span>
+                @endif
             </div>
             <div class="playTime">
+                @if ($currentTime->between($start12Time, $end2Time))
                 <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">04:30 PM</a>
+                @else
+                <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">04:30 PM</span>
+                @endif
             </div>
         </div>
         {{-- <div class="modal-footer">
