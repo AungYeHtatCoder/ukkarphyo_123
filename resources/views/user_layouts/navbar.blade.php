@@ -72,20 +72,32 @@
                         </a>
                         <a href="./sidebar/twoDthreeDhistory.html" class="link shadow">
                             <div class="d-flex">
-                                <i class="fas fa-calendar d-block me-2"></i>
+                                <i class="fas fa-list d-block me-2"></i>
                                 <p class="py-0">ထွက်ဂဏန်းများ</p>
                             </div>
                         </a>
                         <a href="./pages/2d_result.html" class="link shadow">
                             <div class="d-flex">
-                                <i class="fas fa-list d-block me-2"></i>
-                                <p class="py-0">မနက်ပိုင်းထီထွက်မှတ်တမ်း</p>
+                                <i class="fas fa-tower-broadcast d-block me-2"></i>
+                                <p class="py-0">2D Live</p>
                             </div>
                         </a>
                         <a href="./pages/2d_result.html" class="link shadow">
                             <div class="d-flex">
-                                <i class="fas fa-list d-block me-2"></i>
-                                <p class="py-0">ညနေပိုင်းထီထွက်မှတ်တမ်း</p>
+                                <i class="fas fa-calendar d-block me-2"></i>
+                                <p class="py-0">2D Calendar</p>
+                            </div>
+                        </a>
+                        <a href="./pages/2d_result.html" class="link shadow">
+                            <div class="d-flex">
+                                <i class="fas fa-calendar d-block me-2"></i>
+                                <p class="py-0">2D Holiday</p>
+                            </div>
+                        </a>
+                        <a href="./pages/2d_result.html" class="link shadow">
+                            <div class="d-flex">
+                                <i class="fas fa-tower-broadcast d-block me-2"></i>
+                                <p class="py-0">3D Live</p>
                             </div>
                         </a>
                         {{-- <a href="" class="link shadow">
@@ -118,12 +130,12 @@
                                 <p class="py-0">အကြံပြုရန်</p>
                             </div>
                         </a> --}}
-                        <a href="" class="link shadow">
+                        {{-- <a href="" class="link shadow">
                             <div class="d-flex">
                                 <i class="fas fa-code-compare d-block me-2"></i>
                                 <p class="py-0">ဗားရှင်း - 1.0.0</p>
                             </div>
-                        </a>
+                        </a> --}}
                         <a href="" class="link shadow" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                             <div class="d-flex">

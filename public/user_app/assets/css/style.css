@@ -185,6 +185,8 @@
     color: #fff;
     padding: 10px;
     border-radius: 50%;
+    margin: auto;
+    text-align: center;
 }
 
 #registerBtn {
@@ -198,7 +200,6 @@
     background: linear-gradient(6deg, rgba(102, 0, 149, 1) 0%, rgba(52, 0, 87, 1) 56%);
     color: #ffffff;
     padding: 15px;
-    border-radius: 50%;
     border: 1px solid #d188fb;
     box-shadow: 1px 2px 3px #d188fb;
 }
@@ -211,9 +212,12 @@
 
 .footer-link:hover {
     /* background-color: #fff; */
-    border: 1px solid #fff;
+    /* width: 100px;
+    height: 50px; */
+    /* border-radius: 10%; */
+    /* border: 1px solid #fff; */
     color: #8b00dc;
-    box-shadow: 2px 3px 4px #000;
+    /* box-shadow: 2px 3px 4px #000; */
     transform: scale(1.2);
     transition-duration: 0.6s;
 }

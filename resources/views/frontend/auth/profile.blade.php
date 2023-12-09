@@ -254,7 +254,7 @@
                 @if ($earlymorningDigits)
                     @foreach ($earlymorningDigits['two_digits'] as $index => $digit)
                     <tr>
-                        <td>1</td>
+                        <td>{{ ++$index }}</td>
                         <td>{{ $digit->two_digit }}</td>
                         <td>{{ $digit->pivot->sub_amount }}</td>
                     </tr>
@@ -298,7 +298,7 @@
                 @if ($morningDigits)
                     @foreach ($morningDigits['two_digits'] as $index => $digit)
                     <tr>
-                        <td>1</td>
+                        <td>{{ ++$index }}</td>
                         <td>{{ $digit->two_digit }}</td>
                         <td>{{ $digit->pivot->sub_amount }}</td>
                     </tr>
@@ -351,7 +351,7 @@
                 @if ($earlyeveningDigit)
                     @foreach ($earlyeveningDigit['two_digits'] as $index => $digit)
                     <tr>
-                        <td>1</td>
+                        <td>{{ ++$index }}</td>
                         <td>{{ $digit->two_digit }}</td>
                         <td>{{ $digit->pivot->sub_amount }}</td>
                     </tr>
@@ -395,7 +395,7 @@
                 @if ($eveningDigits)
                     @foreach ($eveningDigits['two_digits'] as $index => $digit)
                     <tr>
-                        <td>1</td>
+                        <td>{{ ++$index }}</td>
                         <td>{{ $digit->two_digit }}</td>
                         <td>{{ $digit->pivot->sub_amount }}</td>
                     </tr>

@@ -30,7 +30,7 @@ class TwoDQicklyPlayController extends Controller
     }
     $lottery_matches = LotteryMatch::where('id', 1)->whereNotNull('is_active')->first();
 
-    return view('two_d.quick.index', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
+    return view('frontend.two_d.9_am.twoDQuickPlayAM', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
     }
     public function play_confirm()
     {
@@ -47,12 +47,12 @@ class TwoDQicklyPlayController extends Controller
     }
     $lottery_matches = LotteryMatch::where('id', 1)->whereNotNull('is_active')->first();
 
-    return view('two_d.quick.play_confirm', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
+    return view('frontend.two_d.9_am.twoDQuickPlayAMConfirm', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
     }
 
     public function store(Request $request)
 {
-    
+
     //Log::info($request->all());
     $validatedData = $request->validate([
         'selected_digits' => 'required|string',

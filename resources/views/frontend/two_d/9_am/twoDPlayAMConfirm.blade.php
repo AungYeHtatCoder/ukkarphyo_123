@@ -9,7 +9,7 @@
 
 <!-- content -->
 @if ($lottery_matches->is_active == 1)
-<form action="{{ route('user.twoDQuickPlayAM') }}" method="POST" class="pt-5 mt-5">
+<form action="{{ route('user.twod-play-index-9am.store') }}" method="POST" class="pt-5 mt-5">
 @csrf
 <div class="row">
     <div class=""
