@@ -89,7 +89,7 @@ class WelcomeController extends Controller
         if(Auth::check()){
             return redirect()->back()->with('error', "Already Logged In.");
         }else{
-            return view('frontend.login');
+            return view('frontend.auth.login');
         }
     }
 
@@ -147,7 +147,7 @@ class WelcomeController extends Controller
         if(Auth::check()){
             return redirect()->back()->with('error', "Already Logged In.");
         }else{
-            return view('frontend.register');
+            return view('frontend.auth.register');
         }
     }
 
@@ -459,7 +459,7 @@ class WelcomeController extends Controller
 
     public function userProfile()
     {
-        return view('frontend.user-profile');
+        return view('frontend.auth.profile');
     }
 
     public function userFillMoney()

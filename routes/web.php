@@ -24,12 +24,11 @@ use App\Http\Controllers\Admin\TwoDWinnerHistoryController;
 use App\Http\Controllers\User\FillBalance\FillBalanceController;
 use App\Http\Controllers\Admin\ThreeD\DailyThreeDIncomeOutComeController;
 
-// Route::get('/', function () {
-//     return view('two_d.api_test');
-// });
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 // Route::get('/user-profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('home');
 
 Route::get('/', [App\Http\Controllers\User\WelcomeController::class, 'index'])->name('welcome');
@@ -111,7 +110,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/get-two-d-early-evening-number-over-amount-limit', [App\Http\Controllers\Admin\TwoDMorningController::class, 'GetDigitEarlyEveningOverAmountLimitindex'])->name('earlyeveningNumberOverAmountLimit');
   // two d get 4:30 evening number over amount limit
   Route::get('/get-two-d-evening-number-over-amount-limit', [App\Http\Controllers\Admin\TwoDMorningController::class, 'GetDigitEveningOverAmountLimitindex'])->name('eveningNumberOverAmountLimit');
-  
+
   // early morning winner
   Route::get('/two-d-early-morning-winner', [App\Http\Controllers\Admin\TwoDMorningWinnerController::class, 'TwoDEarlyMorningWinner'])->name('earlymorningWinner');
   Route::get('/two-d-morning-winner', [App\Http\Controllers\Admin\TwoDMorningWinnerController::class, 'TwoDMorningWinner'])->name('morningWinner');
@@ -139,7 +138,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/yearly-income-json', [App\Http\Controllers\Admin\DailyTwodIncomeOutComeController::class, 'getTotalAmountsYearly'])->name('getTotalAmountsYearly');
 
   // 3d lottery routes
-  // 3d daily income 
+  // 3d daily income
   Route::get('/threed-lotteries-daily-income', [DailyThreeDIncomeOutComeController::class, 'getTotalAmountsDaily']);
   // 3d daily income weekly
   Route::get('/threed-lotteries-daily-income-money', [DailyThreeDIncomeOutComeController::class, 'getTotalAmounts']);
@@ -160,7 +159,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/three-d-list-index', [App\Http\Controllers\Admin\ThreeD\ThreeDListController::class, 'index'])->name('three-d-list-index');
   // three d list show
   Route::get('/three-d-list-show/{id}', [App\Http\Controllers\Admin\ThreeD\ThreeDListController::class, 'show'])->name('three-d-list-show');
-  // 3d winner list 
+  // 3d winner list
   Route::get('/three-d-winner', [App\Http\Controllers\Admin\ThreeD\ThreeDWinnerController::class, 'index'])->name('three-d-winner');
 
     // Permissions
@@ -210,7 +209,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::post('/two-d-session-reset', [App\Http\Controllers\Admin\SessionResetControlller::class, 'SessionReset'])->name('SessionReset');
 
     Route::post('/two-d-session-over-amount-limit-reset', [App\Http\Controllers\Admin\SessionResetControlller::class, 'OverAmountLimitSessionReset'])->name('OverAmountLimitSessionReset');
-    // three d reset 
+    // three d reset
     Route::post('/three-d-reset', [App\Http\Controllers\Admin\ThreeD\ThreeDResetController::class, 'ThreeDReset'])->name('ThreeDReset');
 
     Route::get('/close-two-d', [App\Http\Controllers\Admin\CloseTwodController::class, 'index'])->name('CloseTwoD');
@@ -244,7 +243,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/threed-lotteries-match-time', [ThreedMatchTimeController::class, 'index']);
 
 });
-
 
 
 Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth']], function () {
@@ -291,7 +289,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Cont
     Route::get('/two-d-play-quick-confirm', [App\Http\Controllers\User\TwodQuick\TwoDQicklyPlayController::class, 'play_confirm'])->name('twod-play-confirm-quick');
     // store
     Route::post('/twod-play-quick-confirm', [App\Http\Controllers\User\TwodQuick\TwoDQicklyPlayController::class, 'store'])->name('twod-play-quickly-confirm.store');
-    // money transfer 
+    // money transfer
     Route::get('/wallet-deposite', [App\Http\Controllers\User\FillBalance\FillBalanceController::class, 'index'])->name('deposite-wallet');
   Route::get('/fill-balance', [App\Http\Controllers\User\FillBalance\FillBalanceController::class, 'topUpWallet'])->name('topUpWallet');
 
@@ -325,13 +323,13 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Cont
 
   // money transfer end
 
-  // two d winner history 
+  // two d winner history
   Route::get('/two-d-winners-history', [App\Http\Controllers\User\WinHistory\TwoDWinnerHistoryController::class, 'winnerHistory'])->name('winnerHistory');
 
   // twod-dream-book
   Route::get('/two-d-dream-book', [App\Http\Controllers\User\Dream\TwodDreamBookController::class, 'index'])->name('two-d-dream-book-index');
 
-  // three d 
+  // three d
   Route::get('/three-d-play-index', [ThreeDPlayController::class, 'index'])->name('three-d-play-index');
   // three d choice play
   Route::get('/three-d-choice-play-index', [ThreeDPlayController::class, 'choiceplay'])->name('three-d-choice-play');
@@ -345,5 +343,5 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Cont
   Route::get('/three-d-dream-book', [App\Http\Controllers\User\Threed\ThreeDreamBookController::class, 'index'])->name('three-d-dream-book-index');
   // three d winner history
   Route::get('/three-d-winners-history', [App\Http\Controllers\User\Threed\ThreedWinnerHistoryController::class, 'index'])->name('three-d-winners-history');
-  
+
 });
