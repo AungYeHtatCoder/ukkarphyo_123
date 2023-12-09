@@ -65,6 +65,7 @@
                 <small class="d-block text-end" id="sessionInfo"></small>
             </div>
         </div>
+        @if ($currentTime->lte(Carbon::parse('16:30')))
         <div class="d-flex justify-content-end mt-3">
             <div class="mb-3 text-end">
                 <label for="" class="form-label"><small><i class="fas fa-coins me-2 text-white"></i>ထိုးကြေး</small></label>
@@ -74,6 +75,7 @@
                 </div>
             </div>
         </div>
+
         <div class="">
             @if ($lottery_matches->is_active == 1)
             <form action="" method="post" class="p-1">
@@ -108,10 +110,12 @@
             </div>
             @endif
         </div>
+        @endif
     </div>
 
     <!-- Heading -->
     <!-- 2D Numbers start -->
+    @if ($currentTime->lte(Carbon::parse('16:30')))
     <div class="container mb-5 mt-3" id="twoD">
       <div class="twoDCard">
         @foreach ($twoDigits as $digit)
@@ -142,6 +146,7 @@
         @endforeach
       </div>
     </div>
+    @endif
 </div>
 <!-- content -->
 
