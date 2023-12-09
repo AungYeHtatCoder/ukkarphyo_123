@@ -80,7 +80,7 @@
      </div>
     </div>
     <div class="card-body">
-     <form role="form" class="text-start" action="{{ route('admin.users.store') }}">
+     <form role="form" method="POST" class="text-start" action="{{ route('admin.users.store') }}">
       @csrf
       <div class="custom-form-group">
        <label for="title">User Name</label>

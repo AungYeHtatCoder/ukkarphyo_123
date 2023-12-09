@@ -28,8 +28,11 @@ return new class extends Migration
             $table->string('wavepay_no')->nullable()->default('N/A');
             $table->string('ayapay_no')->nullable()->default('N/A');
             $table->integer('balance')->default(500000);
+            $table->unsignedBigInteger('agent_id')->default(1);
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('agent_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

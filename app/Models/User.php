@@ -44,6 +44,7 @@ class User extends Authenticatable
         'wavepay_no',
         'ayapay_no',
         'balance',
+        'agent_id',
         
     ];
     protected $dates = ['created_at', 'updated_at'];
@@ -74,9 +75,18 @@ class User extends Authenticatable
         return $this->roles()->where('id', 1)->exists();
     }
 
-    public function getIsUserAttribute()
+    public function getIsMasterAttribute()
     {
         return $this->roles()->where('id', 2)->exists();
+    }
+
+    public function getIsAgentAttribute()
+    {
+        return $this->roles()->where('id', 3)->exists();
+    }
+    public function getIsUserAttribute()
+    {
+        return $this->roles()->where('id', 4)->exists();
     }
 
 
@@ -128,6 +138,10 @@ class User extends Authenticatable
     public function hasPermission($permission)
     {
         return $this->roles->flatMap->permissions->pluck('title')->contains($permission);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function lotteries()
