@@ -105,61 +105,17 @@
                 <p class="py-0">3D Live</p>
             </div>
         </a>
-        {{-- <a href="" class="link shadow">
-                            <div class="d-flex">
-                                <i class="fas fa-star d-block me-2"></i>
-                                <p class="py-0">အမှတ် 0 (ကျပ်)</p>
-                            </div>
-                        </a> --}}
-        {{-- <a href="" class="link shadow">
-                            <div class="d-flex">
-                                <i class="fas fa-wallet d-block me-2"></i>
-                                <p class="py-0">ဘဏ်အကောင့်များ</p>
-                            </div>
-                        </a> --}}
-        {{-- <a href="./pages/change_password.html" class="link shadow">
-                            <div class="d-flex">
-                                <i class="fas fa-key d-block me-2"></i>
-                                <p class="py-0">လျို့ဝှက်နံပါတ်ပြောင်းရန်</p>
-                            </div>
-                        </a> --}}
-        {{-- <a href="./pages/promo_code.html" class="link shadow">
-                            <div class="d-flex">
-                                <i class="fas fa-users d-block me-2"></i>
-                                <p class="py-0">မိတ်ဆက်ကုဒ်</p>
-                            </div>
-                        </a> --}}
-        {{-- <a href="./pages/feedback.html" class="link shadow">
-                            <div class="d-flex">
-                                <i class="fas fa-comment-dots d-block me-2"></i>
-                                <p class="py-0">အကြံပြုရန်</p>
-                            </div>
-                        </a> --}}
-        <<<<<<< HEAD <a href="" class="link shadow">
+
+        <a href="" class="link shadow" onclick="event.preventDefault();                     
+     document.getElementById('logout-form').submit();">
             <div class="d-flex">
-                <i class="fas fa-code-compare d-block me-2"></i>
-                <p class="py-0">ဗားရှင်း - 1.0.0</p>
+                <i class="fas fa-right-from-bracket d-block me-2"></i>
+                <p class="py-0">အကောင့်ထွက်ရန်</p>
             </div>
-            </a>
-            <a href="" class="link shadow" onclick="event.preventDefault();
-=======
-                        {{-- <a href="" class="link shadow">
-                            <div class="d-flex">
-                                <i class="fas fa-code-compare d-block me-2"></i>
-                                <p class="py-0">ဗားရှင်း - 1.0.0</p>
-                            </div>
-                        </a> --}}
-                        <a href="" class=" link shadow" onclick="event.preventDefault();
->>>>>>> c3e4ae662ddfcff03f82d49d6fb6dc1f55b74c3f
-                        document.getElementById('logout-form').submit();">
-                <div class="d-flex">
-                    <i class="fas fa-right-from-bracket d-block me-2"></i>
-                    <p class="py-0">အကောင့်ထွက်ရန်</p>
-                </div>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </a>
     </div>
     <!-- nav-links -->
 </div>
