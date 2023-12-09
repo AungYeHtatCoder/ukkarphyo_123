@@ -9,6 +9,6 @@ class TwodPlayIndexController extends Controller
 {
     public function index()
     {
-        return view('two_d.index');
+        return view('frontend.two_d.twoD');
     }
 }

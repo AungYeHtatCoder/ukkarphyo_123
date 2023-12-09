@@ -52,17 +52,31 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+            @php
+                use Carbon\Carbon;
+                $currentTime = Carbon::now();
+                $start9Time = Carbon::parse('9:30');
+                $end12Time = Carbon::parse('12:00');
+            @endphp
             <div class="playTime">
-                <a href="{{ route('user.twoDPlayAM') }}" class="btn btn-purple text-purple w-100">09:30 AM</a>
+                @if ($currentTime->lte(Carbon::parse('09:30')))
+                <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100" >09:30 AM</a>
+                @else
+                <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">09:30 AM</span>
+                @endif
             </div>
             <div class="playTime">
-                <a href="{{ route('user.twoDPlay12PM') }}" class="btn btn-purple text-purple w-100">12:00 PM</a>
+                @if ($currentTime->between($start9Time, $end12Time))
+                <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">12:00 PM</a>
+                @else
+                <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">12:00 PM</span>
+                @endif
             </div>
             <div class="playTime">
-                <a href="{{ route('user.twoDPlay2PM') }}" class="btn btn-purple text-purple w-100">02:00 PM</a>
+                <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">02:00 PM</a>
             </div>
             <div class="playTime">
-                <a href="{{ route('user.twoDPlay4PM') }}" class="btn btn-purple text-purple w-100">04:30 PM</a>
+                <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">04:30 PM</a>
             </div>
         </div>
         {{-- <div class="modal-footer">
