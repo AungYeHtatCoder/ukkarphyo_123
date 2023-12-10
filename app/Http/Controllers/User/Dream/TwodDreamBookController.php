@@ -9,6 +9,6 @@ class TwodDreamBookController extends Controller
 {
     public function index()
     {
-        return view('two_d.dreambook.twoD-dream-book');
+        return view('frontend.two_d.dream');
     }
 }

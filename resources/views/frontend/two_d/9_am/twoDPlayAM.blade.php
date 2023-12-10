@@ -52,7 +52,8 @@
                     </small>
 
 
-                    <a href="{{ route('user.twod-quick-play-index') }}" class="btn btn-sm btn-purple text-white">အမြန်ရွေး</a>
+                    <a href="{{ route('user.twod-quick-play-index') }}" class="btn btn-sm btn-purple text-white">အမြန်ရွေး</a> <br><br>
+
                 </div>
             </div>
             <div>
@@ -66,7 +67,10 @@
             </div>
         </div>
         @if ($currentTime->lte(Carbon::parse('16:30')))
-        <div class="d-flex justify-content-end mt-3">
+        <div class="d-flex justify-content-between">
+            <div>
+                <a href="{{ route('user.two-d-dream-book-index') }}" class="btn btn-sm btn-purple text-white">အိမ်မက်</a>
+            </div>
             <div class="mb-3 text-end">
                 <label for="" class="form-label"><small><i class="fas fa-coins me-2 text-white"></i>ထိုးကြေး</small></label>
                 <div class="input-group">
