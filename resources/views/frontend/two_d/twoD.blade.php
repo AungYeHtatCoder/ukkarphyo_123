@@ -84,7 +84,7 @@
                 @endif
             </div>
             <div class="playTime">
-                @if ($currentTime->between($start12Time, $end2Time))
+                @if ($currentTime->between($start2Time, $end4Time))
                 <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">04:30 PM</a>
                 @else
                 <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">04:30 PM</span>
