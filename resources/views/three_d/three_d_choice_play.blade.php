@@ -49,7 +49,8 @@
       </div>
 
       <div class="d-flex justify-content-between mt-3">
-            <div class="mt-4">
+            <div class="mt-2">
+                  <label for="selected_digits" class="ms-2" style="font-size: 14px;">စာရိုက်ပြီးဂဏန်းရွေးမည်</label>
                   <input type="text" name="amount" id="input_new_digit" placeholder="Enter 3 Digit" class="form-control w-100 ms-1 text-center border-black" autocomplete="off" />
             </div>
 
@@ -142,6 +143,36 @@
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+
+<script>
+      // Function to update date and time display
+      function updateDateTimeDisplay() {
+            var d = new Date();
+            document.getElementById('todayDate').textContent = d.toLocaleDateString();
+            document.getElementById('currentTime').textContent = d.toLocaleTimeString();
+
+            // Define the morning and evening session close times
+            var morningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 1);
+            var eveningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 16, 30);
+
+            // Determine current session based on current time
+            // var sessionInfo = "";
+            // if (d < morningClose) {
+            //       sessionInfo = "Closes at 12:01 PM.";
+            // } else if (d >= morningClose && d < eveningClose) {
+            //       sessionInfo = "Closes at 4:30 PM.";
+            // } else if (d >= eveningClose) {
+            //       sessionInfo = "Evening session closed.";
+            // }
+            // document.getElementById('sessionInfo').textContent = sessionInfo;
+      }
+
+      // Update the display initially
+      updateDateTimeDisplay();
+
+      // Set interval to update the display every minute
+      setInterval(updateDateTimeDisplay, 60000);
+</script>
 
 <script>
       document.addEventListener('DOMContentLoaded', function() {
