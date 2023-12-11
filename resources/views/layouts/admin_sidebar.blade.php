@@ -51,6 +51,12 @@
             </a>
           </li>
           @endcan
+          <li class="nav-item ">
+            <a class="nav-link text-white " href="{{ route('admin.promotions.index') }}">
+              <span class="sidenav-mini-icon"> P </span>
+              <span class="sidenav-normal  ms-2  ps-1"> Promotions </span>
+            </a>
+          </li>
           {{-- <li class="nav-item ">
             <a class="nav-link text-white " href="../../pages/dashboards/discover.html">
               <span class="sidenav-mini-icon"> D </span>
@@ -369,7 +375,7 @@
               <span class="sidenav-mini-icon"> V </span>
               <span class="sidenav-normal  ms-2  ps-1"> Balance Accept </span>
             </a>
-          </li> 
+          </li>
           @endcan
           @can('user_access')
           <li class="nav-item ">
@@ -404,7 +410,7 @@
           </li>
           @endcan
         </ul>
-      </div> 
+      </div>
     </li>
     {{-- end lottery --}}
 
@@ -484,7 +490,7 @@
    </div>
   </li>
     {{-- 2d over amount limit --}}
-    
+
   <li class="nav-item">
    <a data-bs-toggle="collapse" href="#ecommerceExamples" class="nav-link text-white " aria-controls="ecommerceExamples"
     role="button" aria-expanded="false">
@@ -579,7 +585,7 @@
             </a>
             <div class="collapse " id="signinExample">
               <ul class="nav nav-sm flex-column">
-                
+
                 <li class="nav-item">
                   <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link text-white">
                     <span class="sidenav-mini-icon"> L </span>
@@ -588,13 +594,13 @@
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                   </form>
-                  
+
                 </li>
-                
-                
+
+
               </ul>
             </div>
           </li>
-          
+
         </ul>
       </div>

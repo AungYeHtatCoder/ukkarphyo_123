@@ -33,8 +33,27 @@
                     <span class="d-block" id="userBalance" data-balance="{{ Auth::user()->balance }}">{{ number_format(Auth::user()->balance) }} MMK</span>
                 </div>
                 <div class="mt-4">
-                    <small class="d-block mb-2">2D (09:30AM)</small>
-                    <a href="{{ route('user.twoDQuickPlayAM') }}" class="btn btn-sm btn-purple text-white">အမြန်ရွေး</a>
+                    @php
+                        use Carbon\Carbon;
+                        $currentTime = Carbon::now();
+                    @endphp
+                    <small class="d-block mb-2">2D
+                        @if ($currentTime->lte(Carbon::parse('09:30')))
+                            {{ "(09:30AM)" }}
+                        @elseif ($currentTime->lte(Carbon::parse('12:00')))
+                            {{ "(12:00PM)" }}
+                        @elseif ($currentTime->lte(Carbon::parse('14:00')))
+                            {{ "(02:00PM)" }}
+                        @elseif ($currentTime->lte(Carbon::parse('16:30')))
+                            {{ "(04:30PM)" }}
+                        @else
+                            <span class="text-danger">{{ "(ပွဲချိန်များ ပိတ်ပါပြီ။)" }}</span>
+                        @endif
+                    </small>
+
+
+                    <a href="{{ route('user.twod-quick-play-index') }}" class="btn btn-sm btn-purple text-white">အမြန်ရွေး</a> <br><br>
+
                 </div>
             </div>
             <div>
@@ -47,7 +66,11 @@
                 <small class="d-block text-end" id="sessionInfo"></small>
             </div>
         </div>
-        <div class="d-flex justify-content-end mt-3">
+        @if ($currentTime->lte(Carbon::parse('16:30')))
+        <div class="d-flex justify-content-between">
+            <div>
+                <a href="{{ route('user.two-d-dream-book-index') }}" class="btn btn-sm btn-purple text-white">အိမ်မက်</a>
+            </div>
             <div class="mb-3 text-end">
                 <label for="" class="form-label"><small><i class="fas fa-coins me-2 text-white"></i>ထိုးကြေး</small></label>
                 <div class="input-group">
@@ -56,6 +79,7 @@
                 </div>
             </div>
         </div>
+
         <div class="">
             @if ($lottery_matches->is_active == 1)
             <form action="" method="post" class="p-1">
@@ -77,7 +101,7 @@
                 </div>
                 <div class="d-flex justify-content-end mt-4">
                     <button class="btn btn-sm btn-danger me-3" type="reset">ဖျက်မည်</button>
-                    <a href="{{ route('user.twoDPlayAMConfirm') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white" style="font-size: 14px;">ထိုးမည်</a>
+                    <a href="{{ route('user.twod-play-confirm-9am') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white" style="font-size: 14px;">ထိုးမည်</a>
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                </div>
@@ -90,10 +114,12 @@
             </div>
             @endif
         </div>
+        @endif
     </div>
 
     <!-- Heading -->
     <!-- 2D Numbers start -->
+    @if ($currentTime->lte(Carbon::parse('16:30')))
     <div class="container mb-5 mt-3" id="twoD">
       <div class="twoDCard">
         @foreach ($twoDigits as $digit)
@@ -124,6 +150,7 @@
         @endforeach
       </div>
     </div>
+    @endif
 </div>
 <!-- content -->
 

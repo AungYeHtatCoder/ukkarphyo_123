@@ -8,9 +8,9 @@
     <div id="carouselExampleControls" class="carousel slide border-purple" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($banners as $key => $banner)
-                <div class="carousel-item{{ $key === 0 ? ' active' : '' }}">
-                    <img src="{{ asset('assets/img/banners/'.$banner->image) }}" class="d-block w-100" alt="Banner {{ $key }}">
-                </div>
+            <div class="carousel-item{{ $key === 0 ? ' active' : '' }}">
+                <img src="{{ asset('assets/img/banners/'.$banner->image) }}" class="d-block w-100" alt="Banner {{ $key }}">
+            </div>
             @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -27,10 +27,10 @@
 
     <!-- 2D 3D -->
     <div class="d-flex justify-content-around my-2">
-        <a href="" class="btn btn-purple text-white d-block w-100 m-3 py-3 d-frame-box rounded-5">
+        <a href="{{ route('user.twod-play-index') }}" class="btn btn-purple text-white d-block w-100 m-3 py-3 d-frame-box rounded-5">
             <h5 class="p-0 m-0">2D</h5>
         </a>
-        <a href="" class="btn btn-purple text-white d-block w-100 m-3 py-3 d-frame-box rounded-5">
+        <a href="{{ url('/user/three-d-play-index') }}" class="btn btn-purple text-white d-block w-100 m-3 py-3 d-frame-box rounded-5">
             <h5 class="p-0 m-0">3D</h5>
         </a>
     </div>
@@ -75,4 +75,3 @@
 
 @include('user_layouts.footer')
 @endsection
-

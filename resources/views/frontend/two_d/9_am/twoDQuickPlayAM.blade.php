@@ -13,8 +13,24 @@
                     <span class="d-block" id="userBalance" data-balance="{{ Auth::user()->balance }}">{{ number_format(Auth::user()->balance) }} MMK</span>
                 </div>
                 <div class="mt-4">
-                    <small class="d-block mb-2">2D (09:30AM)</small>
-                    <a href="{{ route('user.twoDPlayAM') }}" class="btn btn-sm btn-purple text-white">ပုံမှန်ရွေး</a>
+                    @php
+                        use Carbon\Carbon;
+                        $currentTime = Carbon::now();
+                    @endphp
+                    <small class="d-block mb-2">2D
+                        @if ($currentTime->lte(Carbon::parse('09:30')))
+                            {{ "(09:30AM)" }}
+                        @elseif ($currentTime->lte(Carbon::parse('12:00')))
+                            {{ "(12:00PM)" }}
+                        @elseif ($currentTime->lte(Carbon::parse('14:00')))
+                            {{ "(02:00PM)" }}
+                        @elseif ($currentTime->lte(Carbon::parse('16:30')))
+                            {{ "(04:30PM)" }}
+                        @else
+                            <span class="text-danger">{{ "(ပွဲချိန်များ ပိတ်ပါပြီ။)" }}</span>
+                        @endif
+                    </small>
+                    <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-sm btn-purple text-white">ပုံမှန်ရွေး</a>
                 </div>
             </div>
 
@@ -29,7 +45,7 @@
             </div>
         </div>
     </div>
-
+    @if ($currentTime->lte(Carbon::parse('16:30')))
     <div class="d-flex justify-content-end mt-3">
         <div class="mb-3 text-end">
             <label for="" class="form-label"><small><i class="fas fa-coins me-2 text-white"></i>ထိုးကြေး</small></label>
@@ -61,7 +77,7 @@
         </div>
         <div class="d-flex justify-content-end my-2" >
             <button class="btn btn-sm btn-danger me-2" type="reset"><small>ဖျက်မည်</small></button>
-            <a href="{{ route('user.twoDQuickPlayAMConfirm') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white"><small>ထိုးမည်</small></a>
+            <a href="{{ route('user.twod-play-confirm-quick') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white"><small>ထိုးမည်</small></a>
         </div>
 
         <!-- User ID Hidden Input -->
@@ -116,6 +132,7 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 </div>
 <!-- ပတ်သီး -->
@@ -152,7 +169,7 @@
   <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-3">
           <div class="d-flex justify-content-between">
-                <small class="d-block">ဘရိတ်</small>
+                <small class="d-block text-purple">ဘရိတ်</small>
                 <button type="button" class="btn-close d-block" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
@@ -160,7 +177,7 @@
 
           <!-- ဘရိတ် -->
           <div class="quickmodal mb-5">
-              <p class="m-3 fw-bold">ဘရိတ်</p>
+              <p class="m-3 fw-bold text-white">ဘရိတ်</p>
               <div class="d-flex justify-content-between">
                 <button class="btn btn-sm btn-purple text-purple" type="button" id="zero_break_digit">0</button>
                 <button class="btn btn-sm btn-purple text-purple" type="button" id="one_break_digit">1/11</button>
@@ -187,7 +204,7 @@
       <div class="modal-content p-3">
             <div class="d-flex justify-content-between">
                 <div>
-                    <small>Single & Double</small>
+                    <small class="text-purple">Single & Double</small>
                 </div>
                 <div>
                     <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -196,7 +213,7 @@
 
           <!-- ဘရိတ် -->
           <div class="quickmodal mb-5">
-              <p class="m-3 fw-bold">Single & Double</p>
+              <p class="m-3 fw-bold text-white">Single & Double</p>
               <div class="d-flex justify-content-around">
                   <button class="btn btn-sm btn-purple text-purple" type="button" id="brother_digit">ညီအကို</button>
                   <button class="btn btn-sm btn-purple text-purple" type="button" id="full_digit">ဆယ်ပြည့်</button>
