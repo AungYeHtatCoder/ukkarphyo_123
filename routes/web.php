@@ -68,6 +68,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
   // details route
   Route::get('/two-d-users/{id}', [App\Http\Controllers\Admin\TwoUsersController::class, 'show'])->name('two-d-users-details');
+  // user list route
+  Route::get('/user-list', [App\Http\Controllers\Admin\Agent\AgentController::class, 'index'])->name('user-list');
+  // user create route
+  Route::get('/user-create', [App\Http\Controllers\Admin\Agent\AgentController::class, 'create'])->name('user-create');
+  // user store route
+  Route::post('/user-store', [App\Http\Controllers\Admin\Agent\AgentController::class, 'store'])->name('user-store');
+  // user edit route
+  Route::get('/user-edit/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'edit'])->name('user-edit');
+  // user update route
+  Route::put('/user-update/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'update'])->name('user-update');
+  // user show route
+  Route::get('/user-show/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'show'])->name('user-show');
+  // user delete route
+  Route::delete('/user-delete/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'destroy'])->name('user-delete');
+
   //Banners
   Route::resource('banners', BannerController::class);
   // profile resource rotues
