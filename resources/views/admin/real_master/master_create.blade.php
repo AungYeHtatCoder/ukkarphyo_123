@@ -66,12 +66,12 @@
     <div class="card-header pb-0">
      <div class="d-lg-flex">
       <div>
-       <h5 class="mb-0">User Create Dashboards</h5>
+       <h5 class="mb-0">Master Create Dashboards</h5>
 
       </div>
       <div class="ms-auto my-auto mt-lg-0 mt-4">
        <div class="ms-auto my-auto">
-        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/agent-user-list') }}">
+        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/real-live-master-create') }}">
          <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
         </a>
 
@@ -80,7 +80,7 @@
      </div>
     </div>
     <div class="card-body">
-    <form action="{{ route('admin.agent-user-store') }}" method="POST">
+    <form action="{{ route('admin.real-live-master-store') }}" method="POST">
       @csrf
   <div class="row">
     <div class="col-md-6">
@@ -131,7 +131,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="input-group input-group-outline is-valid my-3">
-        <button type="submit" class="btn btn-primary">ConfirmCreateUser</button>
+        <button type="submit" class="btn btn-primary">ConfirmCreateMaster</button>
       </div>
     </div>
   </div>

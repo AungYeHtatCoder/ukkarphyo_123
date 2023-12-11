@@ -144,6 +144,18 @@ class User extends Authenticatable
         return $this->belongsTo(User::class);
     }
 
+    // Other users that this user (a master) has created (agents)
+    public function createdAgents()
+    {
+        return $this->hasMany(User::class, 'agent_id');
+    }
+
+    // The master that created this user (an agent)
+    public function createdByMaster()
+    {
+        return $this->belongsTo(User::class, 'agent_id');
+    }
+
     public function lotteries()
 {
     return $this->hasMany(Lottery::class);

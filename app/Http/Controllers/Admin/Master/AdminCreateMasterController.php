@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Agent;
+namespace App\Http\Controllers\Admin\Master;
 
 use App\Models\User;
 use App\Models\Admin\Role;
@@ -9,16 +9,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class AgentController extends Controller
+class AdminCreateMasterController extends Controller
 {
-    public function index()
+     public function index()
     {
        // $users = User::where('agent_id', Auth::user()->id)->get();
-        $userId = auth()->id(); // ID of the master user
-        $user = User::findOrFail($userId);
+        $masterId = auth()->id(); // ID of the master user
+        $master = User::findOrFail($masterId);
         // Retrieve all agents created by this master
-        $users = $user->createdAgents;
-        return view('admin.agent.user_list', compact('users'));
+        $users = $master->createdAgents;
+        return view('admin.real_master.master_list', compact('users'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AgentController extends Controller
      */
     public function create()
     {
-        return view('admin.agent.user_create');
+        return view('admin.real_master.master_create');
     }
 
     /**
@@ -39,7 +39,7 @@ class AgentController extends Controller
     'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'unique:users,phone'],
     'password' => 'required|min:6|confirmed',
 ]);
-        $this->authorize('createUser', User::class);
+        $this->authorize('createMaster', User::class);
 
         $user = User::create([
             'name'=> $request->name,
@@ -49,9 +49,9 @@ class AgentController extends Controller
             'agent_id' => Auth::user()->id,
         ]);
         //$user->roles()->sync('3');
-        $agentRole = Role::where('title', 'User')->first();
+        $agentRole = Role::where('title', 'Master')->first();
         $user->roles()->sync($agentRole->id);
-        return redirect(route('admin.agent-user-list'))->with('success','User has been created successfully.');
+        return redirect(route('admin.real-live-master-list'))->with('success','Master has been created successfully.');
     }
 
     /**
@@ -60,7 +60,7 @@ class AgentController extends Controller
     public function show(string $id)
     {
         $user_detail = User::find($id);
-        return view('admin.agent.user_show', compact('user_detail'));
+        return view('admin.real_master.master_show', compact('user_detail'));
     }
 
     /**
@@ -69,7 +69,7 @@ class AgentController extends Controller
     public function edit(string $id)
     {
         $user = User::find($id);
-        return view('admin.agent.user_edit', compact('user'));
+        return view('admin.real_master.master_edit', compact('user'));
     }
 
     /**
@@ -92,10 +92,10 @@ class AgentController extends Controller
         }
         $user->agent_id = Auth::user()->id;
         //$user->roles()->sync('3');
-        $agentRole = Role::where('title', 'User')->first();
+        $agentRole = Role::where('title', 'Master')->first();
         $user->roles()->sync($agentRole->id);
         $user->save();
-        return redirect(route('admin.agent-user-list'))->with('success','User has been updated successfully.');
+        return redirect(route('admin.agent-list'))->with('success','Master has been updated successfully.');
     }
 
     /**
@@ -105,6 +105,6 @@ class AgentController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect(route('admin.agent-user-list'))->with('success','User has been deleted successfully.');
+        return redirect(route('admin.real-live-master-list'))->with('success','Master has been deleted successfully.');
     }
 }
