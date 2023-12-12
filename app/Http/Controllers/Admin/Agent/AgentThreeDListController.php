@@ -60,7 +60,7 @@ class AgentThreeDListController extends Controller
             ->whereYear('match_time', '=', $today->year)
             ->whereDay('match_time', '=', $targetDay)
             ->first();
-        return view('admin.agent.three_d_list_show', compact('lottery', 'prize_no', 'matchTime'));
+        return view('admin.agent.three_d.three_d_list_show', compact('lottery', 'prize_no', 'matchTime'));
     }
 
 }

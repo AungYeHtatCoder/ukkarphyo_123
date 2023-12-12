@@ -112,6 +112,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/agent-user-play-early-evening-digit', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEarlyEvening'])->name('playEarlyEvening');
   // agent user play  evening 4:30 pm route
   Route::get('/agent-user-play-evening-digit', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEvening'])->name('playEvening');
+
+  // agent 3d list route
+  Route::get('/agent-three-d-list', [App\Http\Controllers\Admin\Agent\AgentThreeDListController::class, 'index'])->name('agent-three-d-list');
+  // agent 3d list show route
+  Route::get('/agent-three-d-list-show/{id}', [App\Http\Controllers\Admin\Agent\AgentThreeDListController::class, 'show'])->name('agent-three-d-list-show');
   
   Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
   // details route

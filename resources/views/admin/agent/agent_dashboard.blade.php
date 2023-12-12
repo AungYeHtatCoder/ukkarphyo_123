@@ -36,6 +36,11 @@
                  2D - 4:30 PM
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-three-d-list') }}" aria-selected="true" style="color: aliceblue">
+                 3D
+                </a>
+              </li>
               
             </ul>
           </div>
