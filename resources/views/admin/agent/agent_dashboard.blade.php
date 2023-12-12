@@ -4,12 +4,41 @@
 @endsection
 @section('content')
 <div class="row align-items-center">
-        <div class="col-lg-4 col-sm-8">
+        <div class="col-lg-12 col-sm-8">
           <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
               <li class="nav-item">
-                <a class="nav-link mb-0 px-0 py-1 active btn btn-primary" href="../../../examples/pages/account/settings.html" aria-selected="true" style="color: aliceblue">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-primary" href="{{ url('/admin/agent-user-list') }}" aria-selected="true" style="color: aliceblue">
                   + New User Create
+                </a>
+              </li>
+              --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-morning') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 9:30 AM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-morning') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 12:1 PM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 2 PM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 4:30 PM
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-three-d-list') }}" aria-selected="true" style="color: aliceblue">
+                 3D
                 </a>
               </li>
               
@@ -30,7 +59,7 @@
                   <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">{{ Auth::user()->name }}<span class="font-weight-normal text-secondary"></span></span>
                 </div>
                 <div class="col-5">
-                  <div class="dropdown text-end">
+                  {{-- <div class="dropdown text-end">
                     <a href="javascript:;" class="cursor-pointer text-secondary" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
                       <span class="text-xs text-secondary">6 May - 7 May</span>
                     </a>
@@ -39,7 +68,7 @@
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last week</a></li>
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last 30 days</a></li>
                     </ul>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>
@@ -50,22 +79,23 @@
             <div class="card-body p-3 position-relative">
               <div class="row">
                 <div class="col-7 text-start">
-                  <p class="text-sm mb-1 text-capitalize font-weight-bold">Customers</p>
+                  <p class="text-sm mb-1 text-capitalize font-weight-bold">Total Customers</p>
                   <h5 class="font-weight-bolder mb-0">
-                    3.200
+                    {{-- count  --}}
+                    {{ count($agentIds) }}
                   </h5>
-                  <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">+12% <span class="font-weight-normal text-secondary">since last month</span></span>
+                  {{-- <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">+12% <span class="font-weight-normal text-secondary">since last month</span></span> --}}
                 </div>
                 <div class="col-5">
                   <div class="dropdown text-end">
                     <a href="javascript:;" class="cursor-pointer text-secondary" id="dropdownUsers2" data-bs-toggle="dropdown" aria-expanded="false">
-                      <span class="text-xs text-secondary">6 May - 7 May</span>
+                      {{-- <span class="text-xs text-secondary">6 May - 7 May</span> --}}
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3" aria-labelledby="dropdownUsers2">
+                    {{-- <ul class="dropdown-menu dropdown-menu-end px-2 py-3" aria-labelledby="dropdownUsers2">
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last 7 days</a></li>
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last week</a></li>
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last 30 days</a></li>
-                    </ul>
+                    </ul> --}}
                   </div>
                 </div>
               </div>

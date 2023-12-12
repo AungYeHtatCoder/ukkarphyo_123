@@ -66,12 +66,12 @@
     <div class="card-header pb-0">
      <div class="d-lg-flex">
       <div>
-       <h5 class="mb-0">User Create Dashboards</h5>
+       <h5 class="mb-0">Master Update Dashboards</h5>
 
       </div>
       <div class="ms-auto my-auto mt-lg-0 mt-4">
        <div class="ms-auto my-auto">
-        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/agent-user-list') }}">
+        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('admin/real-live-master-list') }}">
          <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
         </a>
 
@@ -80,13 +80,14 @@
      </div>
     </div>
     <div class="card-body">
-    <form action="{{ route('admin.agent-user-store') }}" method="POST">
+    <form action="{{ route('admin.real-live-master-update', $user->id) }}" method="POST">
       @csrf
+      @method('PUT')
   <div class="row">
     <div class="col-md-6">
       <div class="input-group input-group-outline my-3">
         <label class="form-label">User Real Name</label>
-        <input type="text" class="form-control" name="name">
+        <input type="text" class="form-control" name="name" value="{{ $user->name }}">
          
       </div>
       @error('name')
@@ -96,7 +97,7 @@
     <div class="col-md-6">
       <div class="input-group input-group-outline my-3">
         <label class="form-label">Phone</label>
-        <input type="text" class="form-control" name="phone">
+        <input type="text" class="form-control" name="phone" value="{{ $user->phone }}">
          
       </div>
       @error('phone')
@@ -131,7 +132,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="input-group input-group-outline is-valid my-3">
-        <button type="submit" class="btn btn-primary">ConfirmCreateUser</button>
+        <button type="submit" class="btn btn-primary">ConfirmUpdateMaster</button>
       </div>
     </div>
   </div>

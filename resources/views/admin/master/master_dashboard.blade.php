@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="row align-items-center">
-        <div class="col-lg-4 col-sm-8">
+        <div class="col-lg-12 col-sm-8">
           <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
               <li class="nav-item">
@@ -15,6 +15,34 @@
               <li class="nav-item">
                 <a class="nav-link mb-0 px-0 py-1 active btn btn-info" href="{{ url('/admin/agent-list') }}" aria-selected="true" style="color: aliceblue">
                    Agent List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-morning') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 9:30 AM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-morning') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 12:1 PM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 2 PM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 4:30 PM
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-primary btn-sm" href="{{ url('/admin/agent-three-d-list') }}" aria-selected="true" style="color: aliceblue">
+                 3D
                 </a>
               </li>
               

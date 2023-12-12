@@ -1,21 +1,20 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\PromotionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\User\WalletController;
-use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\User\WelcomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PlayTwoDController;
 use App\Http\Controllers\Admin\TwoDigitController;
-use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\User\UserWalletController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\TwoDWinnerController;
 use App\Http\Controllers\Admin\TwoDLotteryController;
-use App\Http\Controllers\Admin\TwoDMorningController;
 use App\Http\Controllers\Admin\ThreedHistoryController;
 use App\Http\Controllers\User\ChangePasswordController;
 use App\Http\Controllers\Admin\ThreedMatchTimeController;
@@ -51,90 +50,49 @@ Route::get('/contact', [WelcomeController::class, 'servicePage'])->name('contact
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
 
-  // Permissions
-  Route::delete('permissions/destroy', [PermissionController::class, 'massDestroy'])->name('permissions.massDestroy');
-  Route::resource('permissions', PermissionController::class);
-  // Roles
-  Route::delete('roles/destroy', [RolesController::class, 'massDestroy'])->name('roles.massDestroy');
-  Route::resource('roles', RolesController::class);
-  // Users
-  Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
-  Route::resource('users', UsersController::class);
-  // master list route
-  Route::get('/real-live-master-list', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'index'])->name('real-live-master-list');
-  // master create route
-  Route::get('/real-live-master-create', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'create'])->name('real-live-master-create');
-  // master store route
-  Route::post('/real-live-master-store', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'store'])->name('real-live-master-store');
-  // master edit route
-  Route::get('/real-live-master-edit/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'edit'])->name('real-live-master-edit');
-  // master update route
-  Route::put('/real-live-master-update/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'update'])->name('real-live-master-update');
-  // master show route
-  Route::get('/real-live-master-show/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'show'])->name('real-live-master-show');
-  // master delete route
-  Route::delete('/real-live-master-delete/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'destroy'])->name('real-live-master-delete');
-  // agent list route
-  Route::get('/agent-list', [App\Http\Controllers\Admin\Master\MasterController::class, 'index'])->name('agent-list');
-  // agent create route
-  Route::get('/agent-create', [App\Http\Controllers\Admin\Master\MasterController::class, 'create'])->name('agent-create');
-  // agent store route
-  Route::post('/agent-store', [App\Http\Controllers\Admin\Master\MasterController::class, 'store'])->name('agent-store');
-  // agent edit route
-  Route::get('/agent-edit/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'edit'])->name('agent-edit');
-  // agent update route
-  Route::put('/agent-update/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'update'])->name('agent-update');
-  // agent show route
-  Route::get('/agent-show/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'show'])->name('agent-show');
-  // agent delete route
-  Route::delete('/agent-delete/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'destroy'])->name('agent-delete');
+    // Permissions
+    Route::delete('permissions/destroy', [PermissionController::class, 'massDestroy'])->name('permissions.massDestroy');
+    Route::resource('permissions', PermissionController::class);
+    // Roles
+    Route::delete('roles/destroy', [RolesController::class, 'massDestroy'])->name('roles.massDestroy');
+    Route::resource('roles', RolesController::class);
+    // Users
+    Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
+    // agent list route
+    Route::get('/agent-list', [App\Http\Controllers\Admin\Master\MasterController::class, 'index'])->name('agent-list');
+    // agent create route
+    Route::get('/agent-create', [App\Http\Controllers\Admin\Master\MasterController::class, 'create'])->name('agent-create');
+    // agent store route
+    Route::post('/agent-store', [App\Http\Controllers\Admin\Master\MasterController::class, 'store'])->name('agent-store');
+    // agent edit route
+    Route::get('/agent-edit/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'edit'])->name('agent-edit');
+    // agent update route
+    Route::put('/agent-update/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'update'])->name('agent-update');
+    // agent show route
+    Route::get('/agent-show/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'show'])->name('agent-show');
+    // agent delete route
+    Route::delete('/agent-delete/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'destroy'])->name('agent-delete');
+    Route::resource('users', UsersController::class);
+    Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
+    // details route
+    Route::get('/two-d-users/{id}', [App\Http\Controllers\Admin\TwoUsersController::class, 'show'])->name('two-d-users-details');
+    //Banners
+    Route::resource('banners', BannerController::class);
+    //promotions
     Route::resource('/promotions', PromotionController::class);
-  // agent user list route
-  Route::get('/agent-user-list', [App\Http\Controllers\Admin\Agent\AgentController::class, 'index'])->name('agent-user-list');
-  // agent user create route
-  Route::get('/agent-user-create', [App\Http\Controllers\Admin\Agent\AgentController::class, 'create'])->name('agent-user-create');
-  // agent user store route
-  Route::post('/agent-user-store', [App\Http\Controllers\Admin\Agent\AgentController::class, 'store'])->name('agent-user-store');
-  // agent user edit route
-  Route::get('/agent-user-edit/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'edit'])->name('agent-user-edit');
-  // agent user update route
-  Route::put('/agent-user-update/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'update'])->name('agent-user-update');
-  // agent user show route
-  Route::get('/agent-user-show/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'show'])->name('agent-user-show');
-  // agent user delete route
-  Route::delete('/agent-user-delete/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'destroy'])->name('agent-user-delete');
-  // agent user play early morning 9:30 am route
-  Route::get('/agent-user-play-early-morning', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEarlyMorning'])->name('agent-user-play-early-morning');
-  // agent user play morning 12:00 pm route
-  Route::get('/agent-user-play-morning', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playMorning'])->name('agent-user-play-morning');
 
-  // agent user play early evening 12:1 pm route
-  Route::get('/agent-user-play-early-evening-digit', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEarlyEvening'])->name('playEarlyEvening');
-  // agent user play  evening 4:30 pm route
-  Route::get('/agent-user-play-evening-digit', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEvening'])->name('playEvening');
-
-  // agent 3d list route
-  Route::get('/agent-three-d-list', [App\Http\Controllers\Admin\Agent\AgentThreeDListController::class, 'index'])->name('agent-three-d-list');
-  // agent 3d list show route
-  Route::get('/agent-three-d-list-show/{id}', [App\Http\Controllers\Admin\Agent\AgentThreeDListController::class, 'show'])->name('agent-three-d-list-show');
-  
-  Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
-  // details route
-  Route::get('/two-d-users/{id}', [App\Http\Controllers\Admin\TwoUsersController::class, 'show'])->name('two-d-users-details');
-  //Banners
-  Route::resource('banners', BannerController::class);
-  // profile resource rotues
-  Route::resource('profiles', ProfileController::class);
-  // user profile route get method
-  Route::put('/change-password', [ProfileController::class, 'newPassword'])->name('changePassword');
-  // PhoneAddressChange route with auth id route with put method
-  Route::put('/change-phone-address', [ProfileController::class, 'PhoneAddressChange'])->name('changePhoneAddress');
-  Route::put('/change-kpay-no', [ProfileController::class, 'KpayNoChange'])->name('changeKpayNo');
-  Route::put('/change-join-date', [ProfileController::class, 'JoinDate'])->name('addJoinDate');
-  Route::resource('play-twod', PlayTwoDController::class);
-  Route::get('/get-two-d', [App\Http\Controllers\Admin\TwoDPlayController::class, 'GetTwoDigit'])->name('GetTwoDigit');
-  Route::post('lotteries-two-d-play', [TwoDigitController::class, 'store'])->name('StorePlayTwoD');
-  Route::get('/morning-play-two-d', [App\Http\Controllers\Admin\TwoDPlayController::class, 'MorningPlayTwoDigit'])->name('MorningPlayTwoDigit');
+    // profile resource rotues
+    Route::resource('profiles', ProfileController::class);
+    // user profile route get method
+    Route::put('/change-password', [ProfileController::class, 'newPassword'])->name('changePassword');
+    // PhoneAddressChange route with auth id route with put method
+    Route::put('/change-phone-address', [ProfileController::class, 'PhoneAddressChange'])->name('changePhoneAddress');
+    Route::put('/change-kpay-no', [ProfileController::class, 'KpayNoChange'])->name('changeKpayNo');
+    Route::put('/change-join-date', [ProfileController::class, 'JoinDate'])->name('addJoinDate');
+    Route::resource('play-twod', PlayTwoDController::class);
+    Route::get('/get-two-d', [App\Http\Controllers\Admin\TwoDPlayController::class, 'GetTwoDigit'])->name('GetTwoDigit');
+    Route::post('lotteries-two-d-play', [TwoDigitController::class, 'store'])->name('StorePlayTwoD');
+    Route::get('/morning-play-two-d', [App\Http\Controllers\Admin\TwoDPlayController::class, 'MorningPlayTwoDigit'])->name('MorningPlayTwoDigit');
 
     Route::get('/evening-play-two-d', [App\Http\Controllers\Admin\TwoDPlayController::class, 'EveningPlayTwoDigit'])->name('EveningPlayTwoDigit');
 
@@ -230,14 +188,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/three-d-winner', [App\Http\Controllers\Admin\ThreeD\ThreeDWinnerController::class, 'index'])->name('three-d-winner');
 
         // Permissions
-        // Route::delete('permissions/destroy', [PermissionController::class, 'massDestroy'])->name('permissions.massDestroy');
-        // Route::resource('permissions', PermissionController::class);
-        // // Roles
-        // Route::delete('roles/destroy', [RolesController::class, 'massDestroy'])->name('roles.massDestroy');
-        // Route::resource('roles', RolesController::class);
-        // // Users
-        // Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
-        // Route::resource('users', UsersController::class);
+        Route::delete('permissions/destroy', [PermissionController::class, 'massDestroy'])->name('permissions.massDestroy');
+        Route::resource('permissions', PermissionController::class);
+        // Roles
+        Route::delete('roles/destroy', [RolesController::class, 'massDestroy'])->name('roles.massDestroy');
+        Route::resource('roles', RolesController::class);
+        // Users
+        Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
+        Route::resource('users', UsersController::class);
         Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
         // details route
         Route::get('/two-d-users/{id}', [App\Http\Controllers\Admin\TwoUsersController::class, 'show'])->name('two-d-users-details');
@@ -281,6 +239,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
         Route::get('/close-two-d', [App\Http\Controllers\Admin\CloseTwodController::class, 'index'])->name('CloseTwoD');
         Route::put('/update-open-close-two-d', [App\Http\Controllers\Admin\CloseTwodController::class, 'update'])->name('OpenCloseTwoD');
+        // Route::resource('twod-records', TwoDLotteryController::class);
+        // Route::resource('tow-d-win-number', TwoDWinnerController::class);
+        // Route::resource('tow-d-morning-number', TwoDMorningController::class);
+        // Route::get('/two-d-morning-winner', [App\Http\Controllers\Admin\TwoDMorningWinnerController::class, 'TwoDMorningWinner'])->name('morningWinner');
         Route::get('/two-d-evening-number', [App\Http\Controllers\Admin\TwoDMorningController::class, 'EveningTwoD'])->name('eveningNumber');
         Route::get('/two-d-evening-winner', [App\Http\Controllers\Admin\TwoDMorningController::class, 'TwoDEveningWinner'])->name('eveningWinner');
         Route::get('/two-d-evening-winner', [App\Http\Controllers\Admin\TwoDEveningWinnerController::class, 'TwoDEveningWinner'])->name('eveningWinner');

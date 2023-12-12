@@ -4,7 +4,95 @@
 @endsection
 @section('content')
 {{-- 2d income row --}}
-<div class="row">
+<div class="row align-items-center">
+        <div class="col-lg-12 col-sm-8">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-primary" href="{{ url('/admin/agent-create') }}" aria-selected="true" style="color: aliceblue">
+                  + New Agent Create
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info" href="{{ url('/admin/agent-list') }}" aria-selected="true" style="color: aliceblue">
+                   Agent List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-morning') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 9:30 AM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-morning') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 12:1 PM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 2 PM
+                </a>
+              </li>
+                --
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                 2D - 4:30 PM
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active btn btn-primary btn-sm" href="{{ url('/admin/agent-three-d-list') }}" aria-selected="true" style="color: aliceblue">
+                 3D
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+<div class="row mt-4">
+   <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card  mb-2">
+                <div class="card-header p-3 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">weekend</i>
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Master List</p>
+                    <h4 class="mb-0">
+                      <a href="{{ url('/admin/real-live-master-list')}}" class="btn btn-primary">Go To Master List</a>
+                    </h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card  mb-2">
+                <div class="card-header p-3 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">weekend</i>
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Master Create</p>
+                    <h4 class="mb-0">
+                      <a href="{{ url('/admin/real-live-master-create')}}" class="btn btn-info">Create New Master</a>
+                    </h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2">
                 <div class="card-header p-3 pt-2">

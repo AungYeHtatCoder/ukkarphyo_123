@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Master;
 
 use App\Models\User;
+use App\Models\Admin\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,11 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $users = User::where('agent_id', Auth::user()->id)->get();
+       // $users = User::where('agent_id', Auth::user()->id)->get();
+        $masterId = auth()->id(); // ID of the master user
+        $master = User::findOrFail($masterId);
+        // Retrieve all agents created by this master
+        $users = $master->createdAgents;
         return view('admin.master.agent_list', compact('users'));
     }
 
@@ -37,7 +42,7 @@ class MasterController extends Controller
     'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'unique:users,phone'],
     'password' => 'required|min:6|confirmed',
 ]);
-
+        $this->authorize('createAgent', User::class);
 
         $user = User::create([
             'name'=> $request->name,
@@ -46,7 +51,9 @@ class MasterController extends Controller
             //'role' => "Agent",
             'agent_id' => Auth::user()->id,
         ]);
-        $user->roles()->sync('3');
+        //$user->roles()->sync('3');
+        $agentRole = Role::where('title', 'Agent')->first();
+        $user->roles()->sync($agentRole->id);
         return redirect(route('admin.agent-list'))->with('success','Agent has been created successfully.');
     }
 

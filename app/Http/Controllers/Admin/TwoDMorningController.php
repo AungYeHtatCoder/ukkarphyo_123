@@ -18,6 +18,11 @@ class TwoDMorningController extends Controller
     // for 9:30 am
     public function GetDigitEarlMorningindex()
 {
+    $playDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    if (!in_array(strtolower(date('l')), $playDays)) {
+        // Return an error or a message that today is not a playing day
+        return redirect()->back()->with('error', 'Today is not a playing day.');
+    }
     // Retrieve lotteries where the associated LotteryMatch may be active or inactive
     $lotteries = Lottery::whereHas('lotteryMatch')->whereHas('twoDigitsEarlyMorning')->get();
 
@@ -39,6 +44,11 @@ class TwoDMorningController extends Controller
 // over amount limit 9:30 am
 public function GetDigitEarlyMorningOverAmountLimitindex()
 {
+    $playDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    if (!in_array(strtolower(date('l')), $playDays)) {
+        // Return an error or a message that today is not a playing day
+        return redirect()->back()->with('error', 'Today is not a playing day.');
+    }
     // Retrieve lotteries where the associated LotteryMatch may be active or inactive
     $lotteries = Lottery::whereHas('lotteryMatch')->whereHas('twoDigitsOverAmountEarlyMorning')->get();
 
@@ -61,6 +71,11 @@ public function GetDigitEarlyMorningOverAmountLimitindex()
     // for 12:1
     public function index()
 {
+    $playDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    if (!in_array(strtolower(date('l')), $playDays)) {
+        // Return an error or a message that today is not a playing day
+        return redirect()->back()->with('error', 'Today is not a playing day.');
+    }
     // Retrieve lotteries where the associated LotteryMatch may be active or inactive
     $lotteries = Lottery::whereHas('lotteryMatch')->whereHas('twoDigitsMorning')->get();
 
@@ -82,6 +97,11 @@ public function GetDigitEarlyMorningOverAmountLimitindex()
 // over amount limit 12:1
 public function GetDigitMorningOverAmountLimitindex()
 {
+    $playDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    if (!in_array(strtolower(date('l')), $playDays)) {
+        // Return an error or a message that today is not a playing day
+        return redirect()->back()->with('error', 'Today is not a playing day.');
+    }
     // Retrieve lotteries where the associated LotteryMatch may be active or inactive
     $lotteries = Lottery::whereHas('lotteryMatch')->whereHas('twoDigitsMorningOverLimit')->get();
 
@@ -103,6 +123,11 @@ public function GetDigitMorningOverAmountLimitindex()
 // for 2: pm
 public function GetDigitEarlyEveningOverAmountLimitindex()
 {
+    $playDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    if (!in_array(strtolower(date('l')), $playDays)) {
+        // Return an error or a message that today is not a playing day
+        return redirect()->back()->with('error', 'Today is not a playing day.');
+    }
     // Retrieve lotteries where the associated LotteryMatch may be active or inactive
     $lotteries = Lottery::whereHas('lotteryMatch')->whereHas('twoDigitsEarlyEvenOverLimit')->get();
 
@@ -149,6 +174,11 @@ public function GetDigitEveningOverAmountLimitindex()
 
 public function GetDigitEarlyEveningindex()
 {
+    $playDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+    if (!in_array(strtolower(date('l')), $playDays)) {
+        // Return an error or a message that today is not a playing day
+        return redirect()->back()->with('error', 'Today is not a playing day.');
+    }
     // Retrieve lotteries where the associated LotteryMatch may be active or inactive
     $lotteries = Lottery::whereHas('lotteryMatch')->whereHas('twoDigitsEarlyEvening')->get();
 

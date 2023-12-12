@@ -123,13 +123,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Permission::class);
     }
-
-    public function event()
-    {
-        return $this->hasOne(Event::class);
-    }
-
-
     public function hasRole($role)
     {
         return $this->roles->contains('title', $role);
@@ -142,6 +135,18 @@ class User extends Authenticatable
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    // Other users that this user (a master) has created (agents)
+    public function createdAgents()
+    {
+        return $this->hasMany(User::class, 'agent_id');
+    }
+
+    // The master that created this user (an agent)
+    public function createdByMaster()
+    {
+        return $this->belongsTo(User::class, 'agent_id');
     }
 
     public function lotteries()
