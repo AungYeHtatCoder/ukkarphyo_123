@@ -1,17 +1,18 @@
 <!-- navbar section -->
 <div id="navbar" class="fixed-top">
     <div class="row">
-        <div class="col-lg-6 col-md-6 offset-lg-3 offset-md-3 col-12 py-3 nav-border-purple" id="top-nav">
+        <div class="col-lg-6 col-md-6 offset-lg-3 offset-md-3 col-12 py-2 nav-border-purple" id="top-nav">
             <div class="d-flex justify-content-between px-3">
                 <!-- before login -->
                 <a href="{{ url('/') }}" class="text-decoration-none">
                     <div class="d-flex">
-                        <img src="{{ asset('assets/img/logo.png') }}" width="40px" height="40px" alt="" class="rounded-circle d-block">
-                        <h5 class="text-white ms-2" style="margin-top: 10px;">Aladdin 2D | 3D</h5>
+                        <img src="{{ asset('assets/img/logo-v.png') }}" width="150px" alt="">
+                        {{-- <img src="{{ asset('assets/img/logo.png') }}" width="40px" height="40px" alt="" class="rounded-circle d-block">
+                        <h5 class="text-white ms-2" style="margin-top: 10px;">Aladdin 2D | 3D</h5> --}}
                     </div>
                 </a>
                 @guest
-                <div>
+                <div class="mt-2">
                     <a href="{{ route('login') }}" class="btn btn-sm btn-purple text-white me-2">
                         <i class="fas fa-unlock me-2"></i>
                         LOGIN
@@ -19,7 +20,7 @@
                 </div>
                 @endguest
                 @auth
-                <div>
+                <div class="mt-2">
                     <i class="fas text-white fa-bell me-1"></i>
                     <button class="btn sidebarToggle">
                         <i class="fas fa-bars text-white"></i>
@@ -106,7 +107,7 @@
             </div>
         </a>
 
-        <a href="" class="link shadow" onclick="event.preventDefault();                     
+        <a href="" class="link shadow" onclick="event.preventDefault();
      document.getElementById('logout-form').submit();">
             <div class="d-flex">
                 <i class="fas fa-right-from-bracket d-block me-2"></i>
