@@ -103,6 +103,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/agent-user-show/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'show'])->name('agent-user-show');
   // agent user delete route
   Route::delete('/agent-user-delete/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'destroy'])->name('agent-user-delete');
+  // agent user play early morning 9:30 am route
+  Route::get('/agent-user-play-early-morning', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEarlyMorning'])->name('agent-user-play-early-morning');
+  // agent user play morning 12:00 pm route
+  Route::get('/agent-user-play-morning', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playMorning'])->name('agent-user-play-morning');
+
+  // agent user play early evening 12:1 pm route
+  Route::get('/agent-user-play-early-evening-digit', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEarlyEvening'])->name('playEarlyEvening');
+  // agent user play  evening 4:30 pm route
+  Route::get('/agent-user-play-evening-digit', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEvening'])->name('playEvening');
   
   Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
   // details route

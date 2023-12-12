@@ -83,8 +83,13 @@ class HomeController extends Controller
         return view('admin.master.master_dashboard');
     }
     else if (auth()->user()->hasRole('Agent')) {
-        // Logic specific to Agent role
-        return view('admin.agent.agent_dashboard');
+        $userId = auth()->id(); // ID of the master user
+
+    // Retrieve agents created by this master user
+    $agentIds = User::where('agent_id', $userId)->pluck('id');
+        return view('admin.agent.agent_dashboard', [
+            'agentIds' => $agentIds,
+        ]);
     } 
     else {
         $userId = auth()->id(); // Get logged in user's ID
