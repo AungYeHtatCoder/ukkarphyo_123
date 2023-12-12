@@ -13,18 +13,20 @@
   <div>
    <div>
     <i class="fas fa-wallet me-2"></i><span>Balance</span>
-    <span class="d-block" id="userBalance">500000 MMK</span>
+    <span class="d-block" id="userBalance">{{ number_format(Auth::user()->balance) }} MMK</span>
    </div>
+   <a href="{{ route('user.three-d-choice-play') }}" class="btn btn-sm btn-purple text-white mt-3">ထိုးမည်</a>
   </div>
 
   <div>
-   <small class="d-block mb-2 text-end">
-    <i class="fas fa-clock text-white me-1"></i>
-    ပိတ်ရန်ကျန်ချိန်
-   </small>
-   <small class="d-block text-end" id="todayDate"></small>
-   <small class="d-block text-end" id="currentTime"></small>
-   <small class="d-block text-end" id="sessionInfo"></small>
+    <small class="d-block mb-2 text-end">
+        <i class="fas fa-clock text-white me-1"></i>
+        ပိတ်ရန်ကျန်ချိန်
+    </small>
+    <small class="d-block text-end" id="todayDate"></small>
+    <small class="d-block text-end" id="currentTime"></small>
+    <small class="d-block text-end" id="sessionInfo"></small>
+
   </div>
  </div>
  <div class="container mt-4" id="dreamContainer" style="max-height: 500px; overflow: auto">
@@ -37,6 +39,35 @@
 @endsection
 
 @section('script')
+<script>
+    // Function to update date and time display
+    function updateDateTimeDisplay() {
+      var d = new Date();
+      document.getElementById('todayDate').textContent = d.toLocaleDateString();
+      document.getElementById('currentTime').textContent = d.toLocaleTimeString();
+
+      // Define the morning and evening session close times
+      var morningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 1);
+      var eveningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 16, 30);
+
+      // Determine current session based on current time
+      var sessionInfo = "";
+      if (d < morningClose) {
+        sessionInfo = "Closes at 12:01 PM.";
+      } else if (d >= morningClose && d < eveningClose) {
+        sessionInfo = "Closes at 4:30 PM.";
+      } else if (d >= eveningClose) {
+        sessionInfo = "Evening session closed.";
+      }
+      document.getElementById('sessionInfo').textContent = sessionInfo;
+    }
+
+    // Update the display initially
+    updateDateTimeDisplay();
+
+    // Set interval to update the display every minute
+    setInterval(updateDateTimeDisplay, 60000);
+</script>
 <script>
  const dreams = [{
    title: 'သံဗူး',
@@ -532,8 +563,8 @@
 
  dreams.forEach((dream) => {
   const dreamHTML = `
-    <div class="col-4 mt-3">
-      <p class="dream-header">${dream.title}</p>
+    <div class="col-md-3 col-4 mt-3">
+      <small class="dream-header w-100 d-block">${dream.title}</small>
       <div class="dream-img">
         <img src="{{ asset('${dream.imgSrc}') }}" alt="" style="width:inherit;height:inherit" class="img-fluid">
       </div>
