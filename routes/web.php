@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\PromotionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\User\WalletController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\User\WelcomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PlayTwoDController;
 use App\Http\Controllers\Admin\TwoDigitController;
+use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\User\UserWalletController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\TwoDWinnerController;
 use App\Http\Controllers\Admin\TwoDLotteryController;
+use App\Http\Controllers\Admin\TwoDMorningController;
 use App\Http\Controllers\Admin\ThreedHistoryController;
 use App\Http\Controllers\User\ChangePasswordController;
 use App\Http\Controllers\Admin\ThreedMatchTimeController;
