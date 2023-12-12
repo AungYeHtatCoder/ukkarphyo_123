@@ -26,31 +26,29 @@
 <!-- content -->
 <div class="container-fluid position-relative py-5 my-5">
       <!-- wallet and bet time section  -->
-      <div class="d-flex justify-content-between">
-            <div>
-                  <div>
+        <div class="d-flex justify-content-between">
+                <div>
+                    <div>
                         <i class="fas fa-wallet me-2"></i><span>Balance</span>
-                        <span class="d-block" id="userBalance" data-balance="{{ Auth::user()->balance }}">{{ Auth::user()->balance }} MMK</span>
-                  </div>
-                  <div class="mt-4">
+                        <span class="d-block" id="userBalance" data-balance="{{ Auth::user()->balance }}">{{ number_format(Auth::user()->balance) }} MMK</span>
+                    </div>
+                    <div class="mt-4 mb-4">
                         <a href="{{ url('/user/three-d-dream-book') }}" class="btn btn-sm btn-purple text-white">အိပ်မက်</a>
-                  </div>
-            </div>
-
+                    </div>
+                </div>
             <div>
-                  <small class="d-block mb-2 text-end">
-                        <i class="fas fa-clock text-white me-1"></i>
-                        ပိတ်ရန်ကျန်ချိန်
-                  </small>
-                  <small class="d-block text-end" id="todayDate"></small>
-                  <small class="d-block text-end" id="currentTime"></small>
-                  <small class="d-block text-end" id="sessionInfo"></small>
-            </div>
-      </div>
+            <small class="d-block mb-2 text-end">
+                <i class="fas fa-clock text-white me-1"></i>
+                ပိတ်ရန်ကျန်ချိန်
+            </small>
+            <small class="d-block text-end" id="todayDate"></small>
+            <small class="d-block text-end" id="currentTime"></small>
+            <small class="d-block text-end" id="sessionInfo"></small>
+        </div>
+    </div>
 
       <div class="d-flex justify-content-between mt-3">
-            <div class="mt-2">
-                  <label for="selected_digits" class="ms-2" style="font-size: 14px;">စာရိုက်ပြီးဂဏန်းရွေးမည်</label>
+            <div class="mt-4">
                   <input type="text" name="amount" id="input_new_digit" placeholder="Enter 3 Digit" class="form-control w-100 ms-1 text-center border-black" autocomplete="off" />
             </div>
 
@@ -64,9 +62,9 @@
                   </div>
 
             </div>
-
-      </div>
-      <!-- wallet and bet time section  -->
+        </div>
+    </div>
+<!-- wallet and bet time section  -->
 
       <div class="">
             @if ($lottery_matches->is_active == 1)
@@ -105,7 +103,7 @@
 
       </div>
       <!-- 2D Numbers start -->
-      <div class="container mb-5 mt-3" id="twoD">
+      <div class="container-fluid mb-5 mt-3" id="twoD">
             <div class="twoDCard">
                   @foreach ($threeDigits as $digit)
                   @php
@@ -115,7 +113,7 @@
                   @endphp
 
                   <button type="button" class="number_card rounded-3" onclick="selectDigit('{{ $digit->three_digit }}', this)">
-                        <h5> {{ $digit->three_digit }}</h5>
+                        <h6> {{ $digit->three_digit }}</h6>
                         <div class="progress">
 
                               @php
@@ -123,10 +121,11 @@
                               $betAmount = $totalBetAmountForTwoDigit; // the amount already bet
                               $remainAmount = $totalAmount - $betAmount; // the amount remaining that can be bet
                               $percentage = ($betAmount / $totalAmount) * 100;
+                              $remainPercent = 100 - $percentage;
                               @endphp
 
-                              <div class="progress-bar bg-{{ $percentage >= 50 ? 'success' : 'warning' }}" role="progressbar" style="width: {{ $percentage }}%;">
-                                    <small class="text-{{ $percentage >= 50 ? 'white' : 'dark' }}">{{ $remainingAmounts[$digit->id] }}</small>
+                              <div class="progress-bar bg-{{ $remainPercent >= 50 ? 'success' : 'warning' }}" role="progressbar" style="width: {{ $remainPercent }}%;">
+                                    <small class="text-{{ $remainPercent >= 50 ? 'white' : 'dark' }}">{{ $remainingAmounts[$digit->id] }}</small>
                               </div>
 
                         </div>
@@ -143,36 +142,6 @@
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
-
-<script>
-      // Function to update date and time display
-      function updateDateTimeDisplay() {
-            var d = new Date();
-            document.getElementById('todayDate').textContent = d.toLocaleDateString();
-            document.getElementById('currentTime').textContent = d.toLocaleTimeString();
-
-            // Define the morning and evening session close times
-            var morningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 1);
-            var eveningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 16, 30);
-
-            // Determine current session based on current time
-            // var sessionInfo = "";
-            // if (d < morningClose) {
-            //       sessionInfo = "Closes at 12:01 PM.";
-            // } else if (d >= morningClose && d < eveningClose) {
-            //       sessionInfo = "Closes at 4:30 PM.";
-            // } else if (d >= eveningClose) {
-            //       sessionInfo = "Evening session closed.";
-            // }
-            // document.getElementById('sessionInfo').textContent = sessionInfo;
-      }
-
-      // Update the display initially
-      updateDateTimeDisplay();
-
-      // Set interval to update the display every minute
-      setInterval(updateDateTimeDisplay, 60000);
-</script>
 
 <script>
       document.addEventListener('DOMContentLoaded', function() {
