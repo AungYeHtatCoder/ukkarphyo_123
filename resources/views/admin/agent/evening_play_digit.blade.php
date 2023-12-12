@@ -59,7 +59,7 @@
                         {{-- <td>{{ $lottery->id }}</td> --}}
                         <td>
                             <ul>
-                            @foreach ($lottery->twoDigitsEarlyEvening as $twoDigit)
+                            @foreach ($lottery->twoDigitsEvening as $twoDigit)
                                 <li>
                                     <span class="badge bg-secondary">
                                    {{ $twoDigit->two_digit }}
@@ -76,7 +76,7 @@
                         {{-- <td>{{ $lottery->total_amount }}</td> --}}
                         <td>
                          <ul>
-                          @foreach ($lottery->twoDigitsEarlyEvening as $twoDigit)
+                          @foreach ($lottery->twoDigitsEvening as $twoDigit)
                               <li>
 
                                   <!-- Check if it's a winner -->
