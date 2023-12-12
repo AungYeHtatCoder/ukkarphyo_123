@@ -123,13 +123,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Permission::class);
     }
-
-    public function event()
-    {
-        return $this->hasOne(Event::class);
-    }
-
-
     public function hasRole($role)
     {
         return $this->roles->contains('title', $role);
