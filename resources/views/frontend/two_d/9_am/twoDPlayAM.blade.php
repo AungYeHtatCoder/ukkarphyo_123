@@ -120,7 +120,7 @@
     <!-- Heading -->
     <!-- 2D Numbers start -->
     @if ($currentTime->lte(Carbon::parse('16:30')))
-    <div class="container mb-5 mt-3" id="twoD">
+    <div class="container-fluid mb-5 mt-3" id="twoD">
       <div class="twoDCard">
         @foreach ($twoDigits as $digit)
         @php
@@ -130,7 +130,7 @@
         @endphp
 
         <button type="button" class="number_card rounded-3"  onclick="selectDigit('{{ $digit->two_digit }}', this)">
-          <h5>{{ $digit->two_digit }}</h5>
+          <h6>{{ $digit->two_digit }}</h6>
           <div class="progress">
 
             @php
