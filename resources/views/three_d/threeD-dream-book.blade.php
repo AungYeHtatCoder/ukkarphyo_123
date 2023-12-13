@@ -29,7 +29,7 @@
 </div>
 <!-- content -->
 
-@include('user_layouts.footer')
+{{-- @include('user_layouts.footer') --}}
 @endsection
 
 @section('script')
