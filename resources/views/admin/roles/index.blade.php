@@ -28,7 +28,7 @@
      <div class="ms-auto my-auto mt-lg-0 mt-4">
       <div class="ms-auto my-auto">
        <a href="{{ route('admin.roles.create') }}" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp; New Role</a>
-       <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv" type="button"
+       <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1 py-1" data-type="csv" type="button"
         name="button">Export</button>
       </div>
      </div>

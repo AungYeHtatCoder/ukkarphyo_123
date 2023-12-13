@@ -23,7 +23,7 @@
                         <div>
                             <h5 class="mb-0">2D Morning Winner Dashboards
                                 <span>
-                                    <button type="button" class="btn btn-primary">
+                                    <button type="button" class="btn btn-primary mt-2 ms-2">
                                         @if ($prize_no_morning)
                                             <span>{{ $prize_no->created_at->format('d-m-Y (l) (h:i a)') }}</span>
                                             <span class="badge badge-warning"
