@@ -22,7 +22,7 @@
                 <div class="card  top-1 mb-3">
                     <div class="card-header mx-4 p-3 text-center">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{{ Auth::user()->profile }}" alt="bruce" class="w-100 rounded-circle shadow-sm">
+                            <img src="{{ Auth::user()->profile }}" alt="bruce" class="w-100 h-100 shadow-sm" style="border-radius: 50%">
                         </div>
                     </div>
                     <form action="{{ route('admin.profiles.update', Auth::user()->id) }}" method="POST"
@@ -116,7 +116,7 @@
                         <div class="col-sm-auto col-4">
                             <div class="avatar avatar-xl position-relative">
                                 <img src="{{ Auth::user()->profile }}" alt="bruce"
-                                    class="w-100 rounded-circle shadow-sm">
+                                    class="w-100 h-100 shadow-sm" style="border-radius: 50%">
                             </div>
                         </div>
                         <div class="col-sm-auto col-8 my-auto">
@@ -188,7 +188,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="card mt-4" id="password">
+                        <div class="card mt-4 pb-5" id="password">
                             <div class="card-header">
                                 <h5>Change Password</h5>
                             </div>
