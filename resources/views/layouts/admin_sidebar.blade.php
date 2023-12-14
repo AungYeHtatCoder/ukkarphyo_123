@@ -9,7 +9,7 @@
         <ul class="nav ">
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('admin.profiles.index') }}">
-              <span class="sidenav-mini-icon"> MP </span>
+              <span class="sidenav-mini-icon"> <i class="fas fa-user-circle"></i> </span>
               <span class="sidenav-normal  ms-3  ps-1"> My Profile </span>
             </a>
           </li>
@@ -34,6 +34,18 @@
             <a class="nav-link text-white " href="{{ route('admin.banners.index') }}">
               <span class="sidenav-mini-icon"> <i class="fa-solid fa-panorama"></i> </span>
               <span class="sidenav-normal  ms-2  ps-1"> Banner </span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link text-white " href="{{ route('admin.games.index') }}">
+              <span class="sidenav-mini-icon"> <i class="fa-solid fa-gamepad"></i> </span>
+              <span class="sidenav-normal  ms-2  ps-1"> Game Links </span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link text-white " href="{{ route('admin.text.index') }}">
+              <span class="sidenav-mini-icon"> <i class="fa-solid fa-bullhorn"></i> </span>
+              <span class="sidenav-normal  ms-2  ps-1"> Banner Text </span>
             </a>
           </li>
 
