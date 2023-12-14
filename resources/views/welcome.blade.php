@@ -23,7 +23,7 @@
         </button>
     </div>
     <marquee behavior="" direction="">
-        {{ $marqueeText->text }}
+        {{ $marqueeText->text ?? "" }}
     </marquee>
     <!-- carousel -->
 
@@ -39,6 +39,7 @@
     <!-- 2D 3D -->
     <!-- other games -->
     <div class="row my-5">
+        
         @foreach ($games as $game)
         <div class="col-6 mb-4">
             <a href="{{ $game->link }}" target="__blank" class="text-decoration-none">
