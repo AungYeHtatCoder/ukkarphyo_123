@@ -42,10 +42,10 @@
   </div>
   <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-    <div class="input-group input-group-outline">
+    {{-- <div class="input-group input-group-outline">
      <label class="form-label">Search here</label>
      <input type="text" class="form-control">
-    </div>
+    </div> --}}
    </div>
    <ul class="navbar-nav  justify-content-end">
     {{-- <li class="nav-item">
@@ -57,14 +57,14 @@
             </li> --}}
     {{-- profile --}}
     <li class="nav-item dropdown pe-2">
-     <a href="javascript:;" class="nav-link text-body p-0 position-relative" id="dropdownMenuButton"
+     {{-- <a href="javascript:;" class="nav-link text-body p-0 position-relative" id="dropdownMenuButton"
       data-bs-toggle="dropdown" aria-expanded="false">
       <i class="material-icons me-sm-1">
        account_circle
       </i>
 
-     </a>
-     <ul class="dropdown-menu dropdown-menu-end p-2 me-sm-n4" aria-labelledby="dropdownMenuButton">
+     </a> --}}
+     {{-- <ul class="dropdown-menu dropdown-menu-end p-2 me-sm-n4" aria-labelledby="dropdownMenuButton">
       <li class="mb-2">
        <a class="dropdown-item border-radius-md" href="javascript:;">
         <div class="d-flex align-items-center py-1">
@@ -101,7 +101,7 @@
         </div>
        </a>
       </li>
-     </ul>
+     </ul> --}}
     </li>
     {{-- end profile --}}
     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -115,12 +115,12 @@
     </li>
     <li class="nav-item px-3">
      <a href="javascript:;" class="nav-link text-body p-0">
-      <i class="material-icons fixed-plugin-button-nav cursor-pointer">
+      <i class="material-icons fixed-plugin-button-nav cursor-pointer" style="font-size: 30px">
        settings
       </i>
      </a>
     </li>
-    <li class="nav-item dropdown pe-2">
+    {{-- <li class="nav-item dropdown pe-2">
      <a href="javascript:;" class="nav-link text-body p-0 position-relative" id="dropdownMenuButton"
       data-bs-toggle="dropdown" aria-expanded="false">
       <i class="material-icons cursor-pointer">
@@ -170,7 +170,7 @@
        </a>
       </li>
      </ul>
-    </li>
+    </li> --}}
 
 
    </ul>

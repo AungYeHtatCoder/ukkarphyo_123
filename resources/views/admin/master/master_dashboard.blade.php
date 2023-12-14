@@ -22,26 +22,25 @@
                  2D - 9:30 AM
                 </a>
               </li>
-                --
+            
               <li class="nav-item ms-1">
-                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-morning') }}" aria-selected="true" style="color: aliceblue">
+                <a class="nav-link mb-0 px-0 py-2 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-morning') }}" aria-selected="true" style="color: aliceblue">
                  2D - 12:1 PM
                 </a>
               </li>
-                --
               <li class="nav-item ms-1">
-                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                <a class="nav-link mb-0 px-0 py-2 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-evening-digit') }}" aria-selected="true" style="color: aliceblue">
                  2D - 2 PM
                 </a>
               </li>
-                --
+
               <li class="nav-item ms-1">
-                <a class="nav-link mb-0 px-0 py-1 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-evening-digit') }}" aria-selected="true" style="color: aliceblue">
+                <a class="nav-link mb-0 px-0 py-2 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-evening-digit') }}" aria-selected="true" style="color: aliceblue">
                  2D - 4:30 PM
                 </a>
               </li>
               <li class="nav-item ms-1">
-                <a class="nav-link mb-0 px-0 py-1 active btn btn-primary btn-sm" href="{{ url('/admin/agent-three-d-list') }}" aria-selected="true" style="color: aliceblue">
+                <a class="nav-link mb-0 px-0 py-2 active btn btn-primary btn-sm" href="{{ url('/admin/agent-three-d-list') }}" aria-selected="true" style="color: aliceblue">
                  3D
                 </a>
               </li>
