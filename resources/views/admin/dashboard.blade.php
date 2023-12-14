@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 {{-- 2d income row --}}
-<div class="row align-items-center">
+    {{-- <div class="row align-items-center">
         <div class="col-lg-12 col-sm-8">
           <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
@@ -23,19 +23,19 @@
                  2D - 9:30 AM
                 </a>
               </li>
-                
+
               <li class="nav-item ms-1">
                 <a class="nav-link mb-0 px-0 py-2 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-morning') }}" aria-selected="true" style="color: aliceblue">
                  2D - 12:1 PM
                 </a>
               </li>
-              
+
               <li class="nav-item ms-1">
                 <a class="nav-link mb-0 px-0 py-2 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-early-evening-digit') }}" aria-selected="true" style="color: aliceblue">
                  2D - 2 PM
                 </a>
               </li>
-              
+
               <li class="nav-item ms-1">
                 <a class="nav-link mb-0 px-0 py-2 active btn btn-info btn-sm" href="{{ url('/admin/agent-user-play-evening-digit') }}" aria-selected="true" style="color: aliceblue">
                  2D - 4:30 PM
@@ -46,14 +46,14 @@
                  3D
                 </a>
               </li>
-              
+
             </ul>
           </div>
         </div>
-      </div>
-<div class="row mt-4">
-   <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2">
+    </div> --}}
+        {{-- <div class="row mt-4">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">weekend</i>
@@ -67,13 +67,13 @@
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2">
+              <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">weekend</i>
@@ -87,14 +87,14 @@
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row mt-5">
+          </div> --}}
+          <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2">
+              <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">weekend</i>
@@ -111,7 +111,7 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-sm-0 mt-4">
-              <div class="card  mb-2">
+              <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">leaderboard</i>
@@ -128,7 +128,7 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
-              <div class="card  mb-2">
+              <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2 bg-transparent">
                   <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">store</i>
@@ -183,7 +183,7 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-sm-0 mt-4">
-              <div class="card  mb-2">
+              <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">leaderboard</i>
@@ -200,7 +200,7 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
-              <div class="card  mb-2">
+              <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2 bg-transparent">
                   <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">store</i>
@@ -239,8 +239,8 @@
           {{-- second row start --}}
           <div class="row mt-5">
             {{-- session two reset start 1 --}}
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2">
+            <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+              <div class="card  mb-2 p-3">
                 <div class="d-flex mt-n2">
                             <div class="avatar avatar-xl bg-gradient-dark border-radius-xl p-2 mt-n4">
                                 <img src="{{ asset('admin_app/assets/img/small-logos/logo-slack.svg') }}" alt="slack_logo">
@@ -270,8 +270,8 @@
             </div>
             {{-- session reset 1 end --}}
             {{-- session reset 2 start --}}
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2">
+            <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+              <div class="card  mb-2 p-3">
                 <div class="d-flex mt-n2">
                             <div class="avatar avatar-xl bg-gradient-dark border-radius-xl p-2 mt-n4">
                                 <img src="{{ asset('admin_app/assets/img/small-logos/logo-slack.svg') }}" alt="slack_logo">
@@ -300,8 +300,8 @@
               </div>
             </div>
             {{-- session reset 2 --}}
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
-              <div class="card  mb-2">
+            <div class="col-lg-6 col-md-6 col-sm-6 mb-5 mt-lg-0 mt-4">
+              <div class="card  mb-2 p-3">
                 <div class="d-flex mt-n2">
                             <div class="avatar avatar-xl bg-gradient-dark border-radius-xl p-2 mt-n4">
                                 <img src="{{ asset('admin_app/assets/img/small-logos/logo-slack.svg') }}" alt="slack_logo">
@@ -314,7 +314,7 @@
                                         <img alt="Image placeholder" src="{{ asset('admin_app/assets/img/team-3.jpg') }}"
                                             class="">
                                     </a>
-                                    
+
                                         <form action="{{ route('admin.OpenCloseTwoD' , $lottery_matches->id) }}" method="post">
                                             @csrf
                                             @method('PUT')
@@ -328,7 +328,7 @@
                                             </div>
                                             <button class="btn btn-primary" type="submit">Open / Close</button>
                                         </form>
-                                    
+
                                 </div>
                             </div>
 
@@ -339,8 +339,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
-              <div class="card ">
+            <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+              <div class="card p-3">
                 {{-- 3d reset --}}
                 <div class="d-flex mt-n2">
                             <div class="avatar avatar-xl bg-gradient-dark border-radius-xl p-2 mt-n4">
