@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Admin\BannerText;
+use App\Models\Admin\Game;
 use App\Models\Admin\Promotion;
 use App\Models\User;
 use GuzzleHttp\Client;
@@ -60,6 +62,8 @@ class WelcomeController extends Controller
     public function index()
     {
         $banners = Banner::latest()->take(3)->get();
+        $games = Game::latest()->get();
+        $marqueeText = BannerText::latest()->first();
         //$twoDigits = TwoDigit::all();
         $client = new Client();
 
@@ -74,10 +78,7 @@ class WelcomeController extends Controller
             return response()->json($data);
         }
 
-        return view('welcome', compact('data', 'banners'));
-
-
-
+        return view('welcome', compact('data', 'banners', 'games', 'marqueeText'));
     }
 
     public function wallet()

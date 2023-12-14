@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\User\WalletController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BannerTextController;
+use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\User\WelcomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PlayTwoDController;
@@ -117,12 +119,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/agent-three-d-list', [App\Http\Controllers\Admin\Agent\AgentThreeDListController::class, 'index'])->name('agent-three-d-list');
   // agent 3d list show route
   Route::get('/agent-three-d-list-show/{id}', [App\Http\Controllers\Admin\Agent\AgentThreeDListController::class, 'show'])->name('agent-three-d-list-show');
-  
+
   Route::get('/two-d-users', [App\Http\Controllers\Admin\TwoUsersController::class, 'index'])->name('two-d-users-index');
   // details route
   Route::get('/two-d-users/{id}', [App\Http\Controllers\Admin\TwoUsersController::class, 'show'])->name('two-d-users-details');
   //Banners
   Route::resource('banners', BannerController::class);
+  Route::resource('games', GameController::class);
+  Route::resource('text', BannerTextController::class);
   // profile resource rotues
   Route::resource('profiles', ProfileController::class);
   // user profile route get method

@@ -22,7 +22,9 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <marquee behavior="" direction="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, aperiam! Facere itaque, blanditiis fugit eius quas non perspiciatis velit exercitationem?</marquee>
+    <marquee behavior="" direction="">
+        {{ $marqueeText->text }}
+    </marquee>
     <!-- carousel -->
 
     <!-- 2D 3D -->
@@ -37,12 +39,16 @@
     <!-- 2D 3D -->
     <!-- other games -->
     <div class="row my-5">
+        @foreach ($games as $game)
         <div class="col-6 mb-4">
-            <a href="">
-                <img src="https://www.ibet168mm.com/wp-content/uploads/2021/09/photo_2021-09-15_11-16-04-1-1024x576.jpg" width="100%" class="rounded-4" alt="">
+            <a href="{{ $game->link }}" target="__blank" class="text-decoration-none">
+                <img src="{{ $game->img_url }}" width="100%" class="rounded-4" alt="">
+                <span class="d-block text-center text-white mt-2">{{ $game->name }}</span>
             </a>
         </div>
-        <div class="col-6 mb-4">
+        @endforeach
+
+        {{-- <div class="col-6 mb-4">
             <a href="">
                 <img src="https://play-lh.googleusercontent.com/A79HwIntW458PJDXnIjlzGU8N6NM9H_a6FK01eh6HQtLdzPt4FY3ENUSCEPh2M5NWg=w526-h296-rw" width="100%" class="rounded-4" alt="">
             </a>
@@ -66,7 +72,7 @@
             <a href="">
                 <img src="https://myanmarslotgame.com/wp-content/uploads/2023/03/photo_4_2023-02-22_23-26-57-1024x576.jpg" width="100%" class="rounded-4" alt="">
             </a>
-        </div>
+        </div> --}}
     </div>
     <!-- other games -->
 
