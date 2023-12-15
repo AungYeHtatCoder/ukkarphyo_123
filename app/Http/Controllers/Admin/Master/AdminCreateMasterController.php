@@ -114,37 +114,6 @@ public function MastertransferStore(Request $request)
 
     return redirect()->back()->with('success', 'Money fill request submitted successfully!');
 }
-//     public function MastertransferStore(Request $request)
-// {
-//     $request->validate([
-//         'name' => 'required|min:3',
-//         'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
-//         'cash_in' => 'required|numeric',
-//     ]);
-
-//     // Create a new TransferLog record
-//     $transfer_master = new TransferLog();
-//     $transfer_master->name = $request->name;
-//     $transfer_master->phone = $request->phone;
-//     $transfer_master->cash_in = $request->cash_in;
-//     $transfer_master->cash_balance = 0;
-//     $transfer_master->from_user_id = $request->from_user_id;
-//     $transfer_master->to_user_id = $request->to_user_id;
-//     $transfer_master->note = $request->note;
-//     $transfer_master->save();
-
-//     $user = User::find($request->to_user_id);
-//         $user->balance += $request->cash_in;
-//         $user->save();
-//     $master = TransferLog::find($request->to_user_id);
-//     if ($master) {
-//         $master->update(['cash_balance' => $master->cash_balance + $request->cash_in]);
-        
-//         return redirect()->back()->with('success', 'Money fill request submitted successfully!');
-//     } else {
-//         return redirect()->back()->with('error', 'TransferLog record not found.');
-//     }
-// }
 
     public function MasterCashOutStore(Request $request)
     {
@@ -153,14 +122,16 @@ public function MastertransferStore(Request $request)
             'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
             'cash_out' => 'required|numeric',
         ]);
+        //dd($request->all());
         // subtract from cash_in to cash_out
-        $cash_in_data = $request->cash_in;
+        $cash_balance_data = $request->cash_balance;
         $cash_out_data = $request->cash_out;
-        $cash_out = $cash_in_data - $cash_out_data;
+        $cash_out_money = $cash_balance_data - $cash_out_data;
         $cash_out_master = new TransferLog();
         $cash_out_master->name = $request->name;
         $cash_out_master->phone = $request->phone;
-        $cash_out_master->cash_out = $cash_out;
+        $cash_out_master->cash_out = $request->cash_out;
+        $cash_out_master->cash_balance = $cash_out_money;
         $cash_out_master->from_user_id = $request->from_user_id;
         $cash_out_master->to_user_id = $request->to_user_id;
         $cash_out_master->note = $request->note;

@@ -50,17 +50,10 @@
             </ul>
           </div>
         </div>
-<<<<<<< HEAD
-      </div>
-  {{-- <div class="row mt-4">
-   <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2">
-=======
     </div> --}}
         {{-- <div class="row mt-4">
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2 p-3">
->>>>>>> 5ee62ae9c686498646775b9607752d28044489ae
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">weekend</i>
@@ -74,11 +67,7 @@
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-<<<<<<< HEAD
-                 
-=======
                   <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
->>>>>>> 5ee62ae9c686498646775b9607752d28044489ae
                 </div>
               </div>
             </div>
@@ -98,20 +87,12 @@
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-<<<<<<< HEAD
-                  
-=======
                   <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
->>>>>>> 5ee62ae9c686498646775b9607752d28044489ae
                 </div>
               </div>
             </div>
           </div> --}}
-<<<<<<< HEAD
-          <div class="row mt-5"> 
-=======
           <div class="row">
->>>>>>> 5ee62ae9c686498646775b9607752d28044489ae
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2 p-3">
                 <div class="card-header p-3 pt-2">

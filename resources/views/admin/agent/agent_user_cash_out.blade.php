@@ -63,14 +63,14 @@
  <div class="col-lg-12">
   <div class="container mt-2">
    <div class="d-flex justify-content-between">
-    <h6>Master Information -- <span>
-    Master ID : {{ $transfer_user->id }} 
+    <h6>User Information -- <span>
+    User ID : {{ $transfer_user->id }} 
     </span>
    <span>
-    Master Balance : 
+    User Balance : 
    </span>
    </h6>
-    <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/real-live-master-list') }}">
+    <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/agent-user-list') }}">
      <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
     </a>
    </div>
@@ -123,7 +123,7 @@
     <div class="card-header pb-0">
      <div class="d-lg-flex">
       <div>
-       <h5 class="mb-0">Master - {{ $logs->name }} ထံမှ ငွေထုတ်ယူမည် || 
+       <h5 class="mb-0">Agent &nbsp; &nbsp; {{ Auth::user()->name }} &nbsp; &nbsp;  - {{ $logs->name }} ထံမှ ငွေထုတ်ယူမည် || 
         <span>Current Balance - {{ $logs->cash_balance }} MMK ||
           <span id="current_date"></span>
         </span>
@@ -132,7 +132,7 @@
       </div>
       <div class="ms-auto my-auto mt-lg-0 mt-4">
        <div class="ms-auto my-auto">
-        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/real-live-master-list') }}">
+        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/agent-user-list') }}">
          <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
         </a>
 
@@ -141,12 +141,12 @@
      </div>
     </div>
     <div class="card-body">
-    <form action="{{ route('admin.real-master-cash-out-store') }}" method="POST">
+    <form action="{{ route('admin.agent-user-cash-out-store') }}" method="POST">
       @csrf
   <div class="row">
     <div class="col-md-6">
       <div class="input-group input-group-outline is-valid my-3">
-        <label class="form-label">Master Real Name</label>
+        <label class="form-label"> Real User Name</label>
         <input type="text" class="form-control" name="name" value="{{ $transfer_user->name }}" readonly>
          
       </div>
@@ -177,7 +177,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="input-group input-group-outline is-valid my-3">
-        <label class="form-label">Master ထံမှငွေနုတ်ယူမည့်ပမာဏ</label>
+        <label class="form-label">User ထံမှငွေနုတ်ယူမည့်ပမာဏ</label>
         <input type="text" class="form-control" name="cash_out" required>
       </div>
       @error('cash_out')
@@ -199,7 +199,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="input-group input-group-outline is-valid my-3">
-        <button type="submit" class="btn btn-primary">Master ထံမှ ငွေထုတ်ယူမည်</button>
+        <button type="submit" class="btn btn-primary">User ထံမှ ငွေထုတ်ယူမည်</button>
       </div>
     </div>
   </div>
@@ -212,7 +212,7 @@
   <div class="col-md-12">
    <div class="card">
     <div class="card-header">
-     <h4>Admin To Master Transfer History</h4>
+     <h4>Agent To User Transfer History</h4>
     </div>
     <div class="card-body">
     

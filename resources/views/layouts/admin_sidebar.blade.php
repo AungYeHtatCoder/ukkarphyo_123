@@ -179,7 +179,7 @@
               <div class="collapse " id="masterControl">
                 <ul class="nav nav-sm flex-column">
                   <li class="nav-item">
-                    <a class="nav-link text-white " href="{{ route('admin.agent-list')}}">
+                    <a class="nav-link text-white " href="{{ route('admin.agent-user-list')}}">
                       <span class="sidenav-mini-icon"> <i class="fas fa-users"></i> </span>
                       <span class="sidenav-normal  ms-2  ps-1"> User Lists </span>
                     </a>

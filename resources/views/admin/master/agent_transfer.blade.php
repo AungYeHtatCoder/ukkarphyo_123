@@ -63,14 +63,10 @@
  <div class="col-lg-12">
   <div class="container mt-2">
    <div class="d-flex justify-content-between">
-    <h6>Master Information -- <span>
-    Master ID : {{ $transfer_user->id }} 
-    </span>
-   <span>
-    Master Balance : 
-   </span>
-   </h6>
-    <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/real-live-master-list') }}">
+    <h4>Agent Information -- <span>
+    Agent ID : {{ $transfer_user->id }} 
+    </span></h4>
+    <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/agent-list') }}">
      <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
     </a>
    </div>
@@ -114,7 +110,6 @@
   </div>
  </div>
  
- 
 </div>
 <div class="row mt-4">
  <div class="col-lg-12">
@@ -123,16 +118,12 @@
     <div class="card-header pb-0">
      <div class="d-lg-flex">
       <div>
-       <h5 class="mb-0">Master - {{ $logs->name }} ထံမှ ငွေထုတ်ယူမည် || 
-        <span>Current Balance - {{ $logs->cash_balance }} MMK ||
-          <span id="current_date"></span>
-        </span>
-       </h5>
+       <h5 class="mb-0">Agent ထံသို့ ငွေလွဲပေးမည်</h5>
 
       </div>
       <div class="ms-auto my-auto mt-lg-0 mt-4">
        <div class="ms-auto my-auto">
-        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/real-live-master-list') }}">
+        <a class="btn btn-icon btn-2 btn-primary" href="{{ url('/admin/agent-list') }}">
          <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
         </a>
 
@@ -141,12 +132,12 @@
      </div>
     </div>
     <div class="card-body">
-    <form action="{{ route('admin.real-master-cash-out-store') }}" method="POST">
+    <form action="{{ route('admin.agent-transfer-store') }}" method="POST">
       @csrf
   <div class="row">
     <div class="col-md-6">
       <div class="input-group input-group-outline is-valid my-3">
-        <label class="form-label">Master Real Name</label>
+        <label class="form-label">Agent Real Name</label>
         <input type="text" class="form-control" name="name" value="{{ $transfer_user->name }}" readonly>
          
       </div>
@@ -167,20 +158,15 @@
   </div>
   <input type="hidden" name="from_user_id" value="{{ Auth::user()->id }}">
   <input type="hidden" name="to_user_id" value="{{ $transfer_user->id }}">
-  {{-- cash_in hidden --}}
-  <div class="row">
-   <div class="col-md-6">
-    <input type="hidden" name="cash_balance" value="{{ $logs->cash_balance }}">
-   </div>
-  </div>
-   
   <div class="row">
     <div class="col-md-6">
       <div class="input-group input-group-outline is-valid my-3">
-        <label class="form-label">Master ထံမှငွေနုတ်ယူမည့်ပမာဏ</label>
-        <input type="text" class="form-control" name="cash_out" required>
+        <label class="form-label">Agent ထံသို့ ငွေလွဲပေးမည့်ပမာဏ</label>
+        <input type="text" class="form-control" name="cash_in">
+         
+         
       </div>
-      @error('cash_out')
+      @error('cash_in')
          <span class="d-block text-danger">*{{ $message }}</span>
          @enderror
     </div>
@@ -199,7 +185,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="input-group input-group-outline is-valid my-3">
-        <button type="submit" class="btn btn-primary">Master ထံမှ ငွေထုတ်ယူမည်</button>
+        <button type="submit" class="btn btn-primary">Agent ထံသို့ ငွေလွဲပေးမည်</button>
       </div>
     </div>
   </div>
@@ -208,55 +194,7 @@
    </div>
  </div>
 </div>
-<div class="row mt-4">
-  <div class="col-md-12">
-   <div class="card">
-    <div class="card-header">
-     <h4>Admin To Master Transfer History</h4>
-    </div>
-    <div class="card-body">
-    
-    <table class="table">
-      <tr>
-        <th>#</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Cash In</th>
-        <th>Cash Out</th>
-        <th>Note</th>
-        <th>Date</th>
-      </tr>
-     <tbody> 
-       @foreach ($transfer_logs as $index => $log)
-            <tr>
-                <td>{{ $index + 1 }}</td>
-                <td>{{ $log->fromUser->name }} </td>
-                <td>{{ $log->toUser->name }}</td>
-                <td>
-                  @if ($log->cash_in == null)
-                      ----
-                  @else
-                      {{ $log->cash_in }}
-                  @endif
-                </td>
-                <td>
-                  @if ($log->cash_out == null)
-                      ----
-                  @else
-                      {{ $log->cash_out }}
-                  @endif
-                </td>
-                <td>{{ $log->note }}</td>
-                <td>{{ $log->created_at->format('d-m-Y H:i:s') }}</td>
-            </tr>
-        @endforeach
-     </tbody>
-    </table>
-    
-    </div>
-   </div>
-  </div>
- </div>
+
 
 @endsection
 @section('scripts')
@@ -274,12 +212,5 @@ if (document.getElementById('choices-tags-edit')) {
  });
 }
 </script>
-<script>
-var d = new Date();
-var date = d.getDate();
-var month = d.getMonth() + 1;
-var year = d.getFullYear();
-var output = date + '-' + (month<10 ? '0' : '') + month + '-' + year;
-document.getElementById('current_date').innerHTML = output;
-</script>
+
 @endsection

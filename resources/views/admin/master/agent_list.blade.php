@@ -43,6 +43,7 @@
       <th>Role</th>
       <th>Created_at</th>
       <th>Action</th>
+      <th>Transfer</th>
      </thead>
      <tbody>
       @foreach ($users as $user)
@@ -73,6 +74,16 @@
 
         </form>
        </td>
+        <td>
+          <a href="{{ route('admin.agent-transfer', $user->id) }}" data-bs-toggle="tooltip"
+          data-bs-original-title="Transfer To Agent" class="btn btn-info btn-sm"><i
+            class="material-icons-round text-secondary position-relative text-lg">swap_horiz</i>ငွေလွဲမည်</a>
+            <a href="{{ route('admin.agent-cash-out', $user->id) }}" data-bs-toggle="tooltip"
+          data-bs-original-title="Cash Out From Agent" class="btn btn-warning btn-sm">
+              <i class="material-icons-round text-secondary position-relative text-lg">swap_horiz</i>ငွေထုတ်မည်
+            </a>
+        </td>
+
       </tr>
       @endforeach
      </tbody>

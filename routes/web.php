@@ -98,6 +98,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/agent-show/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'show'])->name('agent-show');
   // agent delete route
   Route::delete('/agent-delete/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'destroy'])->name('agent-delete');
+  // agent transfer route
+  Route::get('/agent-transfer/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'transfer'])->name('agent-transfer');
+  // store agent transfer route
+  Route::post('/agent-transfer-store', [App\Http\Controllers\Admin\Master\MasterController::class, 'AgenttransferStore'])->name('agent-transfer-store');
+  // agent cash out route
+  Route::get('/agent-cash-out/{id}', [App\Http\Controllers\Admin\Master\MasterController::class, 'transferCashOut'])->name('agent-cash-out');
+  // store agent cash out route
+  Route::post('/agent-cash-out-store', [App\Http\Controllers\Admin\Master\MasterController::class, 'AgentCashOutStore'])->name('agent-cash-out-store');
     Route::resource('/promotions', PromotionController::class);
   // agent user list route
   Route::get('/agent-user-list', [App\Http\Controllers\Admin\Agent\AgentController::class, 'index'])->name('agent-user-list');
@@ -113,6 +121,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/agent-user-show/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'show'])->name('agent-user-show');
   // agent user delete route
   Route::delete('/agent-user-delete/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'destroy'])->name('agent-user-delete');
+  // agent user transfer route
+  Route::get('/agent-user-transfer/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'transfer'])->name('agent-user-transfer');
+  // store agent user transfer route
+  Route::post('/agent-user-transfer-store', [App\Http\Controllers\Admin\Agent\AgentController::class, 'AgentUsertransferStore'])->name('agent-user-transfer-store');
+  // agent user cash out route
+  Route::get('/agent-user-cash-out/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'transferCashOut'])->name('agent-user-cash-out');
+  // store agent user cash out route
+  Route::post('/agent-user-cash-out-store', [App\Http\Controllers\Admin\Agent\AgentController::class, 'AgentUserCashOutStore'])->name('agent-user-cash-out-store');
+  // get all transfer log route 
+  Route::get('/get-all-transfer-log', [App\Http\Controllers\Admin\Agent\AgentController::class, 'getAllTransferLog'])->name('get-all-transfer-log');
   // agent user play early morning 9:30 am route
   Route::get('/agent-user-play-early-morning', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEarlyMorning'])->name('agent-user-play-early-morning');
   // agent user play morning 12:00 pm route
