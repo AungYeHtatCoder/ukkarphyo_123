@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
                 'name'           => 'Admin',
                 'phone'          => '09123456789',
                 'password'       => '$2y$10$qyxYm.2dlaXROvs0OrGHseo4qbeissRMqNWdhlcr/vUqE62vN94Fi', // password
+                'agent_id'       => 1,
                 'remember_token' => null,
                 'created_at'     => '2019-09-10 14:00:26',
                 'updated_at'     => '2019-09-10 14:00:26',
@@ -28,6 +29,7 @@ class UsersTableSeeder extends Seeder
                 'name'           => 'Master',
                 'phone'          => '09112345678',
                 'password'       => '$2y$10$qyxYm.2dlaXROvs0OrGHseo4qbeissRMqNWdhlcr/vUqE62vN94Fi', // password
+                'agent_id'       => 2,
                 'remember_token' => null,
                 'created_at'     => '2023-08-14 14:00:26',
                 'updated_at'     => '2023-08-14 14:00:26',
@@ -37,6 +39,7 @@ class UsersTableSeeder extends Seeder
                 'name'           => 'Agent',
                 'phone'          => '09223456789',
                 'password'       => '$2y$10$qyxYm.2dlaXROvs0OrGHseo4qbeissRMqNWdhlcr/vUqE62vN94Fi', // password
+                'agent_id'       => 3,
                 'remember_token' => null,
                 'created_at'     => '2023-08-14 14:00:26',
                 'updated_at'     => '2023-08-14 14:00:26',
@@ -47,6 +50,7 @@ class UsersTableSeeder extends Seeder
                 'name'           => 'User',
                 'phone'          => '09334567899',
                 'password'       => '$2y$10$qyxYm.2dlaXROvs0OrGHseo4qbeissRMqNWdhlcr/vUqE62vN94Fi', // password
+                'agent_id'       => 4,
                 'remember_token' => null,
                 'created_at'     => '2023-08-14 14:00:26',
                 'updated_at'     => '2023-08-14 14:00:26',

@@ -9,13 +9,13 @@
           <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
               <li class="nav-item">
-                <a class="nav-link mb-0 px-0 py-2 active btn btn-primary" href="{{ url('/admin/agent-create') }}" aria-selected="true" style="color: aliceblue">
-                  + New Agent Create
+                <a class="nav-link mb-0 px-0 py-2 active btn btn-primary" href="{{ url('/admin/real-live-master-create') }}" aria-selected="true" style="color: aliceblue">
+                  + New Master Create
                 </a>
               </li>
               <li class="nav-item ms-1">
-                <a class="nav-link mb-0 px-0 py-2 active btn btn-info" href="{{ url('/admin/agent-list') }}" aria-selected="true" style="color: aliceblue">
-                   Agent List
+                <a class="nav-link mb-0 px-0 py-2 active btn btn-info" href="{{ url('/admin/real-live-master-list') }}" aria-selected="true" style="color: aliceblue">
+                   Master List
                 </a>
               </li>
               <li class="nav-item ms-1">
@@ -51,7 +51,7 @@
           </div>
         </div>
       </div>
-<div class="row mt-4">
+  {{-- <div class="row mt-4">
    <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2">
                 <div class="card-header p-3 pt-2">
@@ -67,7 +67,7 @@
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+                 
                 </div>
               </div>
             </div>
@@ -87,12 +87,12 @@
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+                  
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row mt-5">
+          </div> --}}
+          <div class="row mt-5"> 
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2">
                 <div class="card-header p-3 pt-2">

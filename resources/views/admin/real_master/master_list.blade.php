@@ -43,6 +43,7 @@
       <th>Role</th>
       <th>Created_at</th>
       <th>Action</th>
+      <th>Transfer</th>
      </thead>
      <tbody>
       @foreach ($users as $user)
@@ -72,6 +73,19 @@
          </button>
 
         </form>
+       </td>
+       <td>
+        <a href="{{ route('admin.real-master-transfer', $user->id) }}" data-bs-toggle="tooltip"
+         data-bs-original-title="Cash IN To Master" class="btn btn-info btn-sm">
+         {{-- <i class="material-icons text-secondary position-relative text-lg" style="font-size: 25px">currency_exchange</i> --}}
+         ငွေလွဲမည်
+        </a>
+        <a href="{{ route('admin.real-master-cash-out', $user->id) }}" data-bs-toggle="tooltip"
+         data-bs-original-title="Cash Out To Master" class="btn btn-warning btn-sm">
+         {{-- <i class="material-icons text-secondary position-relative text-lg" style="font-size: 25px">currency_exchange</i> --}}
+         ငွေထုတ်မည်
+        </a>
+
        </td>
       </tr>
       @endforeach

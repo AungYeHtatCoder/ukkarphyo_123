@@ -74,6 +74,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/real-live-master-show/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'show'])->name('real-live-master-show');
   // master delete route
   Route::delete('/real-live-master-delete/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'destroy'])->name('real-live-master-delete');
+  // real master transfer route
+  Route::get('/real-master-transfer/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'transfer'])->name('real-master-transfer');
+  // store real master transfer route
+  Route::post('/real-master-transfer-store', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'MastertransferStore'])->name('real-master-transfer-store');
+  // real master cash out route
+  Route::get('/real-master-cash-out/{id}', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'transferCashOut'])->name('real-master-cash-out');
+  // store real master cash out route
+  Route::post('/real-master-cash-out-store', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'MasterCashOutStore'])->name('real-master-cash-out-store');
   // agent list route
   Route::get('/agent-list', [App\Http\Controllers\Admin\Master\MasterController::class, 'index'])->name('agent-list');
   // agent create route
