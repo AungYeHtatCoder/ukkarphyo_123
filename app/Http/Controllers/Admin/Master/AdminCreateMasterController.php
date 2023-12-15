@@ -107,6 +107,9 @@ public function MastertransferStore(Request $request)
     $user = User::find($request->to_user_id);
     $user->balance += $request->cash_in;
     $user->save();
+     $admin = User::find($request->from_user_id);
+        $admin->balance -= $request->cash_in;
+        $admin->save();
 
     // Update cash_balance in TransferLog with the new user balance
     $transfer_master->cash_balance = $user->balance;
