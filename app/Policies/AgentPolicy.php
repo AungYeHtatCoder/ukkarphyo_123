@@ -38,16 +38,21 @@ class AgentPolicy
         // Only Admin, Master, and Agent can create a User
         return $user->hasRole('Admin') || $user->hasRole('Master') || $user->hasRole('Agent');
     }
-//     public function createUser(User $user)
-// {
-//     Log::info("Role check for user: " . $user->id);
-//     Log::info("Has Agent Role: " . $user->hasRole('Agent'));
-
-//     return $user->hasRole('Admin') || $user->hasRole('Master') || $user->hasRole('Agent')
-//         ? Response::allow()
-//         : Response::deny('You do not have permission to create a user.');
-// }
-
-
+    
     // ... other methods for update, view, delete, etc.
+    // admin only view 
+    public function viewAdminTransferLog(User $user)
+    {
+        return $user->hasRole('Admin');
+    }
+    // master only view
+    public function viewMasterTransferLog(User $user)
+    {
+        return $user->hasRole('Master');
+    }
+    // agent only view
+    public function viewAgentTransferLog(User $user)
+    {
+        return $user->hasRole('Agent');
+    }
 }

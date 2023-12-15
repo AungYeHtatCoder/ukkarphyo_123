@@ -130,7 +130,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   // store agent user cash out route
   Route::post('/agent-user-cash-out-store', [App\Http\Controllers\Admin\Agent\AgentController::class, 'AgentUserCashOutStore'])->name('agent-user-cash-out-store');
   // get all transfer log route 
-  Route::get('/get-all-transfer-log', [App\Http\Controllers\Admin\Agent\AgentController::class, 'getAllTransferLog'])->name('get-all-transfer-log');
+  Route::get('/get-all-admin-to-master-transfer-log', [App\Http\Controllers\Admin\Transfer\TransferLogController::class, 'AdminToMasterTransferLog'])->name('get-all-admin-master-transfer-log');
+  // get all master to agent transfer log route
+  Route::get('/get-all-master-to-agent-transfer-log', [App\Http\Controllers\Admin\Transfer\TransferLogController::class, 'MasterToAgentTransferLog'])->name('get-all-master-agent-transfer-log');
+  // get all agent to user transfer log route
+  Route::get('/get-all-agent-to-user-transfer-log', [App\Http\Controllers\Admin\Transfer\TransferLogController::class, 'AgentToUserTransferLog'])->name('get-all-agent-user-transfer-log');
   // agent user play early morning 9:30 am route
   Route::get('/agent-user-play-early-morning', [App\Http\Controllers\Admin\Agent\GetEarlyMorning2DPlayUserByAgentController::class, 'playEarlyMorning'])->name('agent-user-play-early-morning');
   // agent user play morning 12:00 pm route

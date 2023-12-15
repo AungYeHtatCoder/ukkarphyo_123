@@ -108,6 +108,12 @@
                       <span class="sidenav-normal  ms-2  ps-1"> 3D </span>
                     </a>
                   </li>
+                   <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-admin-to-master-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> T L </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> TransferLog </span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -161,6 +167,12 @@
                       <span class="sidenav-normal  ms-2  ps-1"> 3D </span>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-master-to-agent-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> T L </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> TransferLog </span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -212,6 +224,12 @@
                     <a class="nav-link text-white " href="{{ url('/admin/agent-three-d-list') }}">
                       <span class="sidenav-mini-icon"> 3D </span>
                       <span class="sidenav-normal  ms-2  ps-1"> 3D </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-agent-to-user-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> T L </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> TransferLog </span>
                     </a>
                   </li>
                 </ul>

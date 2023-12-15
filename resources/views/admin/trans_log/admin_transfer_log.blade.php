@@ -37,13 +37,32 @@
    <div class="table-responsive">
     <table class="table table-flush" id="users-search">
      <thead class="thead-light">
-      <th>#</th>
-      <th>UserName</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Created_at</th>
-      <th>Action</th>
-     </thead>
+      
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>From User</th>
+            <th>To User</th>
+            <th>Cash In</th>
+            <th>Cash Out</th>
+            <th>Cash Balance</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($transferLogs as $log)
+            <tr>
+                <td>{{ $log->name }}</td>
+                <td>{{ $log->phone }}</td>
+                <td>{{ $log->fromUser->name }}</td>
+                <td>{{ $log->toUser->name }}</td>
+                <td>{{ $log->cash_in }}</td>
+                <td>{{ $log->cash_out }}</td>
+                <td>{{ $log->cash_balance }}</td>
+                <td>{{ $log->note }}</td>
+            </tr>
+        @endforeach
+    </tbody>
      
     </table>
    </div>
