@@ -3,7 +3,7 @@
 
 @endsection
 @section('content')
-<div class="row align-items-center">
+    {{-- <div class="row align-items-center">
         <div class="col-lg-12 col-sm-8">
           <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
@@ -41,12 +41,12 @@
                  3D
                 </a>
               </li>
-              
+
             </ul>
           </div>
         </div>
-      </div>
-<div class="row mt-4">
+    </div> --}}
+    <div class="row">
         <div class="col-sm-4">
           <div class="card">
             <div class="card-body p-3 position-relative">
@@ -79,30 +79,33 @@
             <div class="card-body p-3 position-relative">
               <div class="row">
                 <div class="col-7 text-start">
-                  <p class="text-sm mb-1 text-capitalize font-weight-bold">Total Customers</p>
+                    <p class="text-sm mb-1 text-capitalize font-weight-bold">
+                        <i class="fas fa-users"></i>
+                        ထိုးသား ဦးရေ
+                    </p>
                   <h5 class="font-weight-bolder mb-0">
                     {{-- count  --}}
                     {{ count($agentIds) }}
                   </h5>
                   {{-- <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">+12% <span class="font-weight-normal text-secondary">since last month</span></span> --}}
                 </div>
-                <div class="col-5">
+                {{-- <div class="col-5">
                   <div class="dropdown text-end">
                     <a href="javascript:;" class="cursor-pointer text-secondary" id="dropdownUsers2" data-bs-toggle="dropdown" aria-expanded="false">
-                      {{-- <span class="text-xs text-secondary">6 May - 7 May</span> --}}
+                      <span class="text-xs text-secondary">6 May - 7 May</span>
                     </a>
-                    {{-- <ul class="dropdown-menu dropdown-menu-end px-2 py-3" aria-labelledby="dropdownUsers2">
+                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3" aria-labelledby="dropdownUsers2">
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last 7 days</a></li>
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last week</a></li>
                       <li><a class="dropdown-item border-radius-md" href="javascript:;">Last 30 days</a></li>
-                    </ul> --}}
+                    </ul>
                   </div>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-4 mt-sm-0 mt-4">
+        {{-- <div class="col-sm-4 mt-sm-0 mt-4">
           <div class="card">
             <div class="card-body p-3 position-relative">
               <div class="row">
@@ -128,10 +131,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> --}}
+      {{-- </div>
            <div class="row mt-5">
-            
+
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2">
                 <div class="card-header p-3 pt-2">
@@ -238,7 +241,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
 @endsection
 @section('scripts')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

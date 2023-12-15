@@ -9,7 +9,7 @@
         <ul class="nav ">
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('admin.profiles.index') }}">
-              <span class="sidenav-mini-icon"> MP </span>
+              <span class="sidenav-mini-icon"> <i class="fas fa-user-circle"></i> </span>
               <span class="sidenav-normal  ms-3  ps-1"> My Profile </span>
             </a>
           </li>
@@ -30,22 +30,199 @@
               <span class="sidenav-normal  ms-2  ps-1"> Dashboard </span>
             </a>
           </li>
+          @can('admin_access')
           <li class="nav-item ">
             <a class="nav-link text-white " href="{{ route('admin.banners.index') }}">
               <span class="sidenav-mini-icon"> <i class="fa-solid fa-panorama"></i> </span>
               <span class="sidenav-normal  ms-2  ps-1"> Banner </span>
             </a>
           </li>
-
+          <li class="nav-item ">
+            <a class="nav-link text-white " href="{{ route('admin.games.index') }}">
+              <span class="sidenav-mini-icon"> <i class="fa-solid fa-gamepad"></i> </span>
+              <span class="sidenav-normal  ms-2  ps-1"> Game Links </span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link text-white " href="{{ route('admin.text.index') }}">
+              <span class="sidenav-mini-icon"> <i class="fa-solid fa-bullhorn"></i> </span>
+              <span class="sidenav-normal  ms-2  ps-1"> Banner Text </span>
+            </a>
+          </li>
           <li class="nav-item ">
             <a class="nav-link text-white " href="{{ route('admin.promotions.index') }}">
               <span class="sidenav-mini-icon"> <i class="fas fa-gift"></i> </span>
               <span class="sidenav-normal  ms-2  ps-1"> Promotions </span>
             </a>
           </li>
+          @endcan
+
         </ul>
       </div>
     </li>
+    @foreach (Auth::user()->roles as $role)
+    @if($role->title == "Admin")
+    <li class="nav-item">
+        <a data-bs-toggle="collapse" href="#masterControl" class="nav-link text-white" aria-controls="pagesExamples" role="button" aria-expanded="false">
+          <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">manage_accounts</i>
+          <span class="nav-link-text ms-2 ps-1">Admin Control</span>
+        </a>
+        <div class="collapse show" id="pagesExamples">
+          <ul class="nav">
+            <li class="nav-item ">
+              <div class="collapse " id="masterControl">
+                <ul class="nav nav-sm flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/real-live-master-list')}}">
+                      <span class="sidenav-mini-icon"> <i class="fas fa-users"></i> </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> Master Lists </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-early-morning') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 09:30AM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-morning') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 12:01PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-early-evening-digit') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 02:01PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-evening-digit') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 04:30PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-three-d-list') }}">
+                      <span class="sidenav-mini-icon"> 3D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 3D </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </li>
+    @elseif($role->title == "Master")
+    <li class="nav-item">
+        <a data-bs-toggle="collapse" href="#masterControl" class="nav-link text-white" aria-controls="pagesExamples" role="button" aria-expanded="false">
+          <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">manage_accounts</i>
+          <span class="nav-link-text ms-2 ps-1">Master Control</span>
+        </a>
+        <div class="collapse show" id="pagesExamples">
+          <ul class="nav">
+            <li class="nav-item ">
+              <div class="collapse " id="masterControl">
+                <ul class="nav nav-sm flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ route('admin.agent-list')}}">
+                      <span class="sidenav-mini-icon"> <i class="fas fa-users"></i> </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> Agent Lists </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-early-morning') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 09:30AM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-morning') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 12:01PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-early-evening-digit') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 02:01PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-evening-digit') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 04:30PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-three-d-list') }}">
+                      <span class="sidenav-mini-icon"> 3D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 3D </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </li>
+    @elseif($role->title == "Agent")
+    <li class="nav-item">
+        <a data-bs-toggle="collapse" href="#masterControl" class="nav-link text-white" aria-controls="pagesExamples" role="button" aria-expanded="false">
+          <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">manage_accounts</i>
+          <span class="nav-link-text ms-2 ps-1">Agent Control</span>
+        </a>
+        <div class="collapse show" id="pagesExamples">
+          <ul class="nav">
+            <li class="nav-item ">
+              <div class="collapse " id="masterControl">
+                <ul class="nav nav-sm flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ route('admin.agent-list')}}">
+                      <span class="sidenav-mini-icon"> <i class="fas fa-users"></i> </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> User Lists </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-early-morning') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 09:30AM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-morning') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 12:01PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-early-evening-digit') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 02:01PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-user-play-evening-digit') }}">
+                      <span class="sidenav-mini-icon"> 2D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 04:30PM </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/agent-three-d-list') }}">
+                      <span class="sidenav-mini-icon"> 3D </span>
+                      <span class="sidenav-normal  ms-2  ps-1"> 3D </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </li>
+    @endif
+    @endforeach
+
     @can('admin_access')
     <li class="nav-item mt-3">
       <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder text-white">Management</h6>

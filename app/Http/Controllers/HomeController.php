@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Lottery;
 use App\Models\Admin\LotteryMatch;
 use App\Models\ThreeDigit\Lotto;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -77,10 +78,11 @@ class HomeController extends Controller
         'three_d_yearlyTotal'  => $three_d_yearlyTotal,
         'lottery_matches' => $lottery_matches,
     ]);
-    } 
+    }
     else if (auth()->user()->hasRole('Master')) {
+        $agents = User::where('agent_id', Auth::user()->id)->count();
         // Logic specific to Master role
-        return view('admin.master.master_dashboard');
+        return view('admin.master.master_dashboard', compact('agents'));
     }
     else if (auth()->user()->hasRole('Agent')) {
         $userId = auth()->id(); // ID of the master user
@@ -90,7 +92,7 @@ class HomeController extends Controller
         return view('admin.agent.agent_dashboard', [
             'agentIds' => $agentIds,
         ]);
-    } 
+    }
     else {
         $userId = auth()->id(); // Get logged in user's ID
         $playedearlyMorningTwoDigits = User::getUserEarlyMorningTwoDigits($userId);
