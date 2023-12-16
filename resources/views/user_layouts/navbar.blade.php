@@ -114,25 +114,25 @@
                 <p class="py-0">3D ထီထိုးမှတ်တမ်း</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ route('twodLive') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-tower-broadcast d-block me-2"></i>
                 <p class="py-0">2D Live</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ route('twodCalendar') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-calendar d-block me-2"></i>
                 <p class="py-0">2D Calendar</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ route('twodHoliday') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-calendar d-block me-2"></i>
                 <p class="py-0">2D Holiday</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ url('/user/three-d-play-index') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-tower-broadcast d-block me-2"></i>
                 <p class="py-0">3D Live</p>
