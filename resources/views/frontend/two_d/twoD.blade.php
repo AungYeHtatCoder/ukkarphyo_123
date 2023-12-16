@@ -15,7 +15,7 @@
             <i class="fas fa-list d-block fa-2x mb-2"></i>
             <p class="mb-0">မှတ်တမ်း</p>
         </a>
-        <a href="./2d_winner_page.html" class="text-center text-decoration-none text-white">
+        <a href="{{ url('user/two-d-winners-history') }}" class="text-center text-decoration-none text-white">
             <i class="fas fa-star d-block fa-2x mb-2"></i>
             <p class="mb-0">ကံထူးရှင်များ</p>
         </a>

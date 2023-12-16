@@ -49,6 +49,9 @@ Route::get('/register', [WelcomeController::class, 'userRegister'])->name('regis
 Route::get('/promotion', [App\Http\Controllers\User\WelcomeController::class, 'promo'])->name('promotion');
 Route::get('/promotion-detail/{id}', [App\Http\Controllers\User\WelcomeController::class, 'promotionDetail'])->name('promotionDetail');
 Route::get('/contact', [WelcomeController::class, 'servicePage'])->name('contact');
+Route::get('/twod_live', [WelcomeController::class, 'twodLive'])->name('twodLive');
+Route::get('/twod_holiday', [WelcomeController::class, 'twodHoliday'])->name('twodHoliday');
+Route::get('/twod_calendar', [WelcomeController::class, 'twodCalendar'])->name('twodCalendar');
 //other pages
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
@@ -129,7 +132,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/agent-user-cash-out/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'transferCashOut'])->name('agent-user-cash-out');
   // store agent user cash out route
   Route::put('/agent-user-cash-out-store/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'AgentUserCashOutStore'])->name('agent-user-cash-out-store');
-  // get all transfer log route 
+  // get all transfer log route
   Route::get('/get-all-admin-to-master-transfer-log', [App\Http\Controllers\Admin\Transfer\TransferLogController::class, 'AdminToMasterTransferLog'])->name('get-all-admin-master-transfer-log');
   // admin daily status transfer log route
   Route::get('/get-all-admin-to-master-daily-status-transfer-log', [App\Http\Controllers\Admin\Transfer\TransferLogController::class, 'AdminToMasterDailyStatusTransferLog'])->name('get-all-admin-master-daily-status-transfer-log');

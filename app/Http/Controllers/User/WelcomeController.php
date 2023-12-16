@@ -219,6 +219,10 @@ class WelcomeController extends Controller
         return view('frontend.new-password-change');
     }
 
+    // public function twodLive()
+    // {
+    //     return view('frontend.pages.twod_live');
+    // }
 
     public function twoD()
     {
@@ -328,12 +332,12 @@ class WelcomeController extends Controller
 
     public function twodHoliday()
     {
-        return view('frontend.twoD-holidays');
+        return view('frontend.pages.twod_holiday');
     }
 
     public function twodCalendar()
     {
-        return view('frontend.twoD-calendar');
+        return view('frontend.pages.twod_calendar');
     }
 
     public function twodDreamBook()
@@ -499,6 +503,6 @@ class WelcomeController extends Controller
 
     public function twodLive()
     {
-        return view('frontend.twoD-live');
+        return view('frontend.pages.twod_live');
     }
 }
