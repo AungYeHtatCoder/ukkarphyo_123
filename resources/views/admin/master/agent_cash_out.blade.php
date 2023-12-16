@@ -141,8 +141,9 @@
      </div>
     </div>
     <div class="card-body">
-    <form action="{{ route('admin.agent-cash-out-store') }}" method="POST">
+    <form action="{{ route('admin.agent-cash-out-store', $logs->id) }}" method="POST">
       @csrf
+      @method('PUT')
   <div class="row">
     <div class="col-md-6">
       <div class="input-group input-group-outline is-valid my-3">
@@ -223,7 +224,8 @@
         <th>To</th>
         <th>Cash In</th>
         <th>Cash Out</th>
-        <th>Note</th>
+        <th>Profit</th>
+        <th>CurrentCashBalance</th>
         <th>Date</th>
       </tr>
      <tbody> 
@@ -246,7 +248,19 @@
                       {{ $log->cash_out }}
                   @endif
                 </td>
-                <td>{{ $log->note }}</td>
+                <td>
+                @php 
+                
+                $profit = $log->cash_in - $log->cash_out;
+                  @endphp
+                  {{-- if profit value is -, show span red color. else profit value is +, show profit value with green color --}}
+                  @if ($profit < 0)
+                      <span class="text-danger">{{ $profit }}</span>
+                  @else
+                      <span class="text-success">{{ $profit }}</span>
+                  @endif
+                </td>
+                <td>{{ $log->cash_balance }}</td>
                 <td>{{ $log->created_at->format('d-m-Y H:i:s') }}</td>
             </tr>
         @endforeach

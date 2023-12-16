@@ -39,6 +39,12 @@ class TransferLogController extends Controller
         ->orWhere('to_user_id', $id)
         ->get();
 
+         // Calculate the difference between cash_in and cash_out and update cash_balance
+    foreach ($transferLogs as $log) {
+        $log->cash_balance = $log->cash_in - $log->cash_out;
+        $log->save();
+    }
+
         return view('admin.trans_log.master_transfer_log', compact('transferLogs'));
         //return response()->json($transferLogs);
     }

@@ -26,8 +26,7 @@
      </div>
      <div class="ms-auto my-auto mt-lg-0 mt-4">
       <div class="ms-auto my-auto">
-       <a href="{{ route('admin.users.create') }}" class="btn bg-gradient-primary btn-sm mb-0 py-2">+&nbsp; Create New
-        User</a>
+       <a href="#" class="btn bg-gradient-primary btn-sm mb-0 py-2"></a>
        <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1 " data-type="csv" type="button"
         name="button">Export</button>
       </div>
@@ -39,29 +38,46 @@
      <thead class="thead-light">
       
         <tr>
-            <th>Name</th>
-            <th>Phone</th>
+            <th>#</th>
+            <th>Date</th>
             <th>From User</th>
             <th>To User</th>
             <th>Cash In</th>
             <th>Cash Out</th>
+            <th>Profit</th>
             <th>Cash Balance</th>
             <th>Note</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($transferLogs as $log)
+        @foreach($transferLogs as $index => $log)
             <tr>
-                <td>{{ $log->name }}</td>
-                <td>{{ $log->phone }}</td>
+                <td>{{ $index+1 }}</td>
+                <td>
+                  @php
+                    $date = date_create($log->created_at);
+                    echo date_format($date,"d/m/Y");
+                  @endphp
+                </td>
                 <td>{{ $log->fromUser->name }}</td>
                 <td>{{ $log->toUser->name }}</td>
                 <td>{{ $log->cash_in }}</td>
                 <td>{{ $log->cash_out }}</td>
+                <td>
+                  @php 
+                
+                $profit = $log->cash_in - $log->cash_out;
+                  @endphp
+                  @if ($profit < 0)
+                      <span class="text-danger">{{ $profit }}</span>
+                  @else
+                      <span class="text-success">{{ $profit }}</span>
+                  @endif
+                </td>
                 <td>{{ $log->cash_balance }}</td>
                 <td>{{ $log->note }}</td>
             </tr>
-        @endforeach
+    @endforeach
     </tbody>
      
     </table>
