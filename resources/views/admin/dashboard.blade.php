@@ -94,10 +94,10 @@
           </div> --}}
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2">
-                  <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">weekend</i>
+              <div class="card mb-2 p-3">
+                <div class="card-header p-2 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n5 position-absolute">
+                    <i class="fa-solid fa-file-invoice-dollar" style="color: #ffffff; opacity:10"></i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">2D Daily Income</p>
@@ -105,15 +105,15 @@
                   </div>
                 </div>
                 <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
-                </div>
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+                </div> --}}
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-sm-0 mt-4">
+            <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2">
-                  <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
+                <div class="card-header p-2 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n5 position-absolute">
                     <i class="material-icons opacity-10">leaderboard</i>
                   </div>
                   <div class="text-end pt-1">
@@ -121,116 +121,136 @@
                     <h4 class="mb-0">{{ $weeklyTotal }} MMK</h4>
                   </div>
                 </div>
-                <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p> --}}
-                </div>
+                {{-- <hr class="dark horizontal my-0"> --}}
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p>
+                </div> --}}
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
+            <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2 bg-transparent">
-                  <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">store</i>
+                <div class="card-header p-2 pt-2 bg-transparent">
+                  <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n5 position-absolute">
+                    <i class="material-symbols-outlined text-white opacity-10">
+                      finance
+                      </i>
+                    
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize ">2D Monthly Income</p>
                     <h4 class="mb-0 ">{{ $monthlyTotal }} MMK</h4>
                   </div>
                 </div>
-                <hr class="horizontal my-0 dark">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0 "><span class="text-success text-sm font-weight-bolder">+1% </span>than yesterday</p> --}}
-                </div>
+                {{-- <hr class="horizontal my-0 dark"> --}}
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0 "><span class="text-success text-sm font-weight-bolder">+1% </span>than yesterday</p>
+                </div> --}}
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
-              <div class="card ">
-                <div class="card-header p-3 pt-2 bg-transparent">
-                  <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">person_add</i>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card mb-2 p-3">
+                <div class="card-header p-2 pt-2 bg-transparent">
+                  <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n5 position-absolute">
+                    <i class="material-symbols-outlined opacity-10 text-white">
+                      finance_mode
+                      </i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize ">2D Yearly Income </p>
                     <h4 class="mb-0 ">{{ $yearlyTotal }} MMK</h4>
                   </div>
                 </div>
-                <hr class="horizontal my-0 dark">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0 ">Just updated</p> --}}
-                </div>
+                {{-- <hr class="horizontal my-0 dark"> --}}
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0 ">Just updated</p>
+                </div> --}}
               </div>
             </div>
           </div>
           {{-- 2d income end  --}}
           {{-- 3d income start --}}
-          <div class="row mt-3">
+          <div class="row mt-5">
             <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card mb-2">
-                <div class="card-header p-3 pt-2">
-                  <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">weekend</i>
+              
+              <div class="card mb-2 p-3">
+                <div class="card-header p-2 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n5 position-absolute">
+                    <i class="fa-solid fa-file-invoice-dollar" style="color: #ffffff; opacity:10"></i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">3D Daily Income</p>
-                    <h4 class="mb-0">{{ $three_d_dailyTotal }}MMK</h4>
+                    <h4 class="mb-0">{{ $three_d_dailyTotal }} MMK</h4>
                   </div>
                 </div>
-                <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
-                </div>
+                {{-- <hr class="dark horizontal my-0"> --}}
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+                </div> --}}
               </div>
+              
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-sm-0 mt-4">
-              <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2">
-                  <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
+              
+
+              <div class="card mb-2 p-3">
+                <div class="card-header p-2 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n5 position-absolute">
                     <i class="material-icons opacity-10">leaderboard</i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">3D Weekly Income</p>
-                    <h4 class="mb-0">{{ $three_d_weeklyTotal }}MMK</h4>
+                    <h4 class="mb-0">{{ $three_d_weeklyTotal }} MMK</h4>
                   </div>
                 </div>
-                <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p> --}}
+                {{-- <hr class="dark horizontal my-0"> --}}
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+                </div> --}}
+              </div>
+
+              
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
+              
+
+              <div class="card mb-2 p-3">
+                <div class="card-header p-2 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n5 position-absolute">
+                    <i class="material-symbols-outlined text-white opacity-10">
+                      finance
+                      </i>
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">3D Monthly Income</p>
+                    <h4 class="mb-0">{{ $three_d_monthlyTotal }} MMK</h4>
+                  </div>
                 </div>
+                {{-- <hr class="dark horizontal my-0"> --}}
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+                </div> --}}
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
-              <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2 bg-transparent">
-                  <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">store</i>
+              
+
+              <div class="card mb-2 p-3">
+                <div class="card-header p-2 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n5 position-absolute">
+                    
+                    <i class="material-symbols-outlined opacity-10 text-white">
+                      finance_mode
+                      </i>
                   </div>
                   <div class="text-end pt-1">
-                    <p class="text-sm mb-0 text-capitalize ">3D Monthly Income</p>
-                    <h4 class="mb-0 ">{{ $three_d_monthlyTotal }}MMK</h4>
+                    <p class="text-sm mb-0 text-capitalize">3D Yearly Income</p>
+                    <h4 class="mb-0">{{ $three_d_yearlyTotal }} MMK</h4>
                   </div>
                 </div>
-                <hr class="horizontal my-0 dark">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0 "><span class="text-success text-sm font-weight-bolder">+1% </span>than yesterday</p> --}}
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-lg-0 mt-4">
-              <div class="card ">
-                <div class="card-header p-3 pt-2 bg-transparent">
-                  <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">person_add</i>
-                  </div>
-                  <div class="text-end pt-1">
-                    <p class="text-sm mb-0 text-capitalize ">3D Yearly Income </p>
-                    <h4 class="mb-0 "> {{ $three_d_yearlyTotal }} MMK</h4>
-                  </div>
-                </div>
-                <hr class="horizontal my-0 dark">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0 ">Just updated</p> --}}
-                </div>
+                {{-- <hr class="dark horizontal my-0"> --}}
+                {{-- <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+                </div> --}}
               </div>
             </div>
           </div>
@@ -242,8 +262,10 @@
             <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
               <div class="card  mb-2 p-3">
                 <div class="d-flex mt-n2">
-                            <div class="avatar avatar-xl bg-gradient-dark border-radius-xl p-2 mt-n4">
-                                <img src="{{ asset('admin_app/assets/img/small-logos/logo-slack.svg') }}" alt="slack_logo">
+                            <div class="avatar avatar-xl bg-gradient-primary border-radius-xl p-2 mt-n4">
+                                <i class="material-symbols-outlined" style="font-size:30px">
+                                  device_reset
+                                  </i>
                             </div>
                             <div class="ms-3 my-auto">
                                 <h6 class="mb-0"> 2D Session Reset</h6>
@@ -273,8 +295,10 @@
             <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
               <div class="card  mb-2 p-3">
                 <div class="d-flex mt-n2">
-                            <div class="avatar avatar-xl bg-gradient-dark border-radius-xl p-2 mt-n4">
-                                <img src="{{ asset('admin_app/assets/img/small-logos/logo-slack.svg') }}" alt="slack_logo">
+                            <div class="avatar avatar-xl bg-gradient-primary border-radius-xl p-2 mt-n4">
+                              <i class="material-symbols-outlined" style="font-size:30px">
+                                device_reset
+                                </i>
                             </div>
                             <div class="ms-3 my-auto">
                                 <h6 class="mb-0"> 2D Over Amount Limit Reset</h6>
