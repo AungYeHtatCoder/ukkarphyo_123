@@ -39,29 +39,29 @@
             {{-- <div class="d-flex justify-content-between px-3">
                 <div></div>
                 <a href="{{ url('/') }}" class="text-decoration-none">
-                    <div class="d-flex">
-                        <img src="{{ asset('assets/img/logo-v.png') }}" width="150px" alt="">
-                    </div>
+            <div class="d-flex">
+                <img src="{{ asset('assets/img/logo-v.png') }}" width="150px" alt="">
+            </div>
+            </a>
+            @guest
+            <div class="mt-2">
+                <a href="{{ route('login') }}" class="btn btn-sm btn-purple text-white me-2">
+                    <i class="fas fa-unlock me-2"></i>
+                    LOGIN
                 </a>
-                @guest
-                <div class="mt-2">
-                    <a href="{{ route('login') }}" class="btn btn-sm btn-purple text-white me-2">
-                        <i class="fas fa-unlock me-2"></i>
-                        LOGIN
-                    </a>
-                </div>
-                @endguest
-                @auth
-                <div class="mt-2">
-                    <i class="fas text-white fa-bell me-1"></i>
-                    <button class="btn sidebarToggle">
-                        <i class="fas fa-bars text-white"></i>
-                    </button>
-                </div>
-                @endauth
-            </div> --}}
-        </div>
+            </div>
+            @endguest
+            @auth
+            <div class="mt-2">
+                <i class="fas text-white fa-bell me-1"></i>
+                <button class="btn sidebarToggle">
+                    <i class="fas fa-bars text-white"></i>
+                </button>
+            </div>
+            @endauth
+        </div> --}}
     </div>
+</div>
 </div>
 <!-- offcanvas start -->
 @auth
@@ -96,7 +96,7 @@
             </div>
         </a>
         @endcan
-        <a href="./sidebar/winner.html" class="link shadow">
+        <a href="{{ url('/user/two-d-winners-history') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-award d-block me-2"></i>
                 <p class="py-0">ကံထူးရှင်များ</p>
