@@ -279,7 +279,20 @@
 <script src="{{ asset('admin_app/assets/js/plugins/choices.min.js') }}"></script>
 <script src="{{ asset('admin_app/assets/js/plugins/quill.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    @if(session('success'))
+    Swal.fire({
+      icon: 'success',
+      title: 'Success! သင်၏ User ထံမှ ငွေနုတ်ယူမှု အောင်မြင်ပါသည်',
+      text: '{{ session('
+      SuccessRequest ') }}',
+      timer: 3000,
+      showConfirmButton: false
+    });
+    @endif
+  });
+</script>
 <script>
 if (document.getElementById('choices-tags-edit')) {
  var tags = document.getElementById('choices-tags-edit');

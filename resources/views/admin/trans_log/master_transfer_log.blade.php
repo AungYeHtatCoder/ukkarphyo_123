@@ -21,7 +21,7 @@
    <div class="card-header pb-0">
     <div class="d-lg-flex">
      <div>
-      <h5 class="mb-0">User Dashboards</h5>
+      <h5 class="mb-0">Master TransferLogs Dashboards</h5>
 
      </div>
      <div class="ms-auto my-auto mt-lg-0 mt-4">
@@ -88,12 +88,22 @@
 @endsection
 @section('scripts')
 <script src="{{ asset('admin_app/assets/js/plugins/datatables.js') }}"></script>
-{{-- <script>
-    const dataTableSearch = new simpleDatatables.DataTable("#datatable-search", {
-      searchable: true,
-      fixedHeight: true
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    @if(session('SuccessRequest'))
+    Swal.fire({
+      icon: 'success',
+      title: 'Success! သင့်ကံစမ်းမှုအောင်မြင်ပါသည် ! သိန်းထီးဆုကြီးပေါက်ပါစေ',
+      text: '{{ session('
+      SuccessRequest ') }}',
+      timer: 3000,
+      showConfirmButton: false
     });
-  </script> --}}
+    @endif
+  });
+</script>
 <script>
 if (document.getElementById('users-search')) {
  const dataTableSearch = new simpleDatatables.DataTable("#users-search", {

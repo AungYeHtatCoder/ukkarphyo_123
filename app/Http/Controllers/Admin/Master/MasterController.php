@@ -94,6 +94,10 @@ public function AgenttransferStore(Request $request)
         'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
         'cash_in' => 'required|numeric',
     ]);
+    if ($request->cash_in > Auth::user()->balance) {
+        session()->flash('error', 'You do not have enough balance to transfer!');
+        return redirect()->back()->with('error', 'You do not have enough balance to transfer!');
+    }
 
     // Create a new TransferLog record
     $transfer_master = new TransferLog();
@@ -114,7 +118,7 @@ public function AgenttransferStore(Request $request)
     // Update cash_balance in TransferLog with the new user balance
     $transfer_master->cash_balance = $user->balance;
     $transfer_master->save();
-
+    session()->flash('success', 'Money transfer request submitted successfully!');
     return redirect()->back()->with('success', 'Money fill request submitted successfully!');
 }
 
@@ -177,6 +181,7 @@ public function AgenttransferStore(Request $request)
         // $master->save();
 
         // Redirect back with a success message
+        session()->flash('success', 'Money transfer request submitted successfully!');
         return redirect()->back()->with('success', 'Money fill request submitted successfully!');
     }
 
