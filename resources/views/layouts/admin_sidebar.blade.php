@@ -114,6 +114,19 @@
                       <span class="sidenav-normal  ms-2  ps-1"> TransferLog </span>
                     </a>
                   </li>
+                   <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-admin-to-master-daily-status-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> D S </span>
+                      <span class="sidenav-normal  ms-2  ps-1">Daily Status </span>
+                    </a>
+                  </li>
+
+                   <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-admin-to-master-monthly-status-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> M S </span>
+                      <span class="sidenav-normal  ms-2  ps-1">Monthly Status </span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -171,6 +184,19 @@
                     <a class="nav-link text-white " href="{{ url('/admin/get-all-master-to-agent-transfer-log') }}">
                       <span class="sidenav-mini-icon"> T L </span>
                       <span class="sidenav-normal  ms-2  ps-1"> TransferLog </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-master-to-agent-daily-status-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> D S </span>
+                      <span class="sidenav-normal  ms-2  ps-1">Daily Status </span>
+                    </a>
+                  </li>
+
+                   <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-master-to-agent-monthly-status-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> M S </span>
+                      <span class="sidenav-normal  ms-2  ps-1">Monthly Status </span>
                     </a>
                   </li>
                 </ul>
@@ -232,6 +258,21 @@
                       <span class="sidenav-normal  ms-2  ps-1"> TransferLog </span>
                     </a>
                   </li>
+
+                   <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-agent-to-user-daily-status-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> D S </span>
+                      <span class="sidenav-normal  ms-2  ps-1">Daily Status </span>
+                    </a>
+                  </li>
+
+                   <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ url('/admin/get-all-agent-to-user-monthly-status-transfer-log') }}">
+                      <span class="sidenav-mini-icon"> M S </span>
+                      <span class="sidenav-normal  ms-2  ps-1">Monthly Status </span>
+                    </a>
+                  </li>
+                 
                 </ul>
               </div>
             </li>

@@ -55,4 +55,9 @@ class AgentPolicy
     {
         return $user->hasRole('Agent');
     }
+    // admin only update balance 
+    public function updateAdminBalance(User $user)
+    {
+        return $user->hasRole('Admin');
+    }
 }
