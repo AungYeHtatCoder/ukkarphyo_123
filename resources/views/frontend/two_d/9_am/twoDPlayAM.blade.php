@@ -100,7 +100,7 @@
                    <input type="text" id="totalAmount" name="totalAmount" class="form-control form-control-sm mt-1" readonly>
                 </div>
                 <div class="d-flex justify-content-end mt-4">
-                    <button class="btn btn-sm btn-danger me-3" type="reset">ဖျက်မည်</button>
+                    <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-sm btn-danger me-3">ဖျက်မည်</a>
                     <a href="{{ route('user.twod-play-confirm-9am') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white" style="font-size: 14px;">ထိုးမည်</a>
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
