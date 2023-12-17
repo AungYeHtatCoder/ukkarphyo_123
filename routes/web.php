@@ -52,6 +52,7 @@ Route::get('/contact', [WelcomeController::class, 'servicePage'])->name('contact
 Route::get('/twod_live', [WelcomeController::class, 'twodLive'])->name('twodLive');
 Route::get('/twod_holiday', [WelcomeController::class, 'twodHoliday'])->name('twodHoliday');
 Route::get('/twod_calendar', [WelcomeController::class, 'twodCalendar'])->name('twodCalendar');
+Route::get('/twod_winnerDigitRecord', [WelcomeController::class, 'todayWinnerDigitRecord'])->name('twodWinnerDigitRecord');
 //other pages
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {

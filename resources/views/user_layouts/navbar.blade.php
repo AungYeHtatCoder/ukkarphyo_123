@@ -102,7 +102,7 @@
                 <p class="py-0">ကံထူးရှင်များ</p>
             </div>
         </a>
-        <a href="./sidebar/twoDthreeDhistory.html" class="link shadow">
+        <a href="{{ route('twodWinnerDigitRecord') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-list d-block me-2"></i>
                 <p class="py-0">ထွက်ဂဏန်းများ</p>

@@ -304,6 +304,10 @@ class WelcomeController extends Controller
         return view('frontend.twoD-prize-history');
     }
 
+    public function todayWinnerDigitRecord(){
+        return view('frontend.pages.twod_winnerDigitRecord');
+    }
+
     public function moriningRecord()
     {
         return view('frontend.play-two-morning-record');
