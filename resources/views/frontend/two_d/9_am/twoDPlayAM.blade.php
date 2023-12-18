@@ -66,7 +66,7 @@
                 <small class="d-block text-end" id="sessionInfo"></small>
             </div>
         </div>
-        @if ($currentTime->lte(Carbon::parse('16:30')))
+        {{-- @if ($currentTime->lte(Carbon::parse('16:30'))) --}}
         <div class="d-flex justify-content-between">
             <div>
                 <a href="{{ route('user.two-d-dream-book-index') }}" class="btn btn-sm btn-purple text-white">အိမ်မက်</a>
@@ -79,7 +79,6 @@
                 </div>
             </div>
         </div>
-
         <div class="">
             @if ($lottery_matches->is_active == 1)
             <form action="" method="post" class="p-1">
@@ -114,12 +113,12 @@
             </div>
             @endif
         </div>
-        @endif
+        {{-- @endif --}}
     </div>
 
     <!-- Heading -->
     <!-- 2D Numbers start -->
-    @if ($currentTime->lte(Carbon::parse('16:30')))
+    {{-- @if ($currentTime->lte(Carbon::parse('16:30'))) --}}
     <div class="container-fluid mb-5 mt-3" id="twoD">
       <div class="twoDCard">
         @foreach ($twoDigits as $digit)
@@ -150,7 +149,7 @@
         @endforeach
       </div>
     </div>
-    @endif
+    {{-- @endif --}}
 </div>
 <!-- content -->
 

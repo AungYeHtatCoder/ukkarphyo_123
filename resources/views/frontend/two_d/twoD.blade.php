@@ -63,7 +63,7 @@
                 $end4Time = Carbon::parse('16:30');
             @endphp
             <div class="playTime">
-                @if ($currentTime->lte(Carbon::parse('09:30')))
+                @if ($currentTime->lte(Carbon::parse('09:30')) || $currentTime->gte(Carbon::parse('16:30')))
                 <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100" >09:30 AM</a>
                 @else
                 <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">09:30 AM</span>
