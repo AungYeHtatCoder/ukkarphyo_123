@@ -2,9 +2,9 @@
 @section('content')
     <div class="row mt-4">
         <div class="col-12">
-            <div class="card">
+            <div class="card p-4">
                 <!-- Card header -->
-                <div class="card-header pb-0">
+                <div class="card-header">
                     <div class="d-lg-flex">
                         <div>
                             <h5 class="mb-0">2D History Detail | {{ $lottery->user->name }} - Dashboards
@@ -35,7 +35,7 @@
                     <h6>Two Digits &nbsp; &nbsp; &nbsp; &nbsp;
                         <span>{{ $lottery->user->name }} ထိုးထားသော ဂဏန်းများ </span>
                     </h6>
-                    <table class="table table-flush">
+                    <table class="table table-flush text-center">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -50,7 +50,7 @@
                                 <tr>
                                     <td>{{ $index+1 }}</td>
                                     <td>{{ $twoDigit->two_digit }}</td>
-                                    <td>{{ $twoDigit->pivot->sub_amount }}</td>
+                                    <td>{{ $twoDigit->pivot->sub_amount }} MMK</td>
                                     <td class="text-sm font-weight-normal">
                                         <span
                                             class="badge bg-gradient-info">{{ $lottery->created_at->format('d-m-Y (l) (h:i a)') }}</span>

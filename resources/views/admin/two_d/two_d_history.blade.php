@@ -57,21 +57,22 @@
                                         <ul class="navbar-nav">
                                             @foreach ($lottery->twoDigits as $twoDigit)
                                                 <li class="nav-item">
-                                                    <button type="button" class="btn btn btn-primary">
-                                                        <span>{{ $twoDigit->two_digit }}</span>
-                                                        <span class="badge badge-pill badge-lg bg-gradient-success">
-                                                            {{ $twoDigit->pivot->sub_amount }}</span>
-                                                    </button>
+                                                    <span class="mb-2">
+                                                        <span class="badge bg-gradient-success mr-2">{{ $twoDigit->two_digit }}</span>
+                                                        <span class="">
+                                                            {{ $twoDigit->pivot->sub_amount }} MMK
+                                                        </span>
+                                                    </span>
                                                 </li>
                                             @endforeach
                                         </ul>
                                     </td>
                                     <td class="text-sm font-weight-normal">
-                                        <button type="button" class="btn btn-success">
-                                            <span>{{ $lottery->total_amount }} </span>
+                                        <span class="badge badge-success">
+                                            <span>{{ $lottery->total_amount }} MMK</span>
                                             {{-- <span
                                                 class="badge badge-sm badge-circle badge-danger border border-white border-2"></span> --}}
-                                        </button>
+                                            </span>
                                     </td>
                                     {{-- <td>{{ $lottery->created_at->format('d M Y (l) h:i:s A') }}</td> --}}
                                     <td class="text-sm font-weight-normal">
