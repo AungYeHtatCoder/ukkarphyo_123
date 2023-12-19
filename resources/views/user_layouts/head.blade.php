@@ -5,6 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aladdin 2D | 3D</title>
+
+    <meta name="description" content="Explore a world of translated novels and buy individual chapters on Aladdin 2D|3D. Join IQ Team for an immersive reading experience.">
+    <meta name="keywords" content="Aladdin 2D|3D, novel translation, selling chapters, IQ Team, immersive reading">
+
+    <!-- Define the primary language of your content -->
+    <meta http-equiv="content-language" content="en">
+
+    <!-- Define the character set -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!-- Make sure your site is mobile-friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Specify the canonical URL for SEO -->
+    <link rel="canonical" href="https://www.aladdin2d3dmyanmar.online/">
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="Aladdin 2D|3D">
+    <meta property="og:description" content="The world plays on Aladdin 2D|3D. Join Aladdin Team for an immersive betting experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aladdin2d3dmyanmar.online/">
+    <meta property="og:image" content="https://www.aladdin2d3dmyanmar.online/assets/img/logo.png">
+    <meta property="og:image:alt" content="Aladdin 2D|3D Logo">
+
+    <!-- Twitter Card Meta Tags (for Twitter sharing) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aladdin 2D|3D - Gambling Website">
+    <meta name="twitter:description" content="The world plays on Aladdin 2D|3D. Join Aladdin Team for an immersive betting experience.">
+    <meta name="twitter:image" content="https://www.aladdin2d3dmyanmar.online/assets/img/logo.png">
+
+    <!-- Robots Meta Tags (for controlling search engine indexing) -->
+    <meta name="robots" content="index, follow">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9F15MS6BV"></script>
+
+
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}">
     <link rel="stylesheet" href="{{ asset('user_app/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('user_app/assets/css/style.css') }}">
