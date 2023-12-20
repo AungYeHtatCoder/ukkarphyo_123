@@ -7,8 +7,7 @@
     <title>Aladdin 2D | 3D</title>
 
     <meta name="description" content="Explore a world of translated novels and buy individual chapters on Aladdin 2D|3D. Join IQ Team for an immersive reading experience.">
-    <meta name="keywords" content="Aladdin 2D|3D, novel translation, selling chapters, IQ Team, immersive reading">
-
+    <meta name="keywords" content="aladdin, aladdin2d3d, aladdinmyanmar, aladdin2d3 myanmar">
     <!-- Define the primary language of your content -->
     <meta http-equiv="content-language" content="en">
 
