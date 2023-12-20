@@ -44,7 +44,7 @@
                            
                            @if ($matchTime)
                             <p>Open Time: {{ $OpenTime }}</p>
-                            {{-- <p>Match Time: {{ $matchTime->match_time }}</p> --}}
+                            <p>Match Time: {{ $matchTime->match_time }}</p>
                         @else
                             <p>No match time found for the current period.</p>
                         @endif
@@ -84,7 +84,13 @@
              <td class="text-sm font-weight-normal">
                  <span class="badge badge-secondary">
                   {{-- {{ optional($lottery->lotteryMatch->threedMatchTime)->match_time }} --}}
-                  <p>Match Time: {{ $matchTime->match_time }}</p>
+                  {{-- <p>Match Time: {{ $matchTime->match_time }}</p> --}}
+                        @if ($matchTime)
+                            <p>Open Time: {{ $OpenTime }}</p>
+                            <p>Match Time: {{ $matchTime->match_time }}</p>
+                        @else
+                            <p>No match time found for the current period.</p>
+                        @endif
                  </span>
              </td>
              <td class="text-sm font-weight-normal">
