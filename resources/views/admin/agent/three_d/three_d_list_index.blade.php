@@ -44,7 +44,7 @@
                            
                            @if ($matchTime)
                             <p>Open Time: {{ $OpenTime }}</p>
-                            <p>Match Time: {{ $matchTime->match_time }}</p>
+                            {{-- <p>Match Time: {{ $matchTime->match_time }}</p> --}}
                         @else
                             <p>No match time found for the current period.</p>
                         @endif
