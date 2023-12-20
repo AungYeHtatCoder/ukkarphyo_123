@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('cbpay_no')->nullable()->default('N/A');
             $table->string('wavepay_no')->nullable()->default('N/A');
             $table->string('ayapay_no')->nullable()->default('N/A');
-            $table->integer('balance')->default(100);
+            $table->integer('balance')->default(0);
             $table->unsignedBigInteger('agent_id')->default(1);
             $table->rememberToken();
             $table->timestamps();

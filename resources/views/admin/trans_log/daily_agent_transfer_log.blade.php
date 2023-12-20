@@ -16,8 +16,8 @@
 @section('content')
 <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2">
+              <div class="card">
+                <div class="card-header p-3 pt-2 bg-transparent">
                   <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">weekend</i>
                   </div>
@@ -26,15 +26,13 @@
                     <h4 class="mb-0">{{ $totalCashIn }} MMK</h4>
                   </div>
                 </div>
-                <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
-                </div>
+                
+                
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-sm-0 mt-4">
-              <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2">
+              <div class="card">
+                <div class="card-header p-3 pt-2 bg-transparent">
                   <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">leaderboard</i>
                   </div>
@@ -43,16 +41,14 @@
                     <h4 class="mb-0">{{ $totalCashOut }} MMK</h4>
                   </div>
                 </div>
-                <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p> --}}
-                </div>
+                
+               
               </div>
             </div>
 
              <div class="col-lg-3 col-md-6 col-sm-6 mt-sm-0 mt-4">
-              <div class="card  mb-2 p-3">
-                <div class="card-header p-3 pt-2">
+              <div class="card">
+                <div class="card-header p-3 pt-2 bg-transparent">
                   <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
                     <i class="material-icons opacity-10">leaderboard</i>
                   </div>
@@ -72,10 +68,8 @@
                     </h4>
                   </div>
                 </div>
-                <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
-                  {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p> --}}
-                </div>
+                
+                
               </div>
             </div>
            
@@ -92,7 +86,7 @@
      </div>
      <div class="ms-auto my-auto mt-lg-0 mt-4">
       <div class="ms-auto my-auto">
-       <a href="#" class="btn bg-gradient-primary btn-sm mb-0 py-2"></a>
+       {{-- <a href="#" class="btn bg-gradient-primary btn-sm mb-0 py-2"></a> --}}
        <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1 " data-type="csv" type="button"
         name="button">Export</button>
       </div>
