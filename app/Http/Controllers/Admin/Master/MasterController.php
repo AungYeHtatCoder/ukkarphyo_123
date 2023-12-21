@@ -21,7 +21,8 @@ class MasterController extends Controller
         $masterId = auth()->id(); // ID of the master user
         $master = User::findOrFail($masterId);
         // Retrieve all agents created by this master
-        $users = $master->createdAgents;
+        // $users = $master->createdAgents;
+        $users = User::where('agent_id', $masterId)->latest()->get();
         return view('admin.master.agent_list', compact('users'));
     }
 
