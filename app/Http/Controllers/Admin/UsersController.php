@@ -7,6 +7,7 @@ use App\Models\Admin\Role;
 use Illuminate\Http\Request;
 use App\Models\Admin\Permission;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 //use Gate;
 use Illuminate\Support\Facades\Gate;
@@ -122,4 +123,13 @@ class UsersController extends Controller
         return response(null, 204);
     }
 
+    public function banUser($id)
+    {
+        $user = User::find($id);
+        $user->update(['status' => $user->status == 1 ? 0 : 1]);
+        if(Auth::check() && Auth::id() == $id){
+            Auth::logout();
+        }
+        return redirect()->back()->with('success', 'User ' . ($user->status == 1 ? 'activated' : 'banned') . ' successfully');
+    } 
 }
