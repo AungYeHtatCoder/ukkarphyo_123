@@ -40,7 +40,7 @@
       <th>#</th>
       <th>UserName</th>
       <th>Phone</th>
-      <th>Role</th>
+      <th>Status</th>
       <th>Created_at</th>
       <th>Action</th>
       <th>Transfer</th>
@@ -49,38 +49,54 @@
       @foreach ($users as $user)
       <tr>
        <td>{{ $loop->index + 1 }}</td>
-       <td>{{ $user->name }}</td>
+        <td>
+          <span class="d-block">{{ $user->name }}</span>
+          @foreach ($user->roles as $role)
+          <span class="badge badge-pill badge-primary">{{ $role->title }}</span>
+          @endforeach
+        </td>
        <td>{{ $user->phone }}</td>
-       <td>
-        @foreach ($user->roles as $role)
-        <span class="badge badge-pill badge-primary">{{ $role->title }}</span>
-        @endforeach
-       </td>
+        <td>
+          <small class="badge badge-{{ $user->status == 0 ? 'success' : 'danger' }}">{{ $user->status == 0 ? "active" : "ban" }}</small>
+        </td>
        <td>{{ $user->created_at->format('d-m-Y') }}</td>
         <td>
+        @if ($user->status == 0)
+            <a onclick="event.preventDefault(); document.getElementById('banUser-{{ $user->id }}').submit();" class="me-2" href="#" data-bs-toggle="tooltip" data-bs-original-title="Ban User">
+                <i class="fas fa-user-slash text-danger" style="font-size: 20px;"></i>
+            </a>
+        @else
+            <a onclick="event.preventDefault(); document.getElementById('banUser-{{ $user->id }}').submit();" class="me-2" href="#" data-bs-toggle="tooltip" data-bs-original-title="Active User">
+                <i class="fas fa-user-check text-success" style="font-size: 20px;"></i>
+            </a>
+        @endif
+        <form class="d-none" id="banUser-{{ $user->id }}" action="{{ route('admin.users.ban', $user->id) }}" method="post">
+            @csrf
+            @method('PUT')
+        </form>
         <a href="{{ route('admin.agent-edit', $user->id) }}" data-bs-toggle="tooltip"
-         data-bs-original-title="Edit User"><i
-          class="material-icons-round text-secondary position-relative text-lg">mode_edit</i></a>
+         data-bs-original-title="Edit User">
+         <i class="fas fa-pen-to-square text-info" style="font-size:20px;"></i>
+        </a>
         <a href="{{ route('admin.agent-show', $user->id) }}" data-bs-toggle="tooltip"
          data-bs-original-title="Preview User Detail">
-         <i class="material-icons text-secondary position-relative text-lg">visibility</i>
+         <i class="fas fa-eye text-warning" style="font-size:20px;"></i>
         </a>
         <form class="d-inline" action="{{ route('admin.agent-delete', $user->id) }}" method="POST">
          @csrf
          @method('DELETE')
          <button type="submit" class="transparent-btn" data-bs-toggle="tooltip" data-bs-original-title="Delete User">
-          <i class="material-icons text-secondary position-relative text-lg">delete</i>
+          <i class="fas fa-trash text-danger" style="font-size:20px;"></i>
          </button>
 
         </form>
        </td>
         <td>
           <a href="{{ route('admin.agent-transfer', $user->id) }}" data-bs-toggle="tooltip"
-          data-bs-original-title="Transfer To Agent" class="btn btn-info btn-sm"><i
-            class="material-icons-round text-secondary position-relative text-lg">swap_horiz</i>ငွေလွဲမည်</a>
+          data-bs-original-title="Transfer To Agent" class="btn btn-info btn-sm"><i class="fas fa-right-left text-white me-1"></i>ငွေလွဲမည်</a>
             <a href="{{ route('admin.agent-cash-out', $user->id) }}" data-bs-toggle="tooltip"
           data-bs-original-title="Cash Out From Agent" class="btn btn-warning btn-sm">
-              <i class="material-icons-round text-secondary position-relative text-lg">swap_horiz</i>ငွေထုတ်မည်
+          <i class="fas fa-right-left text-white me-1"></i>ငွေထုတ်မည်
             </a>
         </td>
 
