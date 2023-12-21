@@ -41,7 +41,7 @@ Route::get('/', [App\Http\Controllers\User\WelcomeController::class, 'index'])->
 //auth routes
 Route::get('/login', [WelcomeController::class, 'userLogin'])->name('login');
 Route::post('/login', [WelcomeController::class, 'login'])->name('login');
-Route::post('/register', [WelcomeController::class, 'register'])->name('register');
+// Route::post('/register', [WelcomeController::class, 'register'])->name('register');
 Route::get('/register', [WelcomeController::class, 'userRegister'])->name('register');
 //auth routes
 
@@ -55,7 +55,7 @@ Route::get('/twod_calendar', [WelcomeController::class, 'twodCalendar'])->name('
 Route::get('/twod_winnerDigitRecord', [WelcomeController::class, 'todayWinnerDigitRecord'])->name('twodWinnerDigitRecord');
 //other pages
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'checkBanned']], function () {
 
   // Permissions
   Route::delete('permissions/destroy', [PermissionController::class, 'massDestroy'])->name('permissions.massDestroy');
@@ -66,6 +66,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   // Users
   Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
   Route::resource('users', UsersController::class);
+  Route::put('users/{id}/ban', [UsersController::class, 'banUser'])->name('users.ban');
   // master list route
   Route::get('/real-live-master-list', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'index'])->name('real-live-master-list');
   // master create route
@@ -360,7 +361,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 });
 
 
-Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth', 'checkBanned']], function () {
 
     //profile management
     Route::put('editProfile/{profile}', [ProfileController::class, 'update'])->name('editProfile');

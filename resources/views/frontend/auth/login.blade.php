@@ -40,11 +40,11 @@
                 <div class="mb-4">
                     <div class="input-group">
                         <span class="input-group-text bg-white border border-0"><i class="fas fa-lock text-purple"></i></span>
-                        <input type="text" name="login" class="form-control border border-0" placeholder="ဖုန်းနံပါတ် (သို့) အီးမေးလ်">
+                        <input type="text" name="phone" class="form-control border border-0" placeholder="ဖုန်းနံပါတ်">
                         {{-- <span class="input-group-text bg-white border border-0">.00</span> --}}
                     </div>
-                    @error('login')
-                    <span class="text-danger d-block ps-3 pt-2">{{ "The email or phone field is required." }}</span>
+                    @error('phone')
+                    <span class="text-danger d-block ps-3 pt-2">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -64,10 +64,10 @@
                         <a href="" class="text-decoration-none text-white">Forget Password?</a>
                     </div> --}}
                     <button class="btn btn-purple text-white w-100" style="border-radius: 30px;" type="submit">ဝင်မည်</button>
-                    <div class="d-flex justify-content-center mt-4">
+                    {{-- <div class="d-flex justify-content-center mt-4">
                         <span>အကောင့်မဖွင့်ရသေးသူများ</span>
                         <a href="{{ route('register') }}" class="text-white ms-2">အကောင့်ဖွင့်ရန်</a>
-                    </div>
+                    </div> --}}
                 </div>
             </form>
         </div>
