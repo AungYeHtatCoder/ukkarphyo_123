@@ -52,7 +52,7 @@ class CheckForEarlyEveningWinners implements ShouldQueue
             $methodToUpdatePivot = 'twoDigits';
 
             // Update user's balance
-            $user = $lottery->user();
+            $user = $lottery->user;
             $user->balance += $entry->sub_amount * 85;  // Update based on your prize calculation
             $user->save();
 

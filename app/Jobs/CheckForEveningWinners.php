@@ -56,7 +56,7 @@ public function handle()
             $methodToUpdatePivot = 'twoDigits' . ucfirst($lottery->session);
 
             // Update user's balance
-            $user = $lottery->user();
+            $user = $lottery->user;
             $user->balance += $entry->sub_amount * 85;  // Update based on your prize calculation
             $user->save();
 

@@ -56,7 +56,7 @@ class CheckForThreeDWinners implements ShouldQueue
             $methodToUpdatePivot = 'threedDigits';
 
             // Update user's balance
-            $user = $lottery->user();
+            $user = $lottery->user;
             $user->balance += $entry->sub_amount * 700;  // Update based on your prize calculation
             $user->save();
 

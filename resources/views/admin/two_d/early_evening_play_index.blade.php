@@ -26,7 +26,7 @@
                         </div>
                         <div class="ms-auto my-auto mt-lg-0 mt-4">
                             <div class="ms-auto my-auto">
-                               
+
                                 <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv"
                                     type="button" name="button">Export</button>
                             </div>
@@ -40,7 +40,7 @@
                                 <th>Lottery ID</th>
                                 <th>PlayerName</th>
                                 <th>Two Digits</th>
-                                
+
                                 <th>Result</th>
                                 {{-- <th>12PM-6PM Prize No</th> --}}
                             </tr>
@@ -68,13 +68,13 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-                                    </td> 
+                                    </td>
                                     <td>
                                         <ul>
                                             @foreach ($lottery->twoDigitsEvening as $twoDigit)
                                                 <li>
                                                     <!-- Check if it's a winner -->
-                                                    @if ($prize_no_afternoon && $twoDigit->two_digit === $prize_no_afternoon->prize_no)
+                                                    @if ($prize_no_morning && $twoDigit->two_digit === $prize_no_morning->prize_no)
                                                         <span class="badge badge-success">WINNER</span>
                                                     @endif
                                                 </li>
