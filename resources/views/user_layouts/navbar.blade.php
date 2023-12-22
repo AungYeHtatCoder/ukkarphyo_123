@@ -88,14 +88,30 @@
     </div>
     <!-- nav-links -->
     <div class="nav-links" id="sideLink">
-        @can('user_access')
-        <a href="{{ route('home') }}" class="link shadow">
-            <div class="d-flex">
-                <i class="fas fa-dashboard d-block me-2"></i>
-                <p class="py-0">Admin Dashboard</p>
-            </div>
-        </a>
-        @endcan
+        @foreach (auth()->user()->roles as $role)
+            @if ($role->title == 'Admin')
+            <a href="{{ route('home') }}" class="link shadow">
+                <div class="d-flex">
+                    <i class="fas fa-dashboard d-block me-2"></i>
+                    <p class="py-0">Admin Dashboard</p>
+                </div>
+            </a>
+            @elseif($role->title == 'Master')
+            <a href="{{ route('home') }}" class="link shadow">
+                <div class="d-flex">
+                    <i class="fas fa-dashboard d-block me-2"></i>
+                    <p class="py-0">Master Dashboard</p>
+                </div>
+            </a>
+            @elseif ($role->title == 'Agent')
+            <a href="{{ route('home') }}" class="link shadow">
+                <div class="d-flex">
+                    <i class="fas fa-dashboard d-block me-2"></i>
+                    <p class="py-0">Agent Dashboard</p>
+                </div>
+            </a>
+            @endif
+        @endforeach
         <a href="{{ url('/user/two-d-winners-history') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-award d-block me-2"></i>

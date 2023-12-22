@@ -45,7 +45,7 @@ class User extends Authenticatable
         'ayapay_no',
         'balance',
         'agent_id',
-        
+        'status'
     ];
     protected $dates = ['created_at', 'updated_at'];
 
