@@ -41,7 +41,7 @@ Route::get('/', [App\Http\Controllers\User\WelcomeController::class, 'index'])->
 //auth routes
 Route::get('/login', [WelcomeController::class, 'userLogin'])->name('login');
 Route::post('/login', [WelcomeController::class, 'login'])->name('login');
-Route::post('/register', [WelcomeController::class, 'register'])->name('register');
+// Route::post('/register', [WelcomeController::class, 'register'])->name('register');
 Route::get('/register', [WelcomeController::class, 'userRegister'])->name('register');
 //auth routes
 
@@ -49,9 +49,13 @@ Route::get('/register', [WelcomeController::class, 'userRegister'])->name('regis
 Route::get('/promotion', [App\Http\Controllers\User\WelcomeController::class, 'promo'])->name('promotion');
 Route::get('/promotion-detail/{id}', [App\Http\Controllers\User\WelcomeController::class, 'promotionDetail'])->name('promotionDetail');
 Route::get('/contact', [WelcomeController::class, 'servicePage'])->name('contact');
+Route::get('/twod_live', [WelcomeController::class, 'twodLive'])->name('twodLive');
+Route::get('/twod_holiday', [WelcomeController::class, 'twodHoliday'])->name('twodHoliday');
+Route::get('/twod_calendar', [WelcomeController::class, 'twodCalendar'])->name('twodCalendar');
+Route::get('/twod_winnerDigitRecord', [WelcomeController::class, 'todayWinnerDigitRecord'])->name('twodWinnerDigitRecord');
 //other pages
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'checkBanned']], function () {
 
   // Permissions
   Route::delete('permissions/destroy', [PermissionController::class, 'massDestroy'])->name('permissions.massDestroy');
@@ -62,6 +66,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   // Users
   Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
   Route::resource('users', UsersController::class);
+  Route::put('users/{id}/ban', [UsersController::class, 'banUser'])->name('users.ban');
   // master list route
   Route::get('/real-live-master-list', [App\Http\Controllers\Admin\Master\AdminCreateMasterController::class, 'index'])->name('real-live-master-list');
   // master create route
@@ -129,7 +134,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
   Route::get('/agent-user-cash-out/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'transferCashOut'])->name('agent-user-cash-out');
   // store agent user cash out route
   Route::put('/agent-user-cash-out-store/{id}', [App\Http\Controllers\Admin\Agent\AgentController::class, 'AgentUserCashOutStore'])->name('agent-user-cash-out-store');
-  // get all transfer log route 
+  // get all transfer log route
   Route::get('/get-all-admin-to-master-transfer-log', [App\Http\Controllers\Admin\Transfer\TransferLogController::class, 'AdminToMasterTransferLog'])->name('get-all-admin-master-transfer-log');
   // admin daily status transfer log route
   Route::get('/get-all-admin-to-master-daily-status-transfer-log', [App\Http\Controllers\Admin\Transfer\TransferLogController::class, 'AdminToMasterDailyStatusTransferLog'])->name('get-all-admin-master-daily-status-transfer-log');
@@ -356,7 +361,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 });
 
 
-Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth', 'checkBanned']], function () {
 
     //profile management
     Route::put('editProfile/{profile}', [ProfileController::class, 'update'])->name('editProfile');

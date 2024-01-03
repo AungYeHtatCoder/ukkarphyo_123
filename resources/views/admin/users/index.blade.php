@@ -35,47 +35,66 @@
     </div>
    </div>
    <div class="table-responsive">
-    <table class="table table-flush" id="users-search">
+    <table class="table table-flush text-center" id="users-search">
      <thead class="thead-light">
       <th>#</th>
       <th>UserName</th>
-      <th>Email</th>
-      <th>Role</th>
+      <th>Phone</th>
+      <th>Status</th>
       <th>Created_at</th>
       <th>Action</th>
      </thead>
-     <tbody>
+     <tbody class="text-start">
       @foreach ($users as $key => $user)
       <tr>
-       <td class="text-sm font-weight-normal">{{ ++$key }}</td>
-       <td class="text-sm font-weight-normal">{{ $user->name }}</td>
-       <td class="text-sm font-weight-normal">{{ $user->email }}</td>
-       <td class="text-sm font-weight-normal">
-        @foreach ($user->roles as $role)
-        <span class="badge badge-info">
-         {{ $role->title }}
-        </span>
-        <br>
-        @endforeach
-       </td>
-       <td class="text-sm font-weight-normal">{{ $user->created_at->format('F j, Y') }}</td>
-       <td>
-        <a href="{{ route('admin.users.edit', $user->id) }}" data-bs-toggle="tooltip"
-         data-bs-original-title="Edit User"><i
-          class="material-icons-round text-secondary position-relative text-lg">mode_edit</i></a>
-        <a href="{{ route('admin.users.show', $user->id) }}" data-bs-toggle="tooltip"
-         data-bs-original-title="Preview User Detail">
-         <i class="material-icons text-secondary position-relative text-lg">visibility</i>
-        </a>
-        <form class="d-inline" action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
-         @csrf
-         @method('DELETE')
-         <button type="submit" class="transparent-btn" data-bs-toggle="tooltip" data-bs-original-title="Delete User">
-          <i class="material-icons text-secondary position-relative text-lg">delete</i>
-         </button>
+        <td class="text-sm font-weight-normal">{{ ++$key }}</td>
+        <td class="text-sm font-weight-normal">
+          <span class="d-block mb-2">{{ $user->name }}</span>
+          @foreach ($user->roles as $role)
+          <span class="badge badge-info">
+          {{ $role->title }}
+          </span>
+          <br>
+          @endforeach
+        </td>
+        <td class="text-sm font-weight-normal">{{ $user->phone }}</td>
+        <td class="text-sm font-weight-normal">
+          <span class="badge badge-{{ $user->status == 0 ? 'success' : 'danger' }}">{{ $user->status == 0 ? "active" : "ban" }}</span>
+        </td>
+        <td class="text-sm font-weight-normal">{{ $user->created_at->format('F j, Y') }}</td>
+        <td>
+          @if ($user->status == 0)
+              <a onclick="event.preventDefault(); document.getElementById('banUser-{{ $user->id }}').submit();" class="me-2" href="#" data-bs-toggle="tooltip" data-bs-original-title="Ban User">
+                  <i class="fas fa-user-slash text-danger" style="font-size: 20px;"></i>
+              </a>
+          @else
+              <a onclick="event.preventDefault(); document.getElementById('banUser-{{ $user->id }}').submit();" class="me-2" href="#" data-bs-toggle="tooltip" data-bs-original-title="Active User">
+                  <i class="fas fa-user-check text-success" style="font-size: 20px;"></i>
+              </a>
+          @endif
+          
+          <form class="d-none" id="banUser-{{ $user->id }}" action="{{ route('admin.users.ban', $user->id) }}" method="post">
+              @csrf
+              @method('PUT')
+          </form>
+      
 
-        </form>
-       </td>
+          <a class="me-1" href="{{ route('admin.users.edit', $user->id) }}" data-bs-toggle="tooltip"
+          data-bs-original-title="Edit User">
+            <i class="fas fa-pen-to-square text-info" style="font-size: 20px;"></i>
+          </a>
+          <a class="me-1" href="{{ route('admin.users.show', $user->id) }}" data-bs-toggle="tooltip"
+          data-bs-original-title="Preview User Detail">
+          <i class="fas fa-eye text-warning" style="font-size: 20px;"></i>
+          </a>
+          <form class="d-inline" action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="transparent-btn" data-bs-toggle="tooltip" data-bs-original-title="Delete User">
+            <i class="fas fa-trash text-danger" style="font-size: 20px;"></i>
+          </button>
+          </form>
+        </td>
       </tr>
       @endforeach
      </tbody>

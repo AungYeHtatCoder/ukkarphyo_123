@@ -84,7 +84,7 @@
        </tr>
        <tr>
         <th>User Name</th>
-        <td>{!! $transfer_user->name !!}</td>
+        <td>{!! $transfer_user->name ?? "" !!}</td>
        </tr>
        <tr>
         <th>Phone</th>
@@ -123,7 +123,7 @@
     <div class="card-header pb-0">
      <div class="d-lg-flex">
       <div>
-       <h5 class="mb-0">Master - {{ $logs->name }} ထံမှ ငွေထုတ်ယူမည် || 
+       <h5 class="mb-0">Master - {{ $logs->name ?? "" }} ထံမှ ငွေထုတ်ယူမည် || 
         <span>Current Balance - {{ $logs->cash_balance }} MMK ||
           <span id="current_date"></span>
         </span>
@@ -148,7 +148,7 @@
     <div class="col-md-6">
       <div class="input-group input-group-outline is-valid my-3">
         <label class="form-label">Master Real Name</label>
-        <input type="text" class="form-control" name="name" value="{{ $transfer_user->name }}" readonly>
+        <input type="text" class="form-control" name="name" value="{{ $transfer_user->name ?? "" }}" readonly>
          
       </div>
       @error('name')

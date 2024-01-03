@@ -24,7 +24,7 @@
 @section('content')
 @include('user_layouts.navbar')
 <!-- content -->
-<div class="container-fluid position-relative py-5 my-5">
+<div class="container-fluid position-relative pt-5 mt-5">
       <!-- wallet and bet time section  -->
         <div class="d-flex justify-content-between">
                 <div>
@@ -32,12 +32,12 @@
                         <i class="fas fa-wallet me-2"></i><span>Balance</span>
                         <span class="d-block" id="userBalance" data-balance="{{ Auth::user()->balance }}">{{ number_format(Auth::user()->balance) }} MMK</span>
                     </div>
-                    <div class="mt-4 mb-4">
+                    <div class="mt-4 mb-3">
                         <a href="{{ url('/user/three-d-dream-book') }}" class="btn btn-sm btn-purple text-white">အိပ်မက်</a>
                     </div>
                 </div>
             <div>
-            <small class="d-block mb-2 text-end">
+            <small class="d-block text-end">
                 <i class="fas fa-clock text-white me-1"></i>
                 ပိတ်ရန်ကျန်ချိန်
             </small>
@@ -47,9 +47,9 @@
         </div>
     </div>
 
-      <div class="d-flex justify-content-between mt-3">
-            <div class="mt-4">
-                  <input type="text" name="amount" id="input_new_digit" placeholder="Enter 3 Digit" class="form-control w-100 ms-1 text-center border-black" autocomplete="off" />
+      <div class="d-sm-flex justify-content-between">
+            <div class="mb-3">
+                  <input type="text" name="amount" id="input_new_digit" placeholder="Enter 3 Digit" class="form-control form-control-sm text-center border-black" autocomplete="off" />
             </div>
 
             <div class="mb-3 text-end">
@@ -60,12 +60,10 @@
                               <small>ပတ်လည်</small>
                         </button>
                   </div>
-
             </div>
         </div>
-    </div>
+</div>
 <!-- wallet and bet time section  -->
-
       <div class="">
             @if ($lottery_matches->is_active == 1)
             <form action="" method="post" class="p-1">
@@ -86,7 +84,8 @@
                                     <input type="text" id="totalAmount" name="totalAmount" class="form-control form-control-sm mt-1" readonly>
                               </div>
                               <div class="d-flex justify-content-end mt-4">
-                                    <button class="btn btn-sm btn-danger me-3" type="reset">ဖျက်မည်</button>
+                                <a href="{{ url('/user/three-d-choice-play-index') }}" class="btn btn-sm btn-danger me-3">ဖျက်မည်</a>
+                                    {{-- <button class="btn btn-sm btn-danger me-3" type="reset">ဖျက်မည်</button> --}}
                                     <a href="{{ url('/user/three-d-choice-play-confirm') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white" style="font-size: 14px;">ထိုးမည်</a>
                               </div>
                               <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -142,7 +141,35 @@
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+<script>
+    // Function to update date and time display
+    function updateDateTimeDisplay() {
+      var d = new Date();
+      document.getElementById('todayDate').textContent = d.toLocaleDateString();
+      document.getElementById('currentTime').textContent = d.toLocaleTimeString();
 
+      // Define the morning and evening session close times
+      var morningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 1);
+      var eveningClose = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 16, 30);
+
+      // Determine current session based on current time
+      var sessionInfo = "";
+      if (d < morningClose) {
+        sessionInfo = "Closes at 12:01 PM.";
+      } else if (d >= morningClose && d < eveningClose) {
+        sessionInfo = "Closes at 4:30 PM.";
+      } else if (d >= eveningClose) {
+        sessionInfo = "Evening session closed.";
+      }
+      document.getElementById('sessionInfo').textContent = sessionInfo;
+    }
+
+    // Update the display initially
+    updateDateTimeDisplay();
+
+    // Set interval to update the display every minute
+    setInterval(updateDateTimeDisplay, 60000);
+</script>
 <script>
       document.addEventListener('DOMContentLoaded', function() {
             @if(session('SuccessRequest'))

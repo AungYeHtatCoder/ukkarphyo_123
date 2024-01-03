@@ -39,29 +39,29 @@
             {{-- <div class="d-flex justify-content-between px-3">
                 <div></div>
                 <a href="{{ url('/') }}" class="text-decoration-none">
-                    <div class="d-flex">
-                        <img src="{{ asset('assets/img/logo-v.png') }}" width="150px" alt="">
-                    </div>
+            <div class="d-flex">
+                <img src="{{ asset('assets/img/logo-v.png') }}" width="150px" alt="">
+            </div>
+            </a>
+            @guest
+            <div class="mt-2">
+                <a href="{{ route('login') }}" class="btn btn-sm btn-purple text-white me-2">
+                    <i class="fas fa-unlock me-2"></i>
+                    LOGIN
                 </a>
-                @guest
-                <div class="mt-2">
-                    <a href="{{ route('login') }}" class="btn btn-sm btn-purple text-white me-2">
-                        <i class="fas fa-unlock me-2"></i>
-                        LOGIN
-                    </a>
-                </div>
-                @endguest
-                @auth
-                <div class="mt-2">
-                    <i class="fas text-white fa-bell me-1"></i>
-                    <button class="btn sidebarToggle">
-                        <i class="fas fa-bars text-white"></i>
-                    </button>
-                </div>
-                @endauth
-            </div> --}}
-        </div>
+            </div>
+            @endguest
+            @auth
+            <div class="mt-2">
+                <i class="fas text-white fa-bell me-1"></i>
+                <button class="btn sidebarToggle">
+                    <i class="fas fa-bars text-white"></i>
+                </button>
+            </div>
+            @endauth
+        </div> --}}
     </div>
+</div>
 </div>
 <!-- offcanvas start -->
 @auth
@@ -88,21 +88,37 @@
     </div>
     <!-- nav-links -->
     <div class="nav-links" id="sideLink">
-        @can('user_access')
-        <a href="{{ route('home') }}" class="link shadow">
-            <div class="d-flex">
-                <i class="fas fa-dashboard d-block me-2"></i>
-                <p class="py-0">Admin Dashboard</p>
-            </div>
-        </a>
-        @endcan
-        <a href="./sidebar/winner.html" class="link shadow">
+        @foreach (auth()->user()->roles as $role)
+            @if ($role->title == 'Admin')
+            <a href="{{ route('home') }}" class="link shadow">
+                <div class="d-flex">
+                    <i class="fas fa-dashboard d-block me-2"></i>
+                    <p class="py-0">Admin Dashboard</p>
+                </div>
+            </a>
+            @elseif($role->title == 'Master')
+            <a href="{{ route('home') }}" class="link shadow">
+                <div class="d-flex">
+                    <i class="fas fa-dashboard d-block me-2"></i>
+                    <p class="py-0">Master Dashboard</p>
+                </div>
+            </a>
+            @elseif ($role->title == 'Agent')
+            <a href="{{ route('home') }}" class="link shadow">
+                <div class="d-flex">
+                    <i class="fas fa-dashboard d-block me-2"></i>
+                    <p class="py-0">Agent Dashboard</p>
+                </div>
+            </a>
+            @endif
+        @endforeach
+        <a href="{{ url('/user/two-d-winners-history') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-award d-block me-2"></i>
                 <p class="py-0">ကံထူးရှင်များ</p>
             </div>
         </a>
-        <a href="./sidebar/twoDthreeDhistory.html" class="link shadow">
+        <a href="{{ route('twodWinnerDigitRecord') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-list d-block me-2"></i>
                 <p class="py-0">ထွက်ဂဏန်းများ</p>
@@ -114,25 +130,25 @@
                 <p class="py-0">3D ထီထိုးမှတ်တမ်း</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ route('twodLive') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-tower-broadcast d-block me-2"></i>
                 <p class="py-0">2D Live</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ route('twodCalendar') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-calendar d-block me-2"></i>
                 <p class="py-0">2D Calendar</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ route('twodHoliday') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-calendar d-block me-2"></i>
                 <p class="py-0">2D Holiday</p>
             </div>
         </a>
-        <a href="./pages/2d_result.html" class="link shadow">
+        <a href="{{ url('/user/three-d-play-index') }}" class="link shadow">
             <div class="d-flex">
                 <i class="fas fa-tower-broadcast d-block me-2"></i>
                 <p class="py-0">3D Live</p>

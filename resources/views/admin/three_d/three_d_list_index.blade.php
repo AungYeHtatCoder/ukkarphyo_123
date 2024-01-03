@@ -31,23 +31,22 @@
                         <div class="card-header">
                          <div class="d-lg-flex">
                           <div>
-                            @php 
-                            if ($matchTime) {
+                           @php
+                        if ($matchTime) {
                             // Assuming the format is "Number: Time" and you want to get the "Number" part
                             $timeParts = explode(':', $matchTime->open_time); // Split the string by the colon
                             $timeNumber = intval($timeParts[0]); // Convert the first part to an integer
-                            $OpenTime = $timeNumber - 1; // Now it's safe to subtract
+                            $openTime = $timeNumber - 1; // Now it's safe to subtract
                         }
+                        @endphp
 
-
-                            @endphp
-                           
-                           @if ($matchTime)
-                            <p>Open Time: {{ $OpenTime }}</p>
-                            <p>Match Time: {{ $matchTime->match_time }}</p>
+                        @if ($matchTime)
+                            <p>Open Time: {{ $openTime }}</p>
+                            <p>Match Time: {{ $matchTime->match_time ?? '' }}</p>
                         @else
                             <p>No match time found for the current period.</p>
                         @endif
+
                           </div>
                          </div>
                         </div>
@@ -84,7 +83,23 @@
              <td class="text-sm font-weight-normal">
                  <span class="badge badge-secondary">
                   {{-- {{ optional($lottery->lotteryMatch->threedMatchTime)->match_time }} --}}
-                  <p>Match Time: {{ $matchTime->match_time }}</p>
+                  {{-- <p>Match Time: {{ $matchTime->match_time }}</p> --}}
+                  @php
+                    if ($matchTime) {
+                        // Assuming the format is "Number: Time" and you want to get the "Number" part
+                        $timeParts = explode(':', $matchTime->open_time); // Split the string by the colon
+                        $timeNumber = intval($timeParts[0]); // Convert the first part to an integer
+                        $openTime = $timeNumber - 1; // Now it's safe to subtract
+                    }
+                    @endphp
+
+                    @if ($matchTime)
+                        <p>Open Time: {{ $openTime }}</p>
+                        <p>Match Time: {{ $matchTime->match_time ?? '' }}</p>
+                    @else
+                        <p>No match time found for the current period.</p>
+                    @endif
+
                  </span>
              </td>
              <td class="text-sm font-weight-normal">

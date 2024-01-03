@@ -15,6 +15,7 @@
     <i class="fas fa-wallet me-2"></i><span>Balance</span>
     <span class="d-block" id="userBalance">500000 MMK</span>
    </div>
+   <a href="{{ url('/user/three-d-choice-play-index') }}" class="btn btn-sm btn-purple text-white mt-3">ထိုးမည်</a> <br><br>
   </div>
 
   <div>
@@ -26,6 +27,9 @@
    <small class="d-block text-end" id="currentTime"></small>
    <small class="d-block text-end" id="sessionInfo"></small>
   </div>
+</div>
+<div class="container mt-4" id="dreamContainer" style="max-height: 500px;overflow: auto;">
+    <div class="row" id="dreamRow"></div>
 </div>
 <!-- content -->
 
@@ -557,7 +561,7 @@
 
  dreams.forEach((dream) => {
   const dreamHTML = `
-    <div class="col-4 mt-3">
+    <div class="col-sm-3 col-4 mt-3">
       <p class="dream-header">${dream.title}</p>
       <div class="dream-img">
         <img src="{{ asset('${dream.imgSrc}') }}" alt="" style="width:inherit;height:inherit" class="img-fluid">

@@ -36,10 +36,10 @@ class AgentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-    'name' => 'required|min:3|unique:users,name',
-    'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'unique:users,phone'],
-    'password' => 'required|min:6|confirmed',
-]);
+            'name' => 'required|min:3|unique:users,name',
+            'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'unique:users,phone'],
+            'password' => 'required|min:6|confirmed',
+        ]);
         //$this->authorize('createUser', User::class);
 
         $user = User::create([
@@ -107,6 +107,10 @@ public function AgentUsertransferStore(Request $request)
     $transfer_master->note = $request->note;
     $transfer_master->save();
 
+    $agent = User::find($request->from_user_id);
+    $agent->balance -= $request->cash_in;
+    $agent->save();
+
     // Update user balance
     $user = User::find($request->to_user_id);
     $user->balance += $request->cash_in;
@@ -143,7 +147,7 @@ public function AgentUsertransferStore(Request $request)
     $transfer_master->note = $request->note;
     $transfer_master->save();
     
-        // user balance update
+    // user balance update
     $admin = User::find($request->from_user_id);
     $admin->balance += $request->cash_out; // Subtract cash_out from the balance of the from_user
     $admin->save();

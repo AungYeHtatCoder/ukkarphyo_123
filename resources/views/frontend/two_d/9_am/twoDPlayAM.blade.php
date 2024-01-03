@@ -66,7 +66,7 @@
                 <small class="d-block text-end" id="sessionInfo"></small>
             </div>
         </div>
-        @if ($currentTime->lte(Carbon::parse('16:30')))
+        {{-- @if ($currentTime->lte(Carbon::parse('16:30'))) --}}
         <div class="d-flex justify-content-between">
             <div>
                 <a href="{{ route('user.two-d-dream-book-index') }}" class="btn btn-sm btn-purple text-white">အိမ်မက်</a>
@@ -79,7 +79,6 @@
                 </div>
             </div>
         </div>
-
         <div class="">
             @if ($lottery_matches->is_active == 1)
             <form action="" method="post" class="p-1">
@@ -100,7 +99,7 @@
                    <input type="text" id="totalAmount" name="totalAmount" class="form-control form-control-sm mt-1" readonly>
                 </div>
                 <div class="d-flex justify-content-end mt-4">
-                    <button class="btn btn-sm btn-danger me-3" type="reset">ဖျက်မည်</button>
+                    <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-sm btn-danger me-3">ဖျက်မည်</a>
                     <a href="{{ route('user.twod-play-confirm-9am') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white" style="font-size: 14px;">ထိုးမည်</a>
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -114,12 +113,12 @@
             </div>
             @endif
         </div>
-        @endif
+        {{-- @endif --}}
     </div>
 
     <!-- Heading -->
     <!-- 2D Numbers start -->
-    @if ($currentTime->lte(Carbon::parse('16:30')))
+    {{-- @if ($currentTime->lte(Carbon::parse('16:30'))) --}}
     <div class="container-fluid mb-5 mt-3" id="twoD">
       <div class="twoDCard">
         @foreach ($twoDigits as $digit)
@@ -134,7 +133,7 @@
           <div class="progress">
 
             @php
-            $totalAmount = 50000;
+            $totalAmount = 900000;
             $betAmount = $totalBetAmountForTwoDigit; // the amount already bet
             $remainAmount = $totalAmount - $betAmount; // the amount remaining that can be bet
             $percentage = ($betAmount / $totalAmount) * 100;
@@ -150,7 +149,7 @@
         @endforeach
       </div>
     </div>
-    @endif
+    {{-- @endif --}}
 </div>
 <!-- content -->
 

@@ -46,16 +46,16 @@
      
       <thead>
                 <tr>
-                    {{-- <th>Player Name</th> --}}
+                    <th>Player Name</th>
                     <th>Two-Digit Numbers</th>
-                    {{-- <th>Total Amount</th> --}}
+                    <th>Total Amount</th>
                    <th>Prize Sent</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($lotteries as $lottery)
                     <tr>
-                        {{-- <td>{{ $lottery->user->name }}</td> --}}
+                        <td>{{ $lottery->user->name }}</td>
                         {{-- <td>{{ $lottery->id }}</td> --}}
                         <td>
                             <ul>
@@ -73,14 +73,14 @@
                             @endforeach
                         </ul>
                         </td>
-                        {{-- <td>{{ $lottery->total_amount }}</td> --}}
+                        <td>{{ $lottery->total_amount }}</td>
                         <td>
                          <ul>
                           @foreach ($lottery->twoDigitsMorning as $twoDigit)
                               <li>
 
                                   <!-- Check if it's a winner -->
-                                  @if ($prize_no_morning && $twoDigit->two_digit === $prize_no_morning->prize_no)
+                                  @if ($prize_no_morning && $twoDigit->two_digit == $prize_no_morning->prize_no)
                                       <span class="badge badge-success">WINNER</span>
                                   @endif
                               </li>

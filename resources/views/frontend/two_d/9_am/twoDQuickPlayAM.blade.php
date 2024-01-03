@@ -76,7 +76,8 @@
             <input type="text" id="totalAmount" name="totalAmount" class="form-control form-control-sm" readonly>
         </div>
         <div class="d-flex justify-content-end my-2" >
-            <button class="btn btn-sm btn-danger me-2" type="reset"><small>ဖျက်မည်</small></button>
+            <a href="{{ url('/user/two-d-quick-play-index') }}" class="btn btn-sm btn-danger me-3">ဖျက်မည်</a>
+            {{-- <button class="btn btn-sm btn-danger me-2" type="reset"><small>ဖျက်မည်</small></button> --}}
             <a href="{{ route('user.twod-play-confirm-quick') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white"><small>ထိုးမည်</small></a>
         </div>
 

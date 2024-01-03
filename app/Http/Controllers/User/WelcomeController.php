@@ -98,14 +98,22 @@ class WelcomeController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'login' => 'required', // Input field named 'login' can hold either email or phone
+            'phone' => 'required',
             'password' => ['required', 'string', 'min:6'],
-        ]);
+        ]);        
 
-        $loginField = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+        $banUserCheck = User::where('phone', $request->phone)->first(); 
+        if(!$banUserCheck){
+            return redirect()->back()->with('error', "Your phone does not exist.");
+        }
+        if($banUserCheck->status == 1){
+            return redirect()->back()->with('error', "Your account has been banned.");
+        }  
+
+        // $loginField = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
 
         $credentials = [
-            $loginField => $request->input('login'),
+            'phone' => $request->input('phone'),
             'password' => $request->input('password'),
         ];
 
@@ -146,11 +154,12 @@ class WelcomeController extends Controller
 
     public function userRegister()
     {
-        if(Auth::check()){
-            return redirect()->back()->with('error', "Already Logged In.");
-        }else{
-            return view('frontend.auth.register');
-        }
+        // if(Auth::check()){
+        //     return redirect()->back()->with('error', "Already Logged In.");
+        // }else{
+        //     return view('frontend.auth.register');
+        // }
+        abort(404);
     }
 
     public function topUp()
@@ -219,6 +228,10 @@ class WelcomeController extends Controller
         return view('frontend.new-password-change');
     }
 
+    // public function twodLive()
+    // {
+    //     return view('frontend.pages.twod_live');
+    // }
 
     public function twoD()
     {
@@ -300,6 +313,10 @@ class WelcomeController extends Controller
         return view('frontend.twoD-prize-history');
     }
 
+    public function todayWinnerDigitRecord(){
+        return view('frontend.pages.twod_winnerDigitRecord');
+    }
+
     public function moriningRecord()
     {
         return view('frontend.play-two-morning-record');
@@ -328,12 +345,12 @@ class WelcomeController extends Controller
 
     public function twodHoliday()
     {
-        return view('frontend.twoD-holidays');
+        return view('frontend.pages.twod_holiday');
     }
 
     public function twodCalendar()
     {
-        return view('frontend.twoD-calendar');
+        return view('frontend.pages.twod_calendar');
     }
 
     public function twodDreamBook()
@@ -343,7 +360,7 @@ class WelcomeController extends Controller
 
     public function threedDreamBook()
     {
-        return view('frontend.threeD-dream-book');
+        return view('three_d.threeD-dream-book');
     }
 
     public function threedResult()
@@ -499,6 +516,6 @@ class WelcomeController extends Controller
 
     public function twodLive()
     {
-        return view('frontend.twoD-live');
+        return view('frontend.pages.twod_live');
     }
 }

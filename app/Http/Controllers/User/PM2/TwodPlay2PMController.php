@@ -26,7 +26,7 @@ class TwodPlay2PMController extends Controller
             ->where('two_digit_id', $digit->id)
             ->sum('sub_amount');
 
-        $remainingAmounts[$digit->id] = 50000 - $totalBetAmountForTwoDigit; // Assuming 5000 is the session limit
+        $remainingAmounts[$digit->id] = 900000 - $totalBetAmountForTwoDigit; // Assuming 5000 is the session limit
     }
     $lottery_matches = LotteryMatch::where('id', 1)->whereNotNull('is_active')->first();
 
@@ -44,17 +44,17 @@ class TwodPlay2PMController extends Controller
             ->where('two_digit_id', $digit->id)
             ->sum('sub_amount');
 
-        $remainingAmounts[$digit->id] = 50000 - $totalBetAmountForTwoDigit; // Assuming 5000 is the session limit
+        $remainingAmounts[$digit->id] = 900000 - $totalBetAmountForTwoDigit; // Assuming 5000 is the session limit
     }
     $lottery_matches = LotteryMatch::where('id', 1)->whereNotNull('is_active')->first();
 
     return view('two_d.2_pm.play_confirm', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
-    } 
+    }
 
 
     public function store(Request $request)
 {
-    
+
     Log::info($request->all());
     $validatedData = $request->validate([
         'selected_digits' => 'required|string',
@@ -66,7 +66,7 @@ class TwodPlay2PMController extends Controller
     ]);
 
     $currentSession = date('H') < 12 ? 'morning' : 'evening';
-    $limitAmount = 50000; // Define the limit amount
+    $limitAmount = 900000; // Define the limit amount
 
     DB::beginTransaction();
 

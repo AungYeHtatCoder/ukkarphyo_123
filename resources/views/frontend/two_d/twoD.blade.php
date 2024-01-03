@@ -15,7 +15,7 @@
             <i class="fas fa-list d-block fa-2x mb-2"></i>
             <p class="mb-0">မှတ်တမ်း</p>
         </a>
-        <a href="./2d_winner_page.html" class="text-center text-decoration-none text-white">
+        <a href="{{ url('user/two-d-winners-history') }}" class="text-center text-decoration-none text-white">
             <i class="fas fa-star d-block fa-2x mb-2"></i>
             <p class="mb-0">ကံထူးရှင်များ</p>
         </a>
@@ -63,7 +63,7 @@
                 $end4Time = Carbon::parse('16:30');
             @endphp
             <div class="playTime">
-                @if ($currentTime->lte(Carbon::parse('09:30')))
+                @if ($currentTime->lte(Carbon::parse('09:30')) || $currentTime->gte(Carbon::parse('16:30')))
                 <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100" >09:30 AM</a>
                 @else
                 <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">09:30 AM</span>

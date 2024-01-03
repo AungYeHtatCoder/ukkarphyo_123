@@ -108,7 +108,7 @@
           <div class="progress">
 
             @php
-            $totalAmount = 50000;
+            $totalAmount = 900000;
             $betAmount = $totalBetAmountForTwoDigit; // the amount already bet
             $remainAmount = $totalAmount - $betAmount; // the amount remaining that can be bet
             $percentage = ($betAmount / $totalAmount) * 100;

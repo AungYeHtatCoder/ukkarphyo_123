@@ -1,37 +1,42 @@
 @extends('user_layouts.master')
 
+@section('style')
+<style>
+    #main{
+        max-height: 100vh;
+    }
+    .list-group{
+        height: 450px;
+        overflow: scroll;
+        padding: 0 0 100px 0;
+    }
+</style>
+@endsection
+
 @section('content')
 @include('user_layouts.navbar')
 <!-- content -->
-<div class="container-fluid position-relative py-1 pb-5 my-5">
+<div class="container-fluid position-relative py-1 pb-5 my-5" id="main">
  <!-- bet action section  -->
- <div class="d-flex flex-column justify-content-center align-items-center w-100 mt-5 balance_action_box bg-purple">
-  <div class="py-5">
-   <h1 class="fw-bold ls-wide" style="font-size:5rem; font-family: 'Gabarito', sans-serif; letter-spacing: 7px;">821
+ <div class="d-sm-flex justify-content-around text-center mt-4">
+  <div class="py-3  px-5 bg-purple rounded-4 shadow">
+   <h1 class="fw-bold ls-wide" id="3d_live" style="font-size:5rem; font-family: 'Gabarito', sans-serif; letter-spacing: 7px;">821
    </h1>
+   <span>Updated Date: <span class="text-warning" id="updated_date"></span></span>
   </div>
+  <div class="my-1 text-center align-self-center">
+    <a href="{{ url('/user/three-d-choice-play-index') }}" class="btn btn-purple p-2 rounded-2 text-white text-center">
+     3D ထိုးမယ်
+     <i class="fas fa-arrow-right text-warning"></i>
+    </a>
+   </div>
  </div>
- <div class="my-1">
-  <a href="{{ url('/user/three-d-choice-play-index') }}" class="btn bg-purple p-3 text-white text-center w-100 rounded-4">
-   3D ထိုးမယ်
-  </a>
- </div>
+
  <!-- bet action section  -->
  <div class="mt-4">
-  <ul class="list-group">
-   <li class="rounded-3 list-group-item my-2 threed_list bg-transparent">
-    <div class="d-flex justify-content-between align-items-center">
-     <div>
-      <h5>Date</h5>
-      <span class="text-info">01.11.2023</span>
-     </div>
-     <div>
-      <h5>3D</h5>
-      <span class="text-warning">951</span>
-     </div>
-    </div>
-   </li>
-   <li class="rounded-3 list-group-item my-2 threed_list bg-transparent">
+  <ul class="list-group" id="result">
+
+   {{-- <li class="rounded-3 list-group-item my-2 threed_list bg-transparent">
     <div class="d-flex justify-content-between align-items-center">
      <div>
       <h5>Date</h5>
@@ -102,7 +107,7 @@
       <span class="text-warning">352</span>
      </div>
     </div>
-   </li>
+   </li> --}}
   </ul>
  </div>
 </div>
@@ -128,30 +133,28 @@
         const result = await response.json(); // Parse the response as JSON
 
 
-        // document.getElementById("two_d_live").innerText = result.live_result
-        $("#updated_time").text(result.update);
+        $("#3d_live").text(result[0].num)
+        $("#updated_date").text(result[0].date)
 
-        $("#two_d_live").text(result.live_result);
-        $("#live_result").text(result.live_result);
-        $("#live_set").text(result.live_set);
-        $("#live_value").text(result.live_value);
+        let newHTML = '';
+        result.forEach(r => {
+            newHTML += `
+            <li class="rounded-3 list-group-item my-2 threed_list bg-transparent">
+                <div class="d-flex justify-content-between align-items-center">
+                <div>
+                <h5>Date</h5>
+                <span class="text-info">${r.date}</span>
+                </div>
+                <div>
+                <h5>3D</h5>
+                <span class="text-warning">${r.num}</span>
+                </div>
+                </div>
+            </li>
+            `;
+            });
+            $('#result').html(newHTML);
 
-        // $("#a9_result").text(result.a9_internet);
-        $("#a9_internet").text(result.a9_internet);
-        $("#a9_modern").text(result.a9_modern);
-
-        $("#a12_result").text(result.a12_result);
-        $("#a12_set").text(result.a12_set);
-        $("#a12_value").text(result.a12_value);
-
-        // $("#a2_result").text(result.a2_internet);
-        $("#a2_internet").text(result.a2_internet);
-        $("#a2_modern").text(result.a2_modern);
-
-        $("#a43_result").text(result.a43_result);
-        $("#a43_set").text(result.a43_set);
-        $("#a43_value").text(result.a43_value);
-        console.log(result);
       } catch (error) {
         console.error(error);
       }

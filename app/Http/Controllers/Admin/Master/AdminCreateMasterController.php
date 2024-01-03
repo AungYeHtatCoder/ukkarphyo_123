@@ -17,7 +17,8 @@ class AdminCreateMasterController extends Controller
     {
         $masterId = auth()->id(); // ID of the Admin
         $master = User::findOrFail($masterId);
-        $users = $master->createdAgents;
+        $users = User::where('agent_id', $masterId)->latest()->get();
+        // $users = $master->createdAgents->latest()->get();
         return view('admin.real_master.master_list', compact('users'));
     }
 
@@ -35,10 +36,10 @@ class AdminCreateMasterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-    'name' => 'required|min:3|unique:users,name',
-    'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'unique:users,phone'],
-    'password' => 'required|min:6|confirmed',
-]);
+            'name' => 'required|min:3|unique:users,name',
+            'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'unique:users,phone'],
+            'password' => 'required|min:6|confirmed',
+        ]);
         $this->authorize('createMaster', User::class);
 
         $user = User::create([
