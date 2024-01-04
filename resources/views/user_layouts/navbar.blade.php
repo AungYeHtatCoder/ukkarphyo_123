@@ -27,7 +27,7 @@
                         @endguest
                         @auth
                         <div class="mt-2">
-                            <i class="fas text-white fa-bell me-1"></i>
+                            {{-- <i class="fas text-white fa-bell me-1"></i> --}}
                             <button class="btn sidebarToggle">
                                 <i class="fas fa-bars text-white"></i>
                             </button>
