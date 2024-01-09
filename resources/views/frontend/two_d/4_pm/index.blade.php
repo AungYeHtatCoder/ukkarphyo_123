@@ -33,8 +33,8 @@
                     <span class="d-block" id="userBalance" data-balance="{{ Auth::user()->balance }}">{{ number_format(Auth::user()->balance) }} MMK</span>
                 </div>
                 <div class="mt-4">
-                    <small class="d-block mb-2">2D (12:00PM)</small>
-                    <a href="{{ route('user.twoDQuickPlay12PM') }}" class="btn btn-sm btn-purple text-white">အမြန်ရွေး</a>
+                    <small class="d-block mb-2">2D (04:30PM)</small>
+                    <a href="{{ route('user.twod-quick-play-index') }}" class="btn btn-sm btn-purple text-white">အမြန်ရွေး</a>
                 </div>
             </div>
             <div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="d-flex justify-content-end mt-4">
                     <button class="btn btn-sm btn-danger me-3" type="reset">ဖျက်မည်</button>
-                    <a href="{{ route('user.twoDPlay12PMConfirm') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white" style="font-size: 14px;">ထိုးမည်</a>
+                    <a href="{{ route('user.twod-play-confirm-4pm') }}" onclick="storeSelectionsInLocalStorage()" class="btn btn-sm btn-purple text-white" style="font-size: 14px;">ထိုးမည်</a>
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                </div>

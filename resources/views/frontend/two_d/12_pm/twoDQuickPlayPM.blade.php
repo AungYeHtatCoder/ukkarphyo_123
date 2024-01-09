@@ -14,7 +14,7 @@
                 </div>
                 <div class="mt-4">
                     <small class="d-block mb-2">2D (12:00PM)</small>
-                    <a href="{{ route('user.twoDPlay12PM') }}" class="btn btn-sm btn-purple text-white">ပုံမှန်ရွေး</a>
+                    <a href="{{ route('user.twod-play-index-12pm') }}" class="btn btn-sm btn-purple text-white">ပုံမှန်ရွေး</a>
                 </div>
             </div>
 

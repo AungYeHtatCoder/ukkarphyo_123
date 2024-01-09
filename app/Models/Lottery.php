@@ -41,13 +41,23 @@ class Lottery extends Model
     }
 
     // two digit early morning
+    // public function twoDigitsEarlyMorning()
+    // {
+    //     $morningStart = Carbon::now()->startOfDay()->addHours(6);
+    //     $morningEnd = Carbon::now()->startOfDay()->addHours(10);
+    //     return $this->belongsToMany(TwoDigit::class, 'lottery_two_digit_pivot', 'lottery_id', 'two_digit_id')->withPivot('sub_amount', 'prize_sent', 'created_at')
+    //                 ->wherePivotBetween('created_at', [$morningStart, $morningEnd]);
+    // }
     public function twoDigitsEarlyMorning()
-    {
-        $morningStart = Carbon::now()->startOfDay()->addHours(6);
-        $morningEnd = Carbon::now()->startOfDay()->addHours(10);
-        return $this->belongsToMany(TwoDigit::class, 'lottery_two_digit_pivot', 'lottery_id', 'two_digit_id')->withPivot('sub_amount', 'prize_sent', 'created_at')
-                    ->wherePivotBetween('created_at', [$morningStart, $morningEnd]);
-    }
+{
+    $morningStart = Carbon::now()->startOfDay()->addHours(6); // This represents 6:00 AM of the current day.
+    $morningEnd = Carbon::now()->startOfDay()->addHours(9)->addMinutes(30); // This will set the time to 9:30 AM of the current day.
+    
+    return $this->belongsToMany(TwoDigit::class, 'lottery_two_digit_pivot', 'lottery_id', 'two_digit_id')
+                ->withPivot('sub_amount', 'prize_sent', 'created_at')
+                ->wherePivotBetween('created_at', [$morningStart, $morningEnd]);
+}
+
 
     // two digit morning 9: 30 am over amount limit
     public function twoDigitsOverAmountEarlyMorning()
@@ -60,8 +70,8 @@ class Lottery extends Model
 
     public function twoDigitsMorning()
     {
-        $morningStart = Carbon::now()->startOfDay()->addHours(10);
-        $morningEnd = Carbon::now()->startOfDay()->addHours(13);
+        $morningStart = Carbon::now()->startOfDay()->addHours(9);
+        $morningEnd = Carbon::now()->startOfDay()->addHours(12);
         return $this->belongsToMany(TwoDigit::class, 'lottery_two_digit_pivot', 'lottery_id', 'two_digit_id')->withPivot('sub_amount', 'prize_sent', 'created_at')
                     ->wherePivotBetween('created_at', [$morningStart, $morningEnd]);
     }

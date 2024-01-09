@@ -30,7 +30,7 @@ class TwodPlay2PMController extends Controller
     }
     $lottery_matches = LotteryMatch::where('id', 1)->whereNotNull('is_active')->first();
 
-    return view('two_d.2_pm.index', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
+    return view('frontend.two_d.2_pm.index', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
     }
 
     public function play_confirm()
@@ -48,7 +48,7 @@ class TwodPlay2PMController extends Controller
     }
     $lottery_matches = LotteryMatch::where('id', 1)->whereNotNull('is_active')->first();
 
-    return view('two_d.2_pm.play_confirm', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
+    return view('frontend.two_d.2_pm.play_confirm', compact('twoDigits', 'remainingAmounts', 'lottery_matches'));
     }
 
 

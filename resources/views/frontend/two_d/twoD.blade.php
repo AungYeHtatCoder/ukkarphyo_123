@@ -71,21 +71,21 @@
             </div>
             <div class="playTime">
                 @if ($currentTime->between($start9Time, $end12Time))
-                <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">12:00 PM</a>
+                <a href="{{ route('user.twod-play-index-12pm') }}" class="btn btn-purple text-purple w-100">12:00 PM</a>
                 @else
                 <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">12:00 PM</span>
                 @endif
             </div>
             <div class="playTime">
                 @if ($currentTime->between($start12Time, $end2Time))
-                <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">02:00 PM</a>
+                <a href="{{ route('user.twod-play-index-2pm') }}" class="btn btn-purple text-purple w-100">02:00 PM</a>
                 @else
                 <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">02:00 PM</span>
                 @endif
             </div>
             <div class="playTime">
                 @if ($currentTime->between($start2Time, $end4Time))
-                <a href="{{ route('user.twod-play-index-9am') }}" class="btn btn-purple text-purple w-100">04:30 PM</a>
+                <a href="{{ route('user.twod-play-index-4pm') }}" class="btn btn-purple text-purple w-100">04:30 PM</a>
                 @else
                 <span class="w-100 border-purple py-2 rounded d-block text-purple text-center">04:30 PM</span>
                 @endif
