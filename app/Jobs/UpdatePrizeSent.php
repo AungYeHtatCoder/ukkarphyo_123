@@ -35,14 +35,7 @@ class UpdatePrizeSent implements ShouldQueue
         return; // exit if it's not a playing day
     }
 
-    // Find all winning entries using raw SQL
-    // $winningEntries = DB::table('lottery_two_digit_pivot')
-    //     ->join('lotteries', 'lottery_two_digit_pivot.lottery_id', '=', 'lotteries.id')
-    //     ->whereRaw('lottery_two_digit_pivot.two_digit_id = ?', [$this->twodWiner->prize_no])
-    //     ->whereRaw('lottery_two_digit_pivot.prize_sent = 0')
-    //     ->whereRaw('DATE(lottery_two_digit_pivot.created_at) = ?', [$today])
-    //     ->select('lottery_two_digit_pivot.*') // Select all columns from pivot table
-    //     ->get();
+    
 
         $winningEntries = DB::table('lottery_two_digit_pivot')
         ->join('lotteries', 'lottery_two_digit_pivot.lottery_id', '=', 'lotteries.id')
